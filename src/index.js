@@ -1,10 +1,12 @@
 // import React from 'react';
 import ReactDOM from 'react-dom';
 // import ReactDOM from 'react-dom/client';
-// import {createRoot} from 'react-dom/client'
-import { App } from 'components/App';
+import { createRoot } from 'react-dom/client';
+import App from 'components/App';
 // import './index.css';
-import paintings from './data/painting.json';
+// import paintings from './data/painting.json';
+
+console.log('component');
 
 // const span1 = React.createElement('span', { children: "Привет" })
 // const span2 = React.createElement('span', { children: "мир" })
@@ -113,50 +115,61 @@ import paintings from './data/painting.json';
 
 //функция рендеринга базы данных с многочисленным элементами
 
-function Painting(props) {
-  //Имя функции пишут с большой буквы так как при рендеринге react воспринимает как строку а с большой как переменную
-  console.log(props);
-  //деструктуризация пропсов так же можно деструктурировать в круглых скобках фн (сигнатуре)
-  const { url, title, authorUrl, tag, price, quantity } = props;
-  return (
-    <div>
-      <img src={props.url} alt={title} width="480" />
-      <h2>{title}</h2>
-      <p>
-        Автор: <a href={authorUrl}>{tag}</a>
-      </p>
-      <p>Цена: {price} кредитов</p>
-      <p>Доступность: заканчивается или есть в наличии {quantity}</p>
-      <button type="button">Добавить в корзину</button>
-    </div>
-  );
-}
+// function Painting(props) {
+//   //Имя функции пишут с большой буквы так как при рендеринге react воспринимает как строку а с большой как переменную
+//   console.log(props);
+//   //деструктуризация пропсов так же можно деструктурировать в круглых скобках фн (сигнатуре)
+//   const { url, title, authorUrl, tag, price, quantity } = props;
+//   return (
+//     <div>
+//       <img src={props.url} alt={title} width="480" />
+//       <h2>{title}</h2>
+//       <p>
+//         Автор: <a href={authorUrl}>{tag}</a>
+//       </p>
+//       <p>Цена: {price} кредитов</p>
+//       <p>Доступность: заканчивается или есть в наличии {quantity}</p>
+//       <button type="button">Добавить в корзину</button>
+//     </div>
+//   );
+// }
 
-const paint = paintings[1];
+// const paint = paintings[1];
 
-const {
-  id,
-  url,
-  title,
-  price,
-  author: { tag, url: authorUrl },
-  quantity,
-} = paint;
+// const {
+//   id,
+//   url,
+//   title,
+//   price,
+//   author: { tag, url: authorUrl },
+//   quantity,
+// } = paint;
 
-ReactDOM.render(
-  <Painting
-    //пропсы переданы с деструктурированного обьекта и на прямую
-    //a='5' b={10} - props
-    a="5"
-    b={10}
-    url={paint.url}
-    title={title}
-    tag={tag}
-    authorUrl={authorUrl}
-    price={price}
-    quantity={quantity}
-  />,
-  document.querySelector('#root')
-);
+// ReactDOM.render(
+//   <Painting
+//     //пропсы переданы с деструктурированного обьекта и на прямую
+//     //a='5' b={10} - props
+//     a="5"
+//     b={10}
+//     url={paint.url}
+//     title={title}
+//     tag={tag}
+//     authorUrl={authorUrl}
+//     price={price}
+//     quantity={quantity}
+//   />,
+//   document.querySelector('#root')
+// );
 
-//! 54.49
+// ReactDOM.render(
+//   <React.StrictMode>
+//     <App/>
+//   </React.StrictMode>,
+//   document.getElementById('root')
+// )
+
+// ReactDOM.render(<App />, document.querySelector('#root'));
+//новый синтаксис react 18.1
+const root = createRoot(document.getElementById('root')).render(<App />);
+
+//! 1,29
