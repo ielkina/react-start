@@ -10,6 +10,7 @@ export default function Painting({
   // authorTag,
   price,
   quantity,
+  id,
 }) {
   //Имя функции пишут с большой буквы так как при рендеринге react воспринимает как строку а с большой как переменную
   // console.log(props);
@@ -35,11 +36,13 @@ export default function Painting({
 
 Painting.protoType = {
   //описываем типы наших props
-  imageUrl: PropTypes.string, //тип props строка
   //propTypes  должны быть прописаны для каждого пропа
-  title: PropTypes.string,
-  authorTag: PropTypes.string,
-  authorUrl: PropTypes.string,
-  price: PropTypes.number,
-  quantity: PropTypes.number,
+  //isRequired - обязательный пропс
+  imageUrl: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  authorTag: PropTypes.string.isRequired,
+  authorUrl: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  quantity: PropTypes.number.isRequired,
+  ig: PropTypes.number.isRequired,
 };

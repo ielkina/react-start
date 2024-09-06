@@ -1,4 +1,6 @@
-import Painting from './Painting';
+// import Painting from './Painting';
+import Section from './Section';
+import PaintingList from './PaintingList';
 import paintings from '../data/painting.json';
 
 // const paint = paintings[1];
@@ -17,7 +19,7 @@ export default function App() {
 
   return (
     <div>
-      <Painting
+      {/* <Painting
         //пропсы переданы с деструктурированного обьекта и на прямую
         //a='5' b={10} - props
         a="5"
@@ -54,7 +56,7 @@ export default function App() {
         authorUrl={paintings[2].author.url}
         price={paintings[2].price}
         quantity={paintings[2].quantity}
-      />
+      /> */}
 
       {/* рендер по условию */}
 
@@ -68,6 +70,38 @@ export default function App() {
 
       {/* тернарный оператор */}
       {/* {isOnline ? 'Онлайн' : 'Офлайн'} */}
+
+      {/* Коллекции */}
+      {/* {[1, 2, 3].map(e => (
+        <div>{e}</div>
+      ))}
+      {paintings.map(painting => (
+        <Painting
+          // уникальный ключ для каждого элемента для лучшего понимания react. он ни где не рендерится. для реакта это важно
+          key={painting.id}
+          //пропсы переданы с деструктурированного обьекта и на прямую
+          //a='5' b={10} - props
+          a="5"
+          b={10}
+          imageUrl={painting.url}
+          title={painting.title}
+          authorTag={painting.author.tag}
+          authorUrl={painting.author.url}
+          price={painting.price}
+          quantity={painting.quantity}
+        />
+      ))} */}
+      {/* <PaintingList items={paintings} /> */}
+
+      {/* Секция с вложеними детьми */}
+      <Section title="Hero">
+        <PaintingList items={paintings} />
+      </Section>
+      <Section title="Favorite">
+        <PaintingList items={paintings} />
+        <PaintingList items={paintings} />
+      </Section>
+      <Section />
     </div>
   );
 }

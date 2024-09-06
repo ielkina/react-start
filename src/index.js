@@ -1,7 +1,8 @@
-// import React from 'react';
-import ReactDOM from 'react-dom';
-// import ReactDOM from 'react-dom/client';
+import React from 'react';
+import {StrictMode} from 'react';
+import ReactDOM from 'react-dom/client';
 import { createRoot } from 'react-dom/client';
+
 import App from 'components/App';
 // import './index.css';
 // import paintings from './data/painting.json';
@@ -169,7 +170,11 @@ console.log('component');
 // )
 
 // ReactDOM.render(<App />, document.querySelector('#root'));
-//новый синтаксис react 18.1
-const root = createRoot(document.getElementById('root')).render(<App />);
 
-//! 1,29
+//новый синтаксис react 18.1
+// const root = createRoot(document.getElementById('root')).render(<App />);
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);
