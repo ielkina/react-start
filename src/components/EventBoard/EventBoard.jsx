@@ -3,7 +3,7 @@ import { Event } from 'components/Event/Event';
 import css from './EventBoard.module.css';
 
 export const EventBoard = ({ text, events }) => {
-  console.log('EventBoard  events >>', events);
+  // console.log('EventBoard  events >>', events);
   return (
     <div className={css.eventBoard}>
       {text}
@@ -29,10 +29,10 @@ EventBoard.protoType = {
       location: PropTypes.string.isRequired,
       speaker: PropTypes.string.isRequired,
       type: PropTypes.string.isRequired,
-      time: {
+      time: PropTypes.exact({
         start: PropTypes.string.isRequired,
         end: PropTypes.string.isRequired,
-      },
+      }),
     })
   ).isRequired,
 };
