@@ -11,38 +11,37 @@ import {
 //реэкспорт
 import { formatEventStart, formatEventDuration } from 'utils';
 import { iconSize } from 'constant';
-// import { Card, EventName, Info, Chip } from './Event.styled';
-import css from './Event.module.css';
+import { Card, EventName, Info, Chip } from './Event.styled';
 
 export const Event = ({ name, location, speaker, type, start, end }) => {
   const formattedEventStartTime = formatEventStart(start);
   const formattedEventDuration = formatEventDuration(start, end);
-  console.log(css);
-  console.log(css[type]);
-
   return (
-    <div className={css.event}>
-      <h2 className={css.title}>{name}</h2>
-      <p className={css.info}>
-        <FaMapMarkerAlt className={css.icon} size={iconSize.sm} />
+    <Card>
+      <EventName>{name}</EventName>
+      <Info>
+        <FaMapMarkerAlt size={iconSize.sm} />
         {location}
-      </p>
-      <p className={css.info}>
-        <FaUserAlt className={css.icon} />
+      </Info>
+      <Info>
+        <FaUserAlt size={iconSize.sm} />
         {speaker}
-      </p>
-      <p className={css.info}>
-        <FaCalendarAlt className={css.icon} />
+      </Info>
+      <Info>
+        <FaCalendarAlt size={iconSize.sm} />
         {formattedEventStartTime}
-      </p>
-      <p className={css.info}>
-        <FaClock className={css.icon} />
+      </Info>
+      <Info>
+        <FaClock size={iconSize.sm} />
         {formattedEventDuration}
-      </p>
-      <span className={`${css.chip} ${css[type]}`}>{type}</span>
-    </div>
+      </Info>
+      <Chip eventType={type} a={5} b={10} c={20} img="hahaha">
+        {type}
+      </Chip>
+    </Card>
   );
 };
+
 
 Event.protoType = {
   name: PropTypes.string.isRequired,

@@ -5,11 +5,17 @@ import React, { Children } from 'react';
 import ReactDOM from 'react-dom/client';
 import { createRoot } from 'react-dom/client';
 import 'modern-normalize/modern-normalize.css';
+import { ThemeProvider } from '@emotion/react';
 import './index.css';
-import { App } from 'components/App';
+import { App } from 'components/App/App';
+import { theme } from 'constant/theme';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={theme}>
+      <App />
+    </ThemeProvider>
   </React.StrictMode>
 );
+
+//https://youtu.be/S9-zFqxeEr8?t=2316

@@ -1,11 +1,11 @@
 import { PropTypes } from 'prop-types';
 import { Event } from 'components/Event/Event';
-import css from './EventBoard.module.css';
+import { Board } from './EventBoard.styled';
 
 export const EventBoard = ({ text, events }) => {
   // console.log('EventBoard  events >>', events);
   return (
-    <div className={css.eventBoard}>
+    <Board>
       {text}
       {events.map(({ name, location, speaker, type, time }) => (
         <Event
@@ -18,20 +18,20 @@ export const EventBoard = ({ text, events }) => {
           end={time.end}
         />
       ))}
-    </div>
+    </Board>
   );
 };
 
 EventBoard.protoType = {
   events: PropTypes.arrayOf(
     PropTypes.exact({
-      name: PropTypes.string.isRequired,
+      name    : PropTypes.string.isRequired,
       location: PropTypes.string.isRequired,
-      speaker: PropTypes.string.isRequired,
-      type: PropTypes.string.isRequired,
-      time: PropTypes.exact({
+      speaker : PropTypes.string.isRequired,
+      type    : PropTypes.string.isRequired,
+      time    : PropTypes.exact({
         start: PropTypes.string.isRequired,
-        end: PropTypes.string.isRequired,
+        end  : PropTypes.string.isRequired,
       }),
     })
   ).isRequired,

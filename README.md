@@ -273,4 +273,4 @@ src
 2. Определить Пропсы для компонентов
 3. Разработка
 
-[](https://youtu.be/XRs3v6pNOH8?t=3384)
+пакеты `npm i @emotion/react`
