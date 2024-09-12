@@ -58,7 +58,10 @@
     "modern-normalize": "^3.0.1",
     "prettier": "^3.3.3",
     "styled-components": "^6.1.13",
-    "vite": "^5.1.4"
+    "vite": "^5.1.4",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.10",
+    "prop-types": "^15.7.2"
   },
   "browserslist": {
     "production": [

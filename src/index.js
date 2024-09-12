@@ -1,17 +1,12 @@
-/* eslint-disable no-unused-vars */
-import React, { Children } from 'react';
-import ReactDOM from 'react-dom/client';
-import { createRoot } from 'react-dom/client';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
 import 'modern-normalize/modern-normalize.css';
-import { ThemeProvider } from '@emotion/react';
-import './index.css';
-import { App } from 'components/App/App';
-import { theme } from 'constant/theme';
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <App />
-    </ThemeProvider>
-  </React.StrictMode>
-);
+import './styles.css';
 
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root'),
+);
