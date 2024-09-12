@@ -1,10 +1,11 @@
 import styled from '@emotion/styled';
+// import {}
 
 export const Card = styled.div`
   position: relative;
-  border: 2px dashed black;
-  padding: 8px;
-  border-radius: 4px;
+  border: ${props => `2px dashed ${props.theme.colors.black}`};
+  padding: ${props => props.theme.spacing(4)};
+  border-radius: ${props => props.theme.spacing(1)};
 `;
 export const EventName = styled.h2`
   margin-top: 0;
@@ -19,7 +20,7 @@ export const Info = styled.p`
   align-items: center;
   margin-top: 0;
   margin-bottom: 8px;
-  color: var(--color-primary-text);
+  color: ${props => `${props.theme.colors.primaryText}`};
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
@@ -29,13 +30,37 @@ export const Info = styled.p`
     margin-right: 8px;
     color: var(--color-secondary-text);
     &:hover {
-      color: red;
+      color: ${props => `${props.theme.colors.red}`};
+      /* color: ${({ eventType, theme }) => {
+        switch (eventType) {
+          case 'free':
+            return theme.colors.green;
+          case 'paid':
+            return theme.colors.blue;
+          case 'vip':
+            return theme.colors.red;
+          default:
+            return '#000';
+        }
+      }}; */
     }
   }
   &:hover {
     background-color: #e96c6c57;
+    /* background-color: ${({ eventType, theme }) => {
+      switch (eventType) {
+        case 'free':
+          return theme.colors.green;
+        case 'paid':
+          return theme.colors.blue;
+        case 'vip':
+          return theme.colors.red;
+        default:
+          return '#000';
+      }
+    }}; */
     svg {
-      color: red;
+      color: ${props => `${props.theme.colors.blue}`};
     }
   }
 `;

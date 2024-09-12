@@ -8,7 +8,7 @@ import {
 } from 'react-icons/fa';
 // import { formatEventStart } from '../../utils/formatEventStart';
 // import { formatEventDuration } from '../../utils/formatEventDuration';
-//реэкспорт
+//реэкспорт/components/Event/Event.jsx
 import { formatEventStart, formatEventDuration } from 'utils';
 import { iconSize } from 'constant';
 import { Card, EventName, Info, Chip } from './Event.styled';
@@ -41,7 +41,6 @@ export const Event = ({ name, location, speaker, type, start, end }) => {
     </Card>
   );
 };
-
 
 Event.protoType = {
   name: PropTypes.string.isRequired,

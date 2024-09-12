@@ -1,6 +1,6 @@
 import { PageTitle } from '../PageTitle/PageTitle';
 import { EventBoard } from '../EventBoard/EventBoard';
-import upcomingEvents from '../../upcoming-events.json'
+import upcomingEvents from '../../upcoming-events.json';
 import { Container } from './App.styled';
 
 export const App = () => {
