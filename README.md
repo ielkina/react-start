@@ -7,7 +7,7 @@
   - Методы для колбеков в разметку (публичные свойства класса)
   - SyntheticEvent Object и асинхронные операции
 - [Внутреннее состояние компонента](http://fecore.net.ua/books/rq7s2k-react/lesson-03/images/class-component.jpg):
-  - [Обновение компонента](http://fecore.net.ua/books/rq7s2k-react/lesson-03/images/reactivity.jpg)
+  - [Обновление компонента](http://fecore.net.ua/books/rq7s2k-react/lesson-03/images/reactivity.jpg)
   - state в конструкторе
   - state как публичное свойство
 - [Изменение состояния](./state-update.png):

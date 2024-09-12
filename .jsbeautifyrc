@@ -1,19 +1,19 @@
 {
-  "css": {
-      "eol": "\n",
-      "end_with_newline": false,
-      "preserve_newlines": false,
-      "selector_separator_newline": false,
-      "newline_between_rules": false,
-      "space_around_selector_separator": false
-  },
-  "js": {
-    "eol": "\n",
-    "end_with_newline": false,
-    "preserve_newlines": false,
-    "selector_separator_newline": false,
-    "newline_between_rules": false,
-    "space_around_selector_separator": false
-  },
-  "newline_between_rules": false
+  // "css": {
+  //     "eol": "\n",
+  //     "end_with_newline": false,
+  //     "preserve_newlines": false,
+  //     "selector_separator_newline": false,
+  //     "newline_between_rules": false,
+  //     "space_around_selector_separator": false
+  // },
+  // "js": {
+  //   "eol": "\n",
+  //   "end_with_newline": false,
+  //   "preserve_newlines": false,
+  //   "selector_separator_newline": false,
+  //   "newline_between_rules": false,
+  //   "space_around_selector_separator": false
+  // },
+  // "newline_between_rules": false
 }
