@@ -1,10 +1,17 @@
 import React from "react";
-import { Card } from "./Card/Card";
+import Header from "./Header/Header";
+import Counter from "./Counter/Counter";
+import Modal from "./Modal/Modal";
 
 const App = () => {
   return (
-    <Card isOnline />
-  )
+    <div className="container">
+      <Header />
+      <Counter />
+      {/* Убираем модалку  */}
+      {false && <Modal>Some</Modal>}
+    </div>
+  );
 };
 
 export default App;
