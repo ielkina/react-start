@@ -24,7 +24,6 @@ class Dropdown extends Component {
         >
           {visible ? 'Скрыть' : 'Показать'}
         </button>
-
         {visible && <div className="Dropdown__menu">Выпадающее меню</div>}
       </div>
     );
