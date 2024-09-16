@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import ColorPickerOptions from './ColorPickerOptions';
+import colors from './colors.json'
 import './ColorPicker.css';
 
 class ColorPicker extends Component {
   static defaultProps = {
-    options: ColorPickerOptions,
+    // options: ColorPickerOptions,
+    options: colors,
   }
   
   state = {
