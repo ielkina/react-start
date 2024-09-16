@@ -14,6 +14,10 @@
   [SASS_PATH](https://create-react-app.dev/docs/adding-a-sass-stylesheet)
 - Коллекция заметок: добавление, обновление и фильтрация
 - Рассказать про [classnames](https://github.com/JedWatson/classnames) ( пример
+<<<<<<< HEAD
   в колорпикере и выполненное todo)
+=======
+  в колорпикере и выполненное туду)
+>>>>>>> e5b818ba713af7b56cbb00fb09e280237fd0dec1
 
 
