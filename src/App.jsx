@@ -16,8 +16,7 @@ class App extends Component {
 
   formSubmitHandler = data => {
     console.log(data);
-    
-  }
+  };
 
   deleteTodo = todoId => {
     this.setState(prevState => ({
@@ -34,7 +33,7 @@ class App extends Component {
     return (
       <Container>
         <>
-          <Form onSubmit={this.formSubmitHandler}/>
+          <Form onSubmit={this.formSubmitHandler} />
           <h1>Состояние компонента</h1>
           <Counter />
           <Dropdown />
