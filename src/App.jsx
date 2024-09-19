@@ -7,7 +7,7 @@ import Dropdown from './components/Dropdown';
 import ColorPicker from './components/ColorPicker';
 import TodoList from './components/TodoList';
 import TodoEditor from 'components/TodoEditor';
-import Filter from 'components/Filter';
+import Filter from 'components/Filter/Filter';
 import initialTodos from './todos.json';
 
 class App extends Component {

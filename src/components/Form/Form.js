@@ -60,10 +60,7 @@ class Form extends Component {
             id={this.tagInputId}
           />
         </label>
-<<<<<<< HEAD
-=======
 
->>>>>>> e5b818ba713af7b56cbb00fb09e280237fd0dec1
         <p>Ваш уровень:</p>
         <label>
           <input
@@ -75,10 +72,7 @@ class Form extends Component {
           />
           Junior
         </label>
-<<<<<<< HEAD
-=======
 
->>>>>>> e5b818ba713af7b56cbb00fb09e280237fd0dec1
         <label>
           <input
             type="radio"
@@ -99,13 +93,10 @@ class Form extends Component {
           />
           Senior
         </label>
-<<<<<<< HEAD
         <br />
-=======
 
         <br />
 
->>>>>>> e5b818ba713af7b56cbb00fb09e280237fd0dec1
         <label>
           <input
             type="checkbox"
@@ -115,10 +106,7 @@ class Form extends Component {
           />
           Согласен с условием
         </label>
-<<<<<<< HEAD
-=======
 
->>>>>>> e5b818ba713af7b56cbb00fb09e280237fd0dec1
         <button type="submit" disabled={!this.state.licence}>
           Отправить
         </button>
