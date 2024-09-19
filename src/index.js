@@ -9,6 +9,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <App />
   </React.StrictMode>,
 );
-
-
-// https://youtu.be/80l5dUxKQLo?t=3751
+// https://youtu.be/80l5dUxKQLo?t=5491

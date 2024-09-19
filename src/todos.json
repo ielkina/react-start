@@ -1,17 +1,22 @@
 [
     {
         "id": "id-1",
-        "text": "Выучить основы React",
-        "completed": true
+        "text": "Выучить основы Re",
+        "completed": false
     },
     {
         "id": "id-2",
-        "text": "Разобраться с React Router",
+        "text": "Разобраться с Rea Router",
+        "completed": false
+    },
+    {
+        "id": "id-4",
+        "text": "Разобраться с Reac Router",
         "completed": false
     },
     {
         "id": "id-3",
-        "text": "Пережить Redux",
+        "text": "Пережить Redux React",
         "completed": false
     }
 ]
