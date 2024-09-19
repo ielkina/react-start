@@ -1,13 +1,20 @@
-/* eslint-disable no-unused-vars */
+// /* eslint-disable no-unused-vars */
 // import React, { Children } from "react";
 // import ReactDOM from "react-dom/client";
-import data from "../../data.json";
-import { Head } from "../Head/Head";
-import { clsx } from "clsx";
+// import data from "../../data.json";
+// import { Head } from "../Head/Head";
+// import { clsx } from "clsx";
 // import './Card.css'
-import css from "./Card.module.css";
+// import css from "./Card.module.css";
 // import styled from "styled-components";
-import { Container, Photo } from "./Card.style";
+// import { Container, Photo } from "./Card.style";
+import data from '../../data.json'
+import { Head } from '../Head/Head'
+import { Container, Photo } from './Card.styled'
+
+// import clsx from 'clsx'
+
+// import css from './Card.module.css'
 
 //С помощью пакета styled-components
 
@@ -39,6 +46,8 @@ export const Card = ({ isOnline, isOffline }) =>
       </Container>
     );
   });
+
+
 
 //модули
 

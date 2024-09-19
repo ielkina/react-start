@@ -3,6 +3,7 @@ import Header from "./Header/Header";
 import Counter from "./Counter/Counter";
 import Modal from "./Modal/Modal";
 import ToDoList from "./ToDoList/ToDoList";
+// import Card from "./Card/Card"
 
 class App extends Component {
   state = {
@@ -19,12 +20,13 @@ class App extends Component {
       <div className="container">
         <Header showModal={this.showModal} />
         <Counter />
-        <ToDoList></ToDoList>
         {/* Убираем модалку  */}
         {/* {false && <Modal>Some</Modal>} */}
         {this.state.isShowModal && (
           <Modal closeModal={this.closeModal}>Some</Modal>
         )}
+        {/* <Card/> */}
+        <ToDoList />
       </div>
     );
   }
