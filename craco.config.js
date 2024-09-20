@@ -1,4 +1,5 @@
 const path = require("path");
+const { Component } = require("react");
 
 module.exports = {
   webpack: {
@@ -9,6 +10,7 @@ module.exports = {
       entities: path.resolve(__dirname, "src/entities"),
       pages: path.resolve(__dirname, "src/pages"),
       features: path.resolve(__dirname, "src/features"),
+      component: path.resolve(__dirname, "src/component"),
     },
   },
 };

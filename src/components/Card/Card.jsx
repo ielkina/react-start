@@ -10,7 +10,16 @@
 // import { Container, Photo } from "./Card.style";
 import data from '../../data.json'
 import { Head } from '../Head/Head'
-import { Container, Photo } from './Card.styled'
+// import { Container, Photo } from './Card.styled'
+import {Container, Photo} from '../Card/Card.style'
+// import data from "../../data.json";
+// import data from './data.json'
+// import { Head } from "../Head/Head";
+// import { clsx } from "clsx";
+// import './Card.css'
+// import css from "./Card.module.css";
+// import styled from "styled-components";
+// import { Container, Photo } from "./Card.style";
 
 // import clsx from 'clsx'
 
