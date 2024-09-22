@@ -8,6 +8,9 @@ import ColorPicker from './components/ColorPicker';
 import TodoList from './components/TodoList';
 import TodoEditor from 'components/TodoEditor';
 import Filter from 'components/Filter/Filter';
+import LoginForm from 'components/LoinForm/LoginForm';
+import { GlobalStyle } from 'components/GlobalStyle';
+import { ProductReviewForm } from 'components/ProductReviewForm/ProductReviewForm';
 import initialTodos from './todos.json';
 
 class App extends Component {
@@ -92,8 +95,12 @@ class App extends Component {
     const visibleTodos = this.getVisibleTodos();
 
     return (
-      <Container>
-        <>
+      <>
+        <GlobalStyle />
+        <Container>
+          <ProductReviewForm />
+          <br/>
+          <LoginForm />
           <h1>Состояние компонента</h1>
           {/* NOTE: вынести в отдельный компонент */}
           <div>
@@ -112,8 +119,8 @@ class App extends Component {
           <Counter />
           <Dropdown />
           <ColorPicker />
-        </>
-      </Container>
+        </Container>
+      </>
     );
   }
 }

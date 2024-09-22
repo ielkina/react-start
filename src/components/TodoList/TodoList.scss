@@ -1,4 +1,8 @@
+// eslint-disable-next-line
 @import 'styles/shared.scss';
+// @import '~/styles/_shared.import.scss';
+// @import 'src/styles/_shared.import.scss';
+
 
 .TodoList {
   color: red;
@@ -7,7 +11,7 @@
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  grid-gap: 24px;
+  grid-gap: 24px
 }
 
 .TodoList__item {
