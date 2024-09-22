@@ -8,10 +8,7 @@
 // import css from "./Card.module.css";
 // import styled from "styled-components";
 // import { Container, Photo } from "./Card.style";
-import data from '../../data.json'
-import { Head } from '../Head/Head'
 // import { Container, Photo } from './Card.styled'
-import {Container, Photo} from '../Card/Card.style'
 // import data from "../../data.json";
 // import data from './data.json'
 // import { Head } from "../Head/Head";
@@ -20,6 +17,13 @@ import {Container, Photo} from '../Card/Card.style'
 // import css from "./Card.module.css";
 // import styled from "styled-components";
 // import { Container, Photo } from "./Card.style";
+import { Container, Photo } from "../Card/Card.style";
+// import { Head } from "../Head/Head";
+import { Head } from "components/Head/Head";
+// import { Head } from "components/Head/Head";
+// import { Container } from "../Card/Card.style";
+// import data from "../../data.json";
+import data from 'data'
 
 // import clsx from 'clsx'
 
@@ -55,8 +59,6 @@ export const Card = ({ isOnline, isOffline }) =>
       </Container>
     );
   });
-
-
 
 //модули
 

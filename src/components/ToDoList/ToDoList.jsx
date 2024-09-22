@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import ToDo from "../ToDo/ToDo";
 import todo from "../../todo.json";
+// import todo from "../../todo.json"
+// import './ToDoList.scss'
 
 class ToDoList extends Component {
   state = {
