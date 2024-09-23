@@ -1,11 +1,11 @@
+ /* eslint-disable no-unused-vars */
 import React, { Component} from "react";
 import { nanoid } from "nanoid";
 import Header from "./Header/Header";
-// import Counter from "./Counter/Counter";
+import Counter from "./Counter/Counter";
 import Modal from "./Modal/Modal";
 import ToDoList from "./ToDoList/ToDoList";
-// import { Card } from "./Card/Card";
-// import FormLogin from "./FormLogin/FormLogin";
+import { Card } from "./Card/Card";
 import FormLogin from "./FormLogin/FormLogin";
 
 
@@ -32,7 +32,7 @@ class App extends Component {
     return (
       <div className="container">
         <Header showModal={this.showModal} />
-        {/* <Counter /> */}
+        <Counter />
         {/* Убираем модалку  */}
         {/* {false && <Modal>Some</Modal>} */}
         {this.state.isShowModal && (
@@ -43,6 +43,7 @@ class App extends Component {
         )}
         <ToDoList />
         {/* <Card isOnline /> */}
+        {/* <Card  /> */}
       </div>
     );
   }

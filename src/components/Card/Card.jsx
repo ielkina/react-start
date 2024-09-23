@@ -1,4 +1,4 @@
-// /* eslint-disable no-unused-vars */
+/* eslint-disable no-unused-vars */
 // import React, { Children } from "react";
 // import ReactDOM from "react-dom/client";
 // import data from "../../data.json";
@@ -24,9 +24,9 @@ import { Head } from "components/Head/Head";
 // import { Container } from "../Card/Card.style";
 // import data from "../../data.json";
 import data from 'data'
+import './Card.module.scss'
 
 // import clsx from 'clsx'
-
 // import css from './Card.module.css'
 
 //С помощью пакета styled-components
