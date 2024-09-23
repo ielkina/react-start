@@ -1,6 +1,6 @@
  /* eslint-disable no-unused-vars */
 import React, { Component} from "react";
-import { nanoid } from "nanoid";
+import { nanoid } from "nanoid";//пакет
 import Header from "./Header/Header";
 import Counter from "./Counter/Counter";
 import Modal from "./Modal/Modal";

@@ -23,7 +23,7 @@ import { Head } from "components/Head/Head";
 // import { Head } from "components/Head/Head";
 // import { Container } from "../Card/Card.style";
 // import data from "../../data.json";
-import data from 'data'
+import data from 'data/data.json'
 import './Card.module.scss'
 
 // import clsx from 'clsx'

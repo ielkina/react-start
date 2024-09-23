@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import ToDo from "../ToDo/ToDo";
-import todo from "../../todo.json";
-// import todo from "../../todo.json"
+import ToDo from "components/ToDo/ToDo";
+import todo from "data/todo.json";
 // import './ToDoList.scss'
 
 class ToDoList extends Component {
@@ -12,9 +11,7 @@ class ToDoList extends Component {
   handleCheckCompleted = (id) => {
     this.setState((prevState) => ({
       todoList: prevState.todoList.map((todo) =>
-        todo.id === id 
-			? { ...todo, completed: !todo.completed } 
-			: todo
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
       ),
     }));
   };
