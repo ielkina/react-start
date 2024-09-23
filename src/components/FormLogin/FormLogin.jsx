@@ -12,6 +12,29 @@ class FormLogin extends Component {
     // isAgreed: false,
     // rememberMe: false,
   };
+  componentDidMount() {
+    console.log("Form Login Mount");
+  }
+  componentDidUpdate(nextProps, nextState) {
+    // Не викликається під час ініціалізації компонента
+    // Викликається перед ререндером вже змонтованого компонента
+    // Необхідний виключно для оптимізації процесу рендеру
+    // За замовчуванням render відбувається щоразу з новими props або state
+    // Дозволяє порівняти поточні та попередні state і props, повернувши true або false, вказуючи React, чи є необхідність оновлювати компонент
+    // Якщо поверне false, то не станеться render() і componentDidUpdate()
+    // Не можна викликати setState()
+    // Використовувати необхідно дуже обережно, тільки після вимірів продуктивності, інакше може призвести до зворотного ефекту.
+    // Можливо, варто замінити на React.PureComponent, який робитиме поверхове порівняння props. Але лише після вимірів продуктивності
+    console.log("Form  Update");
+  }
+
+  componentWillUnmount() {
+    // Викликається перед розмонтуванням та видаленням елемента з DOM
+    // Добре підходить для прибирання за собою: слухачі, таймери, HTTP-запити. В іншому випадку будуть витоки пам'яті
+    // Викликати setState() немає сенсу, компонент ніколи не перерендериться
+    console.log("Form Will Unmount");
+  }
+
   // handleChange = (event) => {
   //   console.log(event.target);
   //   console.log(event.target.value);
