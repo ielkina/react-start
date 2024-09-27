@@ -1,0 +1,21 @@
+@use "./utils" as *;
+@use "sass:math";
+
+.row {
+  display: flex;
+  margin: math.div($spacing, 2) * -1;
+
+  @include tablet {
+    margin: math.div($spacing, 2) * -1;
+  }
+}
+
+.col {
+  width: $width;
+
+  @for $i from 1 through 12 {
+    &.#{$i} {
+      width: math.div($width, 12) * $i;
+    }
+  }
+}

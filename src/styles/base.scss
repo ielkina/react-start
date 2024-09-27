@@ -1,5 +1,6 @@
 // eslint-disable-next-line
-@import 'Shared';
+// @import 'Shared';
+@use 'Shared' as *;
 
 body {
   margin: 0;

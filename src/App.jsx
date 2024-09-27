@@ -1,5 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from 'react';
+import { ReactComponent as AddIcon } from './icons/add.svg'
+import { ReactComponent as DeleteIcon } from './icons/delete.svg'
+import { ReactSVG } from 'react-svg';
 import shortid from 'shortid';
 import Clock from 'components/Clock';
 import Form from './components/Form/Form';
@@ -18,7 +21,10 @@ import initialTodos from './data/todos.json';
 import Tabs from 'components/Tabs';
 import tabs from './data/tabs.json';
 import IconButton from 'components/IconButton';
-import { ReactComponent as AddIcon } from './icons/add.svg'
+import iconDelete from './icons/delete.svg'
+import { Icons } from 'components/Icon/Icons';
+// import './scss/App.scss'
+
 
 class App extends Component {
   //NOTE state и коллекции в state не мутируем
@@ -29,17 +35,7 @@ class App extends Component {
     filter: '',
     showModal: false,
   };
-  componentDidUpdate(prevProps, prevState) {
-    //вызывается только по проверке какого либо условия
-    // this.setState() //зацикливание компонента
 
-    if (this.state.todos !== prevState.todos) {
-      console.log('обновилось поле todos');
-    }
-    localStorage.setItem('todos', JSON.stringify(this.state.todos));
-    console.log(prevState);
-    console.log(this.state);
-  }
 
   componentDidMount() {
     console.log('componentDidMount');
@@ -50,7 +46,23 @@ class App extends Component {
     }
     console.log(parsedTodos);
   }
+  componentDidUpdate(prevProps, prevState) {
+    //вызывается только по проверке какого либо условия
+    // this.setState() //зацикливание компонента
 
+    const nextTodos = this.state.todos
+    const prevTodos = prevState.todos;
+
+    if (nextTodos !== prevTodos) {
+      console.log('обновилось поле todos');
+    }
+    localStorage.setItem('todos', JSON.stringify(this.state.todos));
+    console.log(prevState);
+    console.log(this.state);
+    if (nextTodos.length > prevTodos.length && prevTodos.length !== 0) {
+      this.toggleModal();
+    }
+  }
   addTodo = text => {
     const todo = {
       id: shortid.generate(),
@@ -61,6 +73,8 @@ class App extends Component {
     this.setState(({ todos }) => ({
       todos: [todo, ...todos],
     }));
+
+    // this.toggleModal();
   };
 
   deleteTodo = todoId => {
@@ -134,7 +148,19 @@ class App extends Component {
       <>
         <GlobalStyle />
         <Container>
-          <IconButton onClick={this.toggleModal}>Открыть модалку</IconButton>
+          {/* <div>
+            <a href="#" className='Add'>
+              <Icons name="add" size="20px" />
+            </a>
+          </div>
+          <a href="#">
+            <DeleteIcon fill="red" />
+          </a> */}
+          {/* <img src={iconDelete} alt="icon delete" /> */}
+          {/* <ReactSVG src="icons/delete.svg" /> */}
+          <IconButton onClick={this.toggleModal} aria-label="Добавить todo">
+            <AddIcon fill='red' width='50px' />
+          </IconButton>
           <Tabs items={tabs} />
           {showModal && <Clock />}
           <button type="button" onClick={this.toggleModal}>
@@ -145,8 +171,8 @@ class App extends Component {
           </button>
           {showModal && (
             <Modal onClose={this.toggleModal}>
-              {/* <TodoEditor onSubmit={this.addTodo} /> */}
-              <h1>Привет</h1>
+              <TodoEditor onSubmit={this.addTodo} />
+              {/* <h1>Привет</h1>
               <p>
                 «Пейте воду из крана, жуйте ногу, всегда ложитесь так, чтобы
                 хвост мог слегка касаться носа человека, но спите на клавиатуре,
@@ -155,7 +181,7 @@ class App extends Component {
               </p>
               <button type="button" onClick={this.toggleModal}>
                 Закрыть
-              </button>
+              </button> */}
             </Modal>
           )}
           <ProductReviewForm />

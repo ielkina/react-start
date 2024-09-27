@@ -1,0 +1,25 @@
+@use "../variables" as *;
+
+@mixin flex($align: center, $justifyContent: center) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justifyContent;
+}
+
+@include mobile {
+  @media only screen and (max-width: $mobile-width) {
+    @content;
+  }
+}
+
+@include tablet {
+  @media only screen and (max-width: $tablet-width) {
+    @content;
+  }
+}
+
+@include minComputer {
+  @media only screen and (max-width: $minComputer-width) {
+    @content;
+  }
+}

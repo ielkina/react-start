@@ -1,4 +1,10 @@
 // eslint-disable-next-line
-@import './variables';
-@import './colors';
-@import './placeholders';
+// @import './variables';
+@use './variables' as *;
+@forward './variables';
+// @import './colors';
+@use './colors' as *;
+@forward './colors';
+// @import './placeholders';
+@use './placeholders' as *;
+@forward './placeholders';
