@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-vars */
 import React, { Component } from 'react';
 import shortid from 'shortid';
+import Clock from 'components/Clock';
 import Form from './components/Form/Form';
 import Container from './components/Container';
 import Counter from './components/Counter';
@@ -9,17 +11,45 @@ import TodoList from './components/TodoList';
 import TodoEditor from 'components/TodoEditor';
 import Filter from 'components/Filter/Filter';
 import LoginForm from 'components/LoinForm/LoginForm';
-import { GlobalStyle } from 'components/GlobalStyle';
+import { GlobalStyle } from 'styles/GlobalStyle';
+import Modal from 'components/Modal';
 import { ProductReviewForm } from 'components/ProductReviewForm/ProductReviewForm';
-import initialTodos from './todos.json';
+import initialTodos from './data/todos.json';
+import Tabs from 'components/Tabs';
+import tabs from './data/tabs.json';
+import IconButton from 'components/IconButton';
+import { ReactComponent as AddIcon } from './icons/add.svg'
 
 class App extends Component {
   //NOTE state и коллекции в state не мутируем
   //используем методы filter, map, reduce
   state = {
     todos: initialTodos,
+    // todos: [],
     filter: '',
+    showModal: false,
   };
+  componentDidUpdate(prevProps, prevState) {
+    //вызывается только по проверке какого либо условия
+    // this.setState() //зацикливание компонента
+
+    if (this.state.todos !== prevState.todos) {
+      console.log('обновилось поле todos');
+    }
+    localStorage.setItem('todos', JSON.stringify(this.state.todos));
+    console.log(prevState);
+    console.log(this.state);
+  }
+
+  componentDidMount() {
+    console.log('componentDidMount');
+    const todos = localStorage.getItem('todos');
+    const parsedTodos = JSON.parse(todos);
+    if (parsedTodos) {
+      this.setState({ todos: parsedTodos });
+    }
+    console.log(parsedTodos);
+  }
 
   addTodo = text => {
     const todo = {
@@ -82,9 +112,15 @@ class App extends Component {
     );
   };
 
+  toggleModal = () => {
+    this.setState(({ showModal }) => ({
+      showModal: !showModal,
+    }));
+  };
+
   render() {
     //NOTE - рефакторинг вычисляемых данных в методы
-    const { todos, filter } = this.state;
+    const { todos, filter, showModal } = this.state;
     const totalTodoCount = todos.length;
     //NOTE - переносим в отдельный метод
     // const completedTodoCount = todos.reduce(
@@ -98,8 +134,31 @@ class App extends Component {
       <>
         <GlobalStyle />
         <Container>
+          <IconButton onClick={this.toggleModal}>Открыть модалку</IconButton>
+          <Tabs items={tabs} />
+          {showModal && <Clock />}
+          <button type="button" onClick={this.toggleModal}>
+            Открыть таймер
+          </button>
+          <button type="button" onClick={this.toggleModal}>
+            Открыть модалку
+          </button>
+          {showModal && (
+            <Modal onClose={this.toggleModal}>
+              {/* <TodoEditor onSubmit={this.addTodo} /> */}
+              <h1>Привет</h1>
+              <p>
+                «Пейте воду из крана, жуйте ногу, всегда ложитесь так, чтобы
+                хвост мог слегка касаться носа человека, но спите на клавиатуре,
+                взламывайте пушистые комочки, атакуйте, как злобный монстр,
+                мяукающий в пустых комнатах».
+              </p>
+              <button type="button" onClick={this.toggleModal}>
+                Закрыть
+              </button>
+            </Modal>
+          )}
           <ProductReviewForm />
-          <br/>
           <LoginForm />
           <h1>Состояние компонента</h1>
           {/* NOTE: вынести в отдельный компонент */}
@@ -109,6 +168,8 @@ class App extends Component {
           </div>
           <TodoEditor onSubmit={this.addTodo} />
           <Filter value={filter} onChange={this.changeFilter} />
+          <br />
+          <br />
           <TodoList
             todos={visibleTodos}
             onDeleteTodo={this.deleteTodo}

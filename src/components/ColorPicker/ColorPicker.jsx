@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import  classNames from 'classnames';
-import colors from './colors.json'
+import React, {  PureComponent } from 'react';
+import classNames from 'classnames';
+import colors from './colors.json';
 import './ColorPicker.css';
 
-class ColorPicker extends Component {
+class ColorPicker extends PureComponent {
   static defaultProps = {
     // options: ColorPickerOptions,
     options: colors,
-  }
-  
+  };
+
   state = {
     activeOptionIdx: 0,
   };

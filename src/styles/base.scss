@@ -1,4 +1,5 @@
-@import 'styles/shared';
+// eslint-disable-next-line
+@import 'Shared';
 
 body {
   margin: 0;
@@ -6,6 +7,8 @@ body {
   color: $black;
   line-height: 1.5;
   font-family: $primary-font-stack;
+  font-size: 14px;
+  color: red;
 }
 
 img {
@@ -16,7 +19,7 @@ img {
 
 h1,
 h2,
-h3,
+// h3,
 h4,
 h5,
 h6 {

@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
+// import * as Sentry from "@sentry/react";
 import 'modern-normalize/modern-normalize.css';
+import App from './App';
 import 'styles/base.scss';
 // import './index.css';
 
