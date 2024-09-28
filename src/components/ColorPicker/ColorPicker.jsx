@@ -1,4 +1,4 @@
-import React, {  PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 import colors from './colors.json';
 import './ColorPicker.css';

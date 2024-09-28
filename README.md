@@ -1,18 +1,34 @@
-# react-18
+# react-group-39
 
-- [Жизненный цикл компонент-классов](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
-- Методы жизненного цикла.
-- Сохранение коллекции заметок в localStorage (componentDidMount и
-  componentDidUpdate)
-- Модальное окно (componentDidMount и componentWillUnmount)
-  - Проблема z-index, как решать без костылей (порталы)
-  - Слушатель на keydown для Escape
-  - Слушатель на клик по Backdrop
-- Таймер и утечка памяти с setState() без componentWillUnmount
-- Табы (shouldComponentUpdate)
-  - аналогия с колорпикером = главное знать технику
-  - убираем лишние рендеры после setState
-- Рефакторим заметки
-  - Выносим туду в отдельный компонент
-  - Кнопка-иконка и импорт SVG как ReactComponent
-  - Убираем редактор в модальное окно
+- [Yup](https://www.npmjs.com/package/yup)
+- [Formik](https://formik.org/)
+
+```js
+const products = ['Sweater', 'Keyboard', 'Sofa', 'Freezer'];
+
+const validationSchema = Yup.object({
+  product: Yup.string().required('Please select a product').oneOf(products),
+  name: Yup.string().required(),
+  email: Yup.string().email().required(),
+  title: Yup.string().required(),
+  review: Yup.string().required(),
+  rating: Yup.number().min(1).max(10).required(),
+  date: Yup.date().default(() => new Date()),
+  wouldRecommend: Yup.boolean().default(false),
+});
+
+const initialValues = {
+  name: '',
+  email: '',
+  title: '',
+  review: '',
+  rating: '',
+  date: new Date(),
+  wouldRecommend: false,
+  product: '',
+};
+```
+
+```jsx
+
+```
