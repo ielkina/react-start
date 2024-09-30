@@ -7,6 +7,8 @@ export class Player extends Component {
   };
 
   componentDidUpdate(prevProps) {
+    // this.setState({ isVideoLoaded: false }); //-зацикливание
+    //привально по условию через проверку 
     if (prevProps.url !== this.props.url) {
       this.setState({ isVideoLoaded: false });
     }
