@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 import { ReactComponent as AddIcon } from './icons/add.svg'
 import { ReactComponent as DeleteIcon } from './icons/delete.svg'
 import { ReactSVG } from 'react-svg';
@@ -24,6 +25,8 @@ import IconButton from 'components/IconButton';
 import iconDelete from './icons/delete.svg'
 import { Icons } from 'components/Icon/Icons';
 // import './scss/App.scss'
+import PokemonForm from './components/Pokemon/PokemonForm';
+import PokemonInfo from './components/Pokemon/PokemonInfo';
 
 
 class App extends Component {
@@ -34,6 +37,7 @@ class App extends Component {
     // todos: [],
     filter: '',
     showModal: false,
+    pokemonName: '',
   };
 
 
@@ -132,6 +136,12 @@ class App extends Component {
     }));
   };
 
+  handleFormSubmit = pokemonName => {
+    this.setState({ pokemonName });
+  };
+
+
+
   render() {
     //NOTE - рефакторинг вычисляемых данных в методы
     const { todos, filter, showModal } = this.state;
@@ -147,6 +157,11 @@ class App extends Component {
     return (
       <>
         <GlobalStyle />
+        <div style={{ maxWidth: 1170, margin: '0 auto', padding: 20 }}>
+          <PokemonForm onSubmit={this.handleFormSubmit} />
+          <PokemonInfo pokemonName={this.state.pokemonName} />
+          <ToastContainer autoClose={8000} />
+        </div>
         <Container>
           {/* <div>
             <a href="#" className='Add'>
