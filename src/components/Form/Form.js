@@ -14,21 +14,17 @@ class Form extends Component {
 
   handleChange = e => {
     const { name, value } = e.currentTarget;
-
     this.setState({ [name]: value });
   };
 
   handleSubmit = e => {
     e.preventDefault();
-
     this.props.onSubmit(this.state);
-
     this.reset();
   };
 
   handleLicenceChange = e => {
     console.log(e.currentTarget.checked);
-
     this.setState({ licence: e.currentTarget.checked });
   };
 

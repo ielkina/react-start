@@ -11,3 +11,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <App />
   </React.StrictMode>,
 );
+
+
+// https://youtu.be/dyOYs35-pKg?t=2931

@@ -1,10 +1,27 @@
+//Убираем ошибки
 /* eslint-disable no-unused-vars */
+//*Пакеты сборки
 import React, { Component } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
-import { ReactComponent as AddIcon } from './icons/add.svg'
-import { ReactComponent as DeleteIcon } from './icons/delete.svg'
 import { ReactSVG } from 'react-svg';
 import shortid from 'shortid';
+//****Стили  */
+import { GlobalStyle } from 'styles/GlobalStyle';
+import { Layout } from 'styles/Layout';
+// import './scss/App.scss'
+//** Картинки */
+import { ReactComponent as DeleteIcon } from './icons/delete.svg';
+import { ReactComponent as AddIcon } from './icons/add.svg';
+import iconDelete from './icons/delete.svg';
+//*Дата файлы*/
+import tabs from './data/tabs.json';
+import initialTodos from './data/todos.json';
+//**REST запросы  */
+import * as API from './services/api';
+// import * as api from './component/api';
+// import * as itemApi from './component/item-api';
+
+//*** Компоненты сайта*/
 import Clock from 'components/Clock';
 import Form from './components/Form/Form';
 import Container from './components/Container';
@@ -15,24 +32,27 @@ import TodoList from './components/TodoList';
 import TodoEditor from 'components/TodoEditor';
 import Filter from 'components/Filter/Filter';
 import LoginForm from 'components/LoinForm/LoginForm';
-import { GlobalStyle } from 'styles/GlobalStyle';
 import Modal from 'components/Modal';
 import { ProductReviewForm } from 'components/ProductReviewForm/ProductReviewForm';
-import initialTodos from './data/todos.json';
 import Tabs from 'components/Tabs';
-import tabs from './data/tabs.json';
 import IconButton from 'components/IconButton';
-import iconDelete from './icons/delete.svg'
 import { Icons } from 'components/Icon/Icons';
-// import './scss/App.scss'
 import PokemonForm from './components/Pokemon/PokemonForm';
 import PokemonInfo from './components/Pokemon/PokemonInfo';
+import { MaterialEditorForm } from 'components/MaterialEditorForm/MaterialEditorForm';
+import { MaterialList } from 'components/MaterialList/MaterialList';
 
+//*Деструктуризация API */
+// const API = { ...api, ...itemApi };
 
 class App extends Component {
   //NOTE state и коллекции в state не мутируем
   //используем методы filter, map, reduce
   state = {
+    materials: [],
+    isLoading: false,
+    error: false,
+    //
     todos: initialTodos,
     // todos: [],
     filter: '',
@@ -40,21 +60,20 @@ class App extends Component {
     pokemonName: '',
   };
 
-
-  componentDidMount() {
-    console.log('componentDidMount');
-    const todos = localStorage.getItem('todos');
-    const parsedTodos = JSON.parse(todos);
-    if (parsedTodos) {
-      this.setState({ todos: parsedTodos });
-    }
-    console.log(parsedTodos);
-  }
+  // componentDidMount() {
+  //   console.log('componentDidMount');
+  //   const todos = localStorage.getItem('todos');
+  //   const parsedTodos = JSON.parse(todos);
+  //   if (parsedTodos) {
+  //     this.setState({ todos: parsedTodos });
+  //   }
+  //   console.log(parsedTodos);
+  // }
   componentDidUpdate(prevProps, prevState) {
     //вызывается только по проверке какого либо условия
     // this.setState() //зацикливание компонента
 
-    const nextTodos = this.state.todos
+    const nextTodos = this.state.todos;
     const prevTodos = prevState.todos;
 
     if (nextTodos !== prevTodos) {
@@ -140,7 +159,57 @@ class App extends Component {
     this.setState({ pokemonName });
   };
 
+  async componentDidMount() {
+    try {
+      this.setState({ isLoading: true });
+      const materials = await API.getMaterials();
+      this.setState({ materials, isLoading: false });
+    } catch (error) {
+      this.setState({ error: true, isLoading: false });
+      console.log(error);
+    }
+  }
 
+  // async addMaterial(values) {  //NOTE - контекст не привязывает
+  addMaterial = async values => {
+    //привязка контекста
+    try {
+      this.setState({ isLoading: true });
+      const material = await API.addMaterial(values);
+      this.setState(state => ({
+        materials: [...state.materials, material],
+        isLoading: false,
+      }));
+    } catch (error) {
+      console.log(error);
+    } finally {
+    }
+  };
+  deleteMaterial = async id => {
+    try {
+      await API.deleteMaterial(id);
+      this.setState(state => ({
+        materials: state.materials.filter(material => material.id !== id),
+      }));
+    } catch (error) {
+      this.setState({ error: true });
+      console.log(error);
+    }
+  };
+
+  updateMaterial = async fields => {
+    try {
+      const updatedMaterial = await API.updateMaterial(fields);
+      this.setState(state => ({
+        materials: state.materials.map(material =>
+          material.id === fields.id ? updatedMaterial : material,
+        ),
+      }));
+    } catch (error) {
+      this.setState({ error: true });
+      console.log(error);
+    }
+  };
 
   render() {
     //NOTE - рефакторинг вычисляемых данных в методы
@@ -153,17 +222,34 @@ class App extends Component {
     // );
     const completedTodoCount = this.calculateCompletedTodos();
     const visibleTodos = this.getVisibleTodos();
-
+    const { materials, isLoading, error } = this.state;
     return (
       <>
         <GlobalStyle />
-        <div style={{ maxWidth: 1170, margin: '0 auto', padding: 20 }}>
+        <Layout>
+          <Container>
+            {error && (
+              <p>
+                Ой! Что-то пошло не так :( Перезагрузите страницу и попробуйте
+                еще раз.
+              </p>
+            )}
+            <MaterialEditorForm onSubmit={this.addMaterial} />
+            {isLoading ? (
+              'Загружаем материалы'
+            ) : (
+              <MaterialList
+                items={materials}
+                onDelete={this.deleteMaterial}
+                onUpdate={this.updateMaterial}
+              />
+            )}
+            {/* <div style={{ maxWidth: 1170, margin: '0 auto', padding: 20 }}>
           <PokemonForm onSubmit={this.handleFormSubmit} />
           <PokemonInfo pokemonName={this.state.pokemonName} />
-          <ToastContainer autoClose={8000} />
-        </div>
-        <Container>
-          {/* <div>
+          <ToastContainer autoClose={8000} style={{ width: 40 }} />
+        </div> */}
+            {/* <div>
             <a href="#" className='Add'>
               <Icons name="add" size="20px" />
             </a>
@@ -171,23 +257,23 @@ class App extends Component {
           <a href="#">
             <DeleteIcon fill="red" />
           </a> */}
-          {/* <img src={iconDelete} alt="icon delete" /> */}
-          {/* <ReactSVG src="icons/delete.svg" /> */}
-          <IconButton onClick={this.toggleModal} aria-label="Добавить todo">
+            {/* <img src={iconDelete} alt="icon delete" /> */}
+            {/* <ReactSVG src="icons/delete.svg" /> */}
+            {/* <IconButton onClick={this.toggleModal} aria-label="Добавить todo">
             <AddIcon fill='red' width='50px' />
-          </IconButton>
-          <Tabs items={tabs} />
-          {showModal && <Clock />}
-          <button type="button" onClick={this.toggleModal}>
+          </IconButton> */}
+            {/* <Tabs items={tabs} /> */}
+            {/* {showModal && <Clock />} */}
+            {/* <button type="button" onClick={this.toggleModal}>
             Открыть таймер
-          </button>
-          <button type="button" onClick={this.toggleModal}>
+          </button> */}
+            {/* <button type="button" onClick={this.toggleModal}>
             Открыть модалку
-          </button>
-          {showModal && (
-            <Modal onClose={this.toggleModal}>
-              <TodoEditor onSubmit={this.addTodo} />
-              {/* <h1>Привет</h1>
+          </button> */}
+            {/* {showModal && ( */}
+            {/* // <Modal onClose={this.toggleModal}> */}
+            {/* <TodoEditor onSubmit={this.addTodo} /> */}
+            {/* <h1>Привет</h1>
               <p>
                 «Пейте воду из крана, жуйте ногу, всегда ложитесь так, чтобы
                 хвост мог слегка касаться носа человека, но спите на клавиатуре,
@@ -197,31 +283,31 @@ class App extends Component {
               <button type="button" onClick={this.toggleModal}>
                 Закрыть
               </button> */}
-            </Modal>
-          )}
-          <ProductReviewForm />
-          <LoginForm />
-          <h1>Состояние компонента</h1>
-          {/* NOTE: вынести в отдельный компонент */}
-          <div>
+            {/* // </Modal> */}
+            {/* // )} */}
+            {/* <ProductReviewForm /> */}
+            {/* <LoginForm /> */}
+            {/* <h1>Состояние компонента</h1> */}
+            {/* NOTE: вынести в отдельный компонент */}
+            {/* <div>
             <p>Всего заметок: {totalTodoCount}</p>
             <p>Выполнено: {completedTodoCount}</p>
-          </div>
-          <TodoEditor onSubmit={this.addTodo} />
-          <Filter value={filter} onChange={this.changeFilter} />
-          <br />
-          <br />
-          <TodoList
+          </div> */}
+            {/* <TodoEditor onSubmit={this.addTodo} /> */}
+            {/* <Filter value={filter} onChange={this.changeFilter} /> */}
+            <br />
+            <br />
+            {/* <TodoList
             todos={visibleTodos}
             onDeleteTodo={this.deleteTodo}
             onToggleCompleted={this.toggleCompleted}
-          />
-          <br />
-          <Form onSubmit={this.formSubmitHandler} />
-          <Counter />
-          <Dropdown />
-          <ColorPicker />
-        </Container>
+          /> */}
+            <br />
+            {/* <Form onSubmit={this.formSubmitHandler} /> */}
+            {/* <Dropdown /> */}
+            {/* <ColorPicker /> */}
+          </Container>
+        </Layout>
       </>
     );
   }

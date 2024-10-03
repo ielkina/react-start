@@ -1,0 +1,12 @@
+{
+  "elements": [
+    "html5"
+  ],
+  "extends": [
+    "html-validate:recommended"
+  ],
+  "transform": {
+    "^.*\\.js$": "html-validate-angular/js",
+    "^.*\\.html$": "html-validate-angular/html"
+  }
+}
