@@ -81,9 +81,7 @@
 -   componentDidMount
 -   componentDidUpdate(prevProps, prevState)
 -   componentDidUnmount
-
 -   close modal by ESC
 -   set data to localStorage
-
 -   shouldComponentUpdate vs PureComponent
 -   refactoring

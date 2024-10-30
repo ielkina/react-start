@@ -12,6 +12,7 @@ class FormLogin extends Component {
     // isAgreed: false,
     // rememberMe: false,
   };
+
   componentDidMount() {
     console.log("Form Login Mount");
   }
@@ -27,7 +28,6 @@ class FormLogin extends Component {
     // Можливо, варто замінити на React.PureComponent, який робитиме поверхове порівняння props. Але лише після вимірів продуктивності
     console.log("Form  Update");
   }
-
   componentWillUnmount() {
     // Викликається перед розмонтуванням та видаленням елемента з DOM
     // Добре підходить для прибирання за собою: слухачі, таймери, HTTP-запити. В іншому випадку будуть витоки пам'яті
@@ -61,6 +61,7 @@ class FormLogin extends Component {
       email: email,
       // password: this.state.password,
       password: password,
+      gender: this.state.gender,
     });
     //NOTE - или так
     // this.props.createUser(this.state);

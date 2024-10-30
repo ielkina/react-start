@@ -24,7 +24,7 @@ import { Head } from "components/Head/Head";
 // import { Container } from "../Card/Card.style";
 // import data from "../../data.json";
 import data from 'data/data.json'
-import './Card.module.scss'
+import './Card.module.css'
 
 // import clsx from 'clsx'
 // import css from './Card.module.css'

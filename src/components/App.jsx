@@ -5,8 +5,9 @@ import Header from "./Header/Header";
 import Counter from "./Counter/Counter";
 import Modal from "./Modal/Modal";
 import ToDoList from "./ToDoList/ToDoList";
-import { Card } from "./Card/Card";
+import { Card } from './Card/Card';
 import FormLogin from "./FormLogin/FormLogin";
+
 
 class App extends Component {
   state = {
@@ -18,6 +19,7 @@ class App extends Component {
     //Виклик setState() у цьому методі викличе повторний рендер – це нормально
     console.log("App Mount");
   }
+  
   showModal = () => {
     this.setState({ isShowModal: true });
   };
