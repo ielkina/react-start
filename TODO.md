@@ -37,51 +37,66 @@
 
 ### Less 1
 
--   Class Component
+- Class Component
 
--   Events
+- Events
 
-    -   Event delegation
-    -   inLine clb Function
-    -   clb function with context
-        -   public values
-        -   constructor && prototype
-        -   SyntheticEvent Object vs Async
+  - Event delegation
+  - inLine clb Function
+  - clb function with context
+    - public values
+    - constructor && prototype
+    - SyntheticEvent Object vs Async
 
--   State
+- State
 
-    -   react flow
-    -   update state with setState(update)
-    -   prevState
-    -   upper state
+  - react flow
+  - update state with setState(update)
+  - prevState
+  - upper state
 
--   Modal
--   To-Do List
+- Modal
+- To-Do List
 
 ### Less 2
 
--   onChange vs control form
--   onSubmit
--   class Form
--   form reset
--   radio
-    -   checked
-    -   value
--   checkBox
--   Register form
--   add todo
+- onChange vs control form
+- onSubmit
+- class Form
+- form reset
+- radio
+  - checked
+  - value
+- checkBox
+- Register form
+- add todo
 
 ## Module 3
 
 ### Less 1
 
--   Mounting
--   Updating
--   Unmounting
--   componentDidMount
--   componentDidUpdate(prevProps, prevState)
--   componentDidUnmount
--   close modal by ESC
--   set data to localStorage
--   shouldComponentUpdate vs PureComponent
--   refactoring
+- Mounting
+- Updating
+- Unmounting
+- componentDidMount
+- componentDidUpdate(prevProps, prevState)
+- componentDidUnmount
+- close modal by ESC
+- set data to localStorage
+- shouldComponentUpdate vs PureComponent
+- refactoring
+
+### Less 2
+
+> > feef20bb6ec8430ab253f1d0367f9ccf
+
+- http how to use
+- architecture
+  - search -> app -> content
+  - validation search with react-hot-toast
+  - componentDidUpdate in content
+  - fetch in content
+  - loading in content
+  - destructuring state
+- http errors
+- pattern stateMachine with status['idle','pending','rejected','resolved']

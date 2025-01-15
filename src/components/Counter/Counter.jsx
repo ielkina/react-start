@@ -29,7 +29,8 @@ class Button extends PureComponent {
     );
   }
 }
-
+//жизненный цикл и класс 
+//клас нада делать на том компоненте где нам необходим state 
 class Counter extends Component {
   //NOTE - В React функция наследования родителя constructor и super прописаны автоматически
   // constructor(parameters) {
