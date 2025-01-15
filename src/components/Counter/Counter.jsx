@@ -1,18 +1,20 @@
 import { Component, PureComponent } from "react";
 
 class Button extends PureComponent {
-  //убираем лишний рендер элемента, рендер только значения 
+  //убираем лишний рендер элемента, рендер только значения
   //*** */
   //PureComponent не смотрит вглубь обьекта, не следит за изменение значений ключей в объекте
   //поэтому будет происходить рендер кнопок
   //при отсутствии передачи данных кнопкам обьекта такого не произойдет и будет рендерится только значение
-  shouldComponentUpdate(nextProps, nextState) { //рендер по нашему условию 
+  shouldComponentUpdate(nextProps, nextState) {
+    //рендер по нашему условию
     // console.log("nextProps :>> ", nextProps);
     // console.log("this.props :>> ", this.props);
     if (
       nextProps.handleClickPlus === this.props.handleClickPlus &&
       nextProps.obj === this.props.obj // условие в случае передачи обьекта
-    )return false;
+    )
+      return false;
     return true;
   }
   render() {
@@ -29,8 +31,8 @@ class Button extends PureComponent {
     );
   }
 }
-//жизненный цикл и класс 
-//клас нада делать на том компоненте где нам необходим state 
+//жизненный цикл и класс
+//клас нада делать на том компоненте где нам необходим state
 class Counter extends Component {
   //NOTE - В React функция наследования родителя constructor и super прописаны автоматически
   // constructor(parameters) {
@@ -193,4 +195,4 @@ export default Counter;
 
 // export default Counter;
 
-// https://youtu.be/Asf7CCe6Vxg?t=4941
+

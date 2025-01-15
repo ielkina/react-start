@@ -2,8 +2,8 @@ import React, { Component } from "react";
 
 import ToDo from "components/ToDo/ToDo";
 import FormToDo from "components/FormToDo/FormToDo";
-// import todo from "data/todo.json";
-import todo from "../../data/data.json";
+// // import todo from "data/todo.json";
+// import todo from "../../data/data.json";
 import { nanoid } from "nanoid";
 
 
@@ -15,7 +15,7 @@ class ToDoList extends Component {
   };
 
   componentDidMount() {
-    localStorage.setItem('todo', JSON.stringify(todo))
+    // localStorage.setItem('todo', JSON.stringify(todo))
     if (localStorage.getItem("todo"))
       this.setState({
         todoList: JSON.parse(localStorage.getItem("todo")),

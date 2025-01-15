@@ -8,5 +8,3 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <App />
   </React.StrictMode>
 );
-
-// https://youtu.be/Asf7CCe6Vxg?t=4903
