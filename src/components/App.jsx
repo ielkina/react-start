@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* eslint-disable no-unused-vars */
 import React, { Component } from "react";
 import { nanoid } from "nanoid"; //пакет
@@ -61,21 +60,3 @@ class App extends Component {
 }
 
 export default App;
-=======
-export const App = () => {
-  return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React template
-    </div>
-  );
-};
->>>>>>> origin/main
