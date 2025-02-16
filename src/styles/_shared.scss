@@ -1,3 +1,11 @@
-@import './variables';
-@import './colors';
-@import './placeholders';
+// @import './variables';
+// @import './colors';
+// @import './placeholders';
+@use './variables' as *;
+@forward './variables';
+// @import './colors';
+@use './colors' as *;
+@forward './colors';
+// @import './placeholders';
+@use './placeholders' as *;
+@forward './placeholders';

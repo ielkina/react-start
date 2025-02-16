@@ -38,8 +38,9 @@ class App extends Component {
   render() {
     return (
       <div className="container">
+        <h1>Hell world</h1>
         <Header showModal={this.showModal} />
-        <Counter />
+        {/* <Counter /> */}
         {/* Убираем модалку  */}
         {/* {false && <Modal>Some</Modal>} */}
         {this.state.isShowModal && (
