@@ -1,13 +1,13 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from "react";
 import { nanoid } from "nanoid"; //пакет
+import "../styles/main.scss";
 import Header from "./Header/Header";
 import Counter from "./Counter/Counter";
 import Modal from "./Modal/Modal";
 import ToDoList from "./ToDoList/ToDoList";
-import { Card } from './Card/Card';
+import { Card } from "./Card/Card";
 import FormLogin from "./FormLogin/FormLogin";
-
 
 class App extends Component {
   state = {
@@ -19,7 +19,7 @@ class App extends Component {
     //Виклик setState() у цьому методі викличе повторний рендер – це нормально
     console.log("App Mount");
   }
-  
+
   showModal = () => {
     this.setState({ isShowModal: true });
   };
@@ -39,7 +39,7 @@ class App extends Component {
     return (
       <div className="container">
         <Header showModal={this.showModal} />
-        {/* <Counter /> */}
+        <Counter />
         {/* Убираем модалку  */}
         {/* {false && <Modal>Some</Modal>} */}
         {this.state.isShowModal && (
