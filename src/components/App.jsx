@@ -39,7 +39,7 @@ class App extends Component {
     return (
       <div className="container">
         <Header showModal={this.showModal} />
-        <Counter />
+        {/* <Counter /> */}
         {/* Убираем модалку  */}
         {/* {false && <Modal>Some</Modal>} */}
         {this.state.isShowModal && (
