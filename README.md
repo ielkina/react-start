@@ -1,6 +1,6 @@
 # Модуль 01-01
 ## react-21-22
-[](https://github.com/luxplanjay/react-21-22/tree/01-%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%8B)
+[gitHub react-21-22](https://github.com/luxplanjay/react-21-22/tree/01-%D0%BA%D0%BE%D0%BC%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%82%D1%8B)
 - Зачем нужны JS-фреймворки?
 - [Концепция Virtual DOM](https://illustrated.dev/react-vdom)
 - [create-react-app](https://create-react-app.dev/)
