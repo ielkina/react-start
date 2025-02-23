@@ -5,13 +5,15 @@ node_modules
 /node_modules
 /.pnp
 .pnp.js
+/.vscode 
+.package-lock.json
+
 
 # testing
 /coverage
 
 # production
 /build
-package-lock.json
 
 # misc
 .DS_Store
@@ -25,3 +27,4 @@ yarn-debug.log*
 yarn-error.log*
 
 
+package-lock.json
