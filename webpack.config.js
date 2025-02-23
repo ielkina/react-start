@@ -1,5 +1,6 @@
 const path = require("path");
 const Sass = require("sass-embedded");
+const purgecss = require("@fullhuman/postcss-purgecss");
 
 module.exports = {
   entry: "./src/index.js",
@@ -10,7 +11,8 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        // test: /\.jsx?$/,
+        test: /\.s[ac]ss$/i,
         exclude: /node_modules/,
         use: "babel-loader",
       },
@@ -19,6 +21,7 @@ module.exports = {
         use: [
           "style-loader",
           "css-loader",
+          'sass-loader',
           {
             loader: "postcss-loader",
             options: {

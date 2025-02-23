@@ -1,6 +1,6 @@
 // eslint-disable-next-line
 // @import 'styles/shared';
-@use 'Shared' as *;
+@use 'shared' as *;
 
 body {
   margin: 0;
@@ -42,7 +42,7 @@ p {
   margin-top: 0;
 }
 h1 {
-  // color: red;
+  color: red;
   color: $blue;
 }
 
