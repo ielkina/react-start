@@ -1,4 +1,6 @@
-$primary-color:rgb(96, 94, 223);
+@use 'sass:color';
+
+$primary-color:rgb(94, 93, 185);
 $secondary-color: #6c757d;
 $success-color: #28a745;
 $danger-color: #dc3545;
@@ -10,13 +12,13 @@ $warning-color: #ffc107;
     border-color: $color;
 
     &:hover {
-      background-color: scale-color($color, $lightness: -10%);
-      border-color: scale-color($color, $lightness: -10%);
+      background-color: color.scale($color, $lightness: -10%);
+      border-color: color.scale($color, $lightness: -10%);
     }
 
     &:focus, &:active {
-      background-color: scale-color($color, $lightness: -15%);
-      border-color: scale-color($color, $lightness: -15%);
+      background-color: color.scale($color, $lightness: -15%);
+      border-color: color.scale($color, $lightness: -15%);
     }
   }
 }

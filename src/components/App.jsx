@@ -59,26 +59,26 @@ class App extends Component {
   render() {
     return (
       <div className="container">
+        <h1>Hell world</h1>
         {/* <Header showModal={this.showModal} /> */}
         {/* Убираем модалку  */}
-        {false && <Modal>Some</Modal>}
-        {this.state.isShowModal && (
-          <Modal closeModal={this.closeModal}>
+        {/* {false && <Modal>Some</Modal>} */}
+        {/* {this.state.isShowModal && ( */}
+          {/* <Modal closeModal={this.closeModal}> */}
             {/* Добавляем в форму метод на получение данных */}
-            <FormLogin
-              createUser={this.createUser}
-              closeModal={this.closeModal}
-            />
-          </Modal>
-        )}
-        <h1>Hell world</h1>
-        {/* <Search handleSearch={this.handleSearch} /> */}
-        {/* <ContentInfo searchText={this.state.searchText} /> */}
+            {/* <FormLogin */}
+              {/* createUser={this.createUser} */}
+              {/* closeModal={this.closeModal} */}
+            {/* /> */}
+          {/* </Modal> */}
+        {/* )} */}
+        <Search handleSearch={this.handleSearch} />
+        <ContentInfo searchText={this.state.searchText} />
         {/* <Card isOnline /> */}
         {/* <Card /> */}
         {/* <Counter /> */}
         {/* <ToDoList /> */}
-        <Button
+        {/* <Button
           type="submit"
           label="Submit"
           variant="primary"
@@ -87,7 +87,7 @@ class App extends Component {
           onMouseEnter={this.handleMouseEnter}
           onMouseLeave={this.handleMouseLeave}
           icon={<i className="fas fa-check"></i>}
-        />
+        /> */}
         {/* <Button
           label="Cancel"
           variant="secondary"

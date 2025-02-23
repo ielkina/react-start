@@ -41,11 +41,15 @@
     "postcss-loader": "^8.1.1",
     "postcss-merge-rules": "^7.0.4",
     "postcss-sort-media-queries": "^5.2.0",
+    "sass": "^1.85.0",
     "sass-embedded": "^1.85.0",
     "sass-loader": "^16.0.5",
     "style-loader": "^4.0.0",
     "styled-components": "^6.1.13",
-    "webpack": "^5.95.0"
+    "webpack": "^5.98.0"
+  },
+  "optionalDependencies": {
+    "sass-embedded": "^1.85.0"
   },
   "eslintConfig": {
     "extends": [
