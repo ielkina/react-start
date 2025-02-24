@@ -1,0 +1,19 @@
+// *@use './placeholders' as ;
+// Эта директива @use импортирует все содержимое файла placeholders.scss и делает его доступным в текущем файле.
+// Ключевое слово as * означает, что все импорты будут доступны без префиксов, то есть вы сможете использовать переменные, функции и миксины из placeholders.scss напрямую, без необходимости указывать пространство имен.
+
+// *@forward './placeholders';
+// Директива @forward позволяет передать весь содержимое файла placeholders.scss в другие файлы, которые будут использовать текущий файл.
+// Это полезно для создания реэкспорта (re-export) содержимого, что позволяет структурировать и переиспользовать код более эффективно.
+
+//старое подключение 
+// @import './variables'; 
+//новое подключение
+@use './variables/variables' as *;
+@forward './variables/variables';
+// @import './colors';
+@use './variables/colors' as *;
+@forward './variables/colors';
+// @import './placeholders';
+@use './components/placeholders' as *;
+@forward './components/placeholders';

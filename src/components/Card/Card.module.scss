@@ -1,0 +1,31 @@
+div {
+  width: 300px;
+
+}
+
+img {
+  width: 300px;
+  height: 100px;
+}
+
+/* id в модульных файлах стилей не используються  */
+/* #test {} */
+.main {
+  background-color: #e61c1c;
+}
+
+.blue {
+  background-color: #321e88;
+}
+
+.main.blue {
+  background-color: #321e88;
+}
+
+.red {
+  background-color: red;
+}
+
+.main.red {
+  background-color: red;
+}

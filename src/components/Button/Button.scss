@@ -1,0 +1,55 @@
+@use 'sass:color';
+
+$primary-color:rgb(94, 93, 185);
+$secondary-color: #6c757d;
+$success-color: #28a745;
+$danger-color: #dc3545;
+$warning-color: #ffc107;
+
+@mixin button-variants($variant, $color) {
+  .btn-#{$variant} {
+    background-color: $color;
+    border-color: $color;
+
+    &:hover {
+      background-color: color.scale($color, $lightness: -10%);
+      border-color: color.scale($color, $lightness: -10%);
+    }
+
+    &:focus, &:active {
+      background-color: color.scale($color, $lightness: -15%);
+      border-color: color.scale($color, $lightness: -15%);
+    }
+  }
+}
+
+@include button-variants(primary, $primary-color);
+@include button-variants(secondary, $secondary-color);
+@include button-variants(success, $success-color);
+@include button-variants(danger, $danger-color);
+@include button-variants(warning, $warning-color);
+
+.btn {
+  &-small {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  &-medium {
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+  }
+
+  &-large {
+    padding: 0.5rem 1rem;
+    font-size: 1.25rem;
+  }
+
+  &-fullwidth {
+    width: 100%;
+  }
+
+  .btn-icon {
+    margin-right: 0.5rem;
+  }
+}
