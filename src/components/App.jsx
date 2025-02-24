@@ -17,17 +17,55 @@ class App extends Component {
     isShowModal: false,
     searchText: "",
   };
-  componentDidMount() {
-    //Викликається відразу після монтування компонента в DOM
-    //Робимо HTTP-запити, вішаємо кастомні слухачі подій та виконуємо операції з DOM деревом
-    //Виклик setState() у цьому методі викличе повторний рендер – це нормально
-    // fetch();
-    console.log("App Mount");
-  }
-  componentDidUpdate(prevProps, prevState) {
-    //при запросе выносим метод в ContentInfo
-    // if (prevProps !== this.state) fetch();
-  }
+  //монтирование
+  // componentDidMount() {
+  //   //componentDidMount() Викликається відразу після монтування компонента в DOM
+  //   //Робимо HTTP-запити, вішаємо кастомні слухачі подій та виконуємо операції з DOM деревом
+  //   //Виклик setState() у цьому методі викличе повторний рендер – це нормально
+  //   // fetch();
+  //   console.log("App Mount");
+ 
+  // }
+  //обновление
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   //Не викликається під час ініціалізації компонента
+  //   //Викликається перед ререндером вже змонтованого компонента
+  //   //Необхідний виключно для оптимізації процесу рендеру
+  //   //Дозволяє порівняти поточні та попередні state і props, повернувши true або false, вказуючи React, чи є необхідність оновлювати компонент
+  //   //Якщо поверне false, то не станеться render() і componentDidUpdate()
+  //   //Не можна викликати setState()
+  //   //Використовувати необхідно дуже обережно, тільки після вимірів продуктивності, інакше може призвести до зворотного ефекту.
+  //   // Можливо, варто замінити на React.PureComponent, який робитиме поверхове порівняння props. Але лише після вимірів продуктивності
+  // }
+  // componentDidUpdate(prevProps, prevState) {
+  //   // Викликається відразу після оновлення компонента в DOM
+  //   // Не викликається при початковому рендері компонента
+  //   // Можна викликати setState(), обов'язково обгорнувши його в умову перевірки зміни попередніх і наступних props або state, щоб не виник нескінченний цикл ререндера (вкладка зависне або впаде).
+  //   // Можна робити HTTP-запити
+  //   // Якщо в компоненті є getSnapshotBeforeUpdate(), то значення, що повертається їм, буде передане третім аргументом snapshot, в іншому випадку його значенням буде undefined
+  //   //*
+  //   //при запросе выносим метод в ContentInfo
+  //   // if (prevProps !== this.state) fetch();
+  // }
+  // getSnapshotBeforeUpdate(prevProps, prevState) {
+  //   // На практиці цей метод використовується дуже рідко
+  //   // Викликається перед тим, як усі зміни готові до додавання в DOM
+  //   // Можна використовувати для отримання DOM-значень перед оновленням, наприклад, поточну позицію скрола або розмір елемента до оновлення
+  //   // Те, що поверне цей метод, буде передане як третій параметр snapshot в componentDidUpdate()
+  // }
+  //размонтирование
+  // componentWillUnmount() {
+  //   // Викликається перед розмонтуванням та видаленням елемента з DOM
+  //   // Добре підходить для прибирання за собою: слухачі, таймери, HTTP-запити. В іншому випадку будуть витоки пам'яті
+  //   // Викликати setState() немає сенсу, компонент ніколи не перерендериться
+  // }
+  // Обробка помилок рендеру
+  // componentDidCatch(error, info) {
+  //   // Використовується для контролю помилок
+  //   // Ловить помилки лише у дітей, але не в самому батьку
+  //   // error – результат toString() об'єкта помилки
+  //   // info – об'єкт, що описує stack trace
+  // }
   showModal = () => {
     this.setState({ isShowModal: true });
   };
@@ -43,10 +81,11 @@ class App extends Component {
     };
     console.log("newUser :>> ", newUser);
   };
+  //метод поиска текста в запросе на бэкэнд
   handleSearch = (searchText) => {
     this.setState({ searchText });
   };
-  //методы кнопки
+  //*методы кнопки
   handleClick() {
     alert("Button clicked!");
   }
@@ -56,6 +95,7 @@ class App extends Component {
   handleMouseLeave() {
     console.log("Mouse left!");
   }
+  //*
   render() {
     return (
       <div className="container">
@@ -64,13 +104,13 @@ class App extends Component {
         {/* Убираем модалку  */}
         {/* {false && <Modal>Some</Modal>} */}
         {/* {this.state.isShowModal && ( */}
-          {/* <Modal closeModal={this.closeModal}> */}
-            {/* Добавляем в форму метод на получение данных */}
-            {/* <FormLogin */}
-              {/* createUser={this.createUser} */}
-              {/* closeModal={this.closeModal} */}
-            {/* /> */}
-          {/* </Modal> */}
+        {/* <Modal closeModal={this.closeModal}> */}
+        {/* Добавляем в форму метод на получение данных */}
+        {/* <FormLogin */}
+        {/* createUser={this.createUser} */}
+        {/* closeModal={this.closeModal} */}
+        {/* /> */}
+        {/* </Modal> */}
         {/* )} */}
         <Search handleSearch={this.handleSearch} />
         <ContentInfo searchText={this.state.searchText} />

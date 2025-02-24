@@ -22,6 +22,9 @@ export const getNews = (
   );
 };
 
+
+
+
 //проверить какие хэдеры залетают в запрос можно на сайте апи network фильтр fetch/xhr
 
 // export const getNews = (searchText) => {
