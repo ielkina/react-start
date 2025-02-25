@@ -2,6 +2,8 @@
 // @import 'styles/shared';
 @use 'shared' as *;
 
+//обнуление стилей
+
 body {
   margin: 0;
   background-color: $white;

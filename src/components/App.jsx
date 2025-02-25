@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from "react";
 import { nanoid } from "nanoid"; //пакет
-import "../styles/main.scss";
+import '../main.scss';
 // import Header from "./Header/Header";
 import Modal from "./Modal/Modal";
 import FormLogin from "./FormLogin/FormLogin";
