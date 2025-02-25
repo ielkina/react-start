@@ -24,7 +24,7 @@ class App extends Component {
   //   //Виклик setState() у цьому методі викличе повторний рендер – це нормально
   //   // fetch();
   //   console.log("App Mount");
- 
+
   // }
   //обновление
   // shouldComponentUpdate(nextProps, nextState) {
@@ -97,13 +97,15 @@ class App extends Component {
   }
   //*
   render() {
+    const { searchText, isShowModal } = this.state; //деструктуризация state
+    const { handleSearch } = this; //деструктуризация методов
     return (
       <div className="container">
         <h1>Hell world</h1>
         {/* <Header showModal={this.showModal} /> */}
         {/* Убираем модалку  */}
         {/* {false && <Modal>Some</Modal>} */}
-        {/* {this.state.isShowModal && ( */}
+        {/* {isShowModal && ( */}
         {/* <Modal closeModal={this.closeModal}> */}
         {/* Добавляем в форму метод на получение данных */}
         {/* <FormLogin */}
@@ -112,8 +114,8 @@ class App extends Component {
         {/* /> */}
         {/* </Modal> */}
         {/* )} */}
-        <Search handleSearch={this.handleSearch} />
-        <ContentInfo searchText={this.state.searchText} />
+        <Search handleSearch={handleSearch} />
+        <ContentInfo searchText={searchText} />
         {/* <Card isOnline /> */}
         {/* <Card /> */}
         {/* <Counter /> */}
