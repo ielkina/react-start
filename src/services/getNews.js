@@ -6,9 +6,9 @@ const API_KEY = "627b604816e34667a27a3ddb897812f2";
 
 export const getNews = (
   searchText,
-  lang = "tr",
-  to = "2025-02-22",
-  from = "2025-02-20",
+  lang = "uk",
+  from = "2025-02-22",
+  to = "2025-02-26",
   headers = {}
 ) => {
   return fetch(
@@ -19,11 +19,8 @@ export const getNews = (
         ...headers,
       },
     }
-  );
+  )
 };
-
-
-
 
 //проверить какие хэдеры залетают в запрос можно на сайте апи network фильтр fetch/xhr
 

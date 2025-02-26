@@ -89,4 +89,3 @@ module.exports = {
     port: 9000, // Порт для dev server
   },
 };
-

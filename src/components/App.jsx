@@ -1,16 +1,16 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from "react";
 import { nanoid } from "nanoid"; //пакет
-import '../main.scss';
-// import Header from "./Header/Header";
+import "../main.scss";
+import Header from "./Header/Header";
 import Modal from "./Modal/Modal";
 import FormLogin from "./FormLogin/FormLogin";
 import Search from "./Search/Search";
 import ContentInfo from "./ContentInfo/ContentInfo";
 import Button from "./Button/Button";
-// import { Card } from "./Card/Card";
-// import Counter from "./Counter/Counter";
-// import ToDoList from "./ToDoList/ToDoList";
+import { Card } from "./Card/Card";
+import Counter from "./Counter/Counter";
+import ToDoList from "./ToDoList/ToDoList";
 
 class App extends Component {
   state = {
@@ -84,6 +84,7 @@ class App extends Component {
   //метод поиска текста в запросе на бэкэнд
   handleSearch = (searchText) => {
     this.setState({ searchText });
+    console.log('searchText: ', searchText);
   };
   //*методы кнопки
   handleClick() {
@@ -102,18 +103,18 @@ class App extends Component {
     return (
       <div className="container">
         <h1>Hell world</h1>
-        {/* <Header showModal={this.showModal} /> */}
+        <Header showModal={this.showModal} />
         {/* Убираем модалку  */}
-        {/* {false && <Modal>Some</Modal>} */}
-        {/* {isShowModal && ( */}
-        {/* <Modal closeModal={this.closeModal}> */}
-        {/* Добавляем в форму метод на получение данных */}
-        {/* <FormLogin */}
-        {/* createUser={this.createUser} */}
-        {/* closeModal={this.closeModal} */}
-        {/* /> */}
-        {/* </Modal> */}
-        {/* )} */}
+        {false && <Modal>Some</Modal>}
+        {isShowModal && (
+          <Modal closeModal={this.closeModal}>
+            {/* Добавляем в форму метод на получение данных */}
+            <FormLogin
+              createUser={this.createUser}
+              closeModal={this.closeModal}
+            />
+          </Modal>
+        )}
         <Search handleSearch={handleSearch} />
         <ContentInfo searchText={searchText} />
         {/* <Card isOnline /> */}

@@ -1,7 +1,7 @@
 //в контент инфо нам надо делать запрос на сервер/бэкэнд
 
 import { Component } from "react";
-// import './ContentInfo.scss';
+import './ContentInfo.scss';
 // import { Link } from "react-router-dom";//пакет для ссылок
 import { getNews } from "../../services/getNews.js";
 import ErrorCard from "../ErrorCard/ErrorCard";
@@ -20,7 +20,7 @@ class ContentInfo extends Component {
     status: STATUS.IDLE,
   };
   componentDidUpdate(prevProps, prevState) {
-    console.log(this.props);
+    console.log("this.props: ", this.props);
     if (prevProps.searchText !== this.props.searchText) {
       this.setState({ status: STATUS.PENDING });
       // fetch -выносим в отдельную функцию/фаил getNews
@@ -30,8 +30,13 @@ class ContentInfo extends Component {
         this.props.from,
         this.props.to
       )
-        .then((response) => response.json())
+        .then((response) => {
+          console.log("URL:", response.url);
+          console.log("Status:", response.status);
+          return response.json();
+        })
         .then((data) => {
+          console.log("Data:", data);
           if (data.status === "ok")
             this.setState({
               news: data.articles,
@@ -40,10 +45,12 @@ class ContentInfo extends Component {
           else return Promise.reject(data.message);
         })
         .catch((error) => {
+          // console.log("Error: ", this.setState({error, status: STATUS.REJECTED}));
           this.setState({ error, status: STATUS.REJECTED });
         });
     }
   }
+
   render() {
     const { news, error } = this.state;
     if (this.state.status === STATUS.PENDING)
@@ -58,11 +65,9 @@ class ContentInfo extends Component {
           {news.map((el) => (
             <li key={el.url}>
               <img src={el.urlToImage} alt="" />
-              <p>{el.content}</p>
+              <p>{el.description}</p>
               {/* <Link to={el.url}>{el.title}</Link> */}
-              <a href={el.url}>
-                {el.title}
-              </a>
+              <a href={el.url}>{el.title}</a>
               <p>{el.publishedAt}</p>
             </li>
           ))}
