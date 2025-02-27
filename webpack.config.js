@@ -2,6 +2,7 @@ const path = require("path");
 // const sass = require("sass");
 const sass = require("sass-embedded");
 const purgecss = require("@fullhuman/postcss-purgecss");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.js", // Входная точка приложения
@@ -77,6 +78,13 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./public/index.html",
+      inject: "body", // Использование только одного скрипта
+      scriptLoading: "defer", // Убедитесь, что `defer` без значения
+    }),
+  ],
   resolve: {
     extensions: [".js", ".jsx"], // Расширения файлов, которые будет обрабатывать webpack
   },
@@ -87,5 +95,6 @@ module.exports = {
     contentBase: path.join(__dirname, "dist"), // Путь к статическим файлам
     compress: true, // Включает сжатие
     port: 9000, // Порт для dev server
+    open: true,
   },
 };
