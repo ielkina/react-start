@@ -1,7 +1,7 @@
 //в контент инфо нам надо делать запрос на сервер/бэкэнд
 
 import { Component } from "react";
-import './ContentInfo.scss';
+import "./ContentInfo.scss";
 // import { Link } from "react-router-dom";//пакет для ссылок
 import { getNews } from "../../services/getNews.js";
 import ErrorCard from "../ErrorCard/ErrorCard";
@@ -27,8 +27,6 @@ class ContentInfo extends Component {
       getNews(
         this.props.searchText,
         this.props.language,
-        this.props.from,
-        this.props.to
       )
         .then((response) => {
           console.log("URL:", response.url);
@@ -64,10 +62,13 @@ class ContentInfo extends Component {
         <ul>
           {news.map((el) => (
             <li key={el.url}>
-              <img src={el.urlToImage} alt="" />
-              <p>{el.description}</p>
-              {/* <Link to={el.url}>{el.title}</Link> */}
-              <a href={el.url}>{el.title}</a>
+              <p>{el.author}</p>
+              <p>{el.title}</p>
+              <a href={el.url}>
+                <img src={el.urlToImage} alt={el.title} />
+                <p>{el.description}</p>
+                {/* <Link to={el.url}>{el.title}</Link> */}
+              </a>
               <p>{el.publishedAt}</p>
             </li>
           ))}

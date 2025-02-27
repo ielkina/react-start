@@ -1,6 +1,6 @@
 const path = require("path");
-const sass = require("sass");
-// const Sass = require("sass-embedded");
+// const sass = require("sass");
+const sass = require("sass-embedded");
 const purgecss = require("@fullhuman/postcss-purgecss");
 
 module.exports = {

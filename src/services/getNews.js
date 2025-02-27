@@ -7,12 +7,10 @@ const API_KEY = "627b604816e34667a27a3ddb897812f2";
 export const getNews = (
   searchText,
   lang = "uk",
-  from = "2025-02-22",
-  to = "2025-02-26",
   headers = {}
 ) => {
   return fetch(
-    `${BASE_URL}/everything?q=${searchText}&language=${lang}&from=${from}&to=${to}`,
+    `${BASE_URL}/everything?q=${searchText}&language=${lang}`,
     {
       headers: {
         "X-Api-Key": API_KEY,

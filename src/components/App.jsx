@@ -84,7 +84,7 @@ class App extends Component {
   //метод поиска текста в запросе на бэкэнд
   handleSearch = (searchText) => {
     this.setState({ searchText });
-    console.log('searchText: ', searchText);
+    console.log("searchText: ", searchText);
   };
   //*методы кнопки
   handleClick() {
@@ -137,6 +137,9 @@ class App extends Component {
           size="medium"
           onClick={() => alert("Cancel clicked!")}
         /> */}
+        {/* <img src="../img/vite.svg" alt="" />
+        <img src="/img/vite.svg" alt="" />
+        <img src="/img/vite.svg" alt="" /> */}
       </div>
     );
   }
