@@ -11,11 +11,17 @@
 //старое подключение 
 // @import './variables'; 
 //новое подключение
-@use 'src/styles/variables/variables' as *;
-@forward 'src/styles/variables/variables';
+// @use 'src/styles/variables/variables' as *;
+// @forward 'src/styles/variables/variables';
+@use "../styles/variables/variables" as *;
+@forward "../styles/variables/variables";
 // @import './colors';
-@use 'src/styles/variables/colors' as *;
-@forward 'src/styles/variables/colors';
+// @use 'src/styles/variables/colors' as *;
+@use "../styles/variables/colors" as *;
+@forward "../styles/variables/colors";
+// @forward 'src/styles/variables/colors';
 // @import './placeholders';
-@use 'src/styles/components/placeholders' as *;
-@forward 'src/styles/components/placeholders';
+// @use 'src/styles/components/placeholders' as *;
+@use "../styles/components/placeholders" as *;
+@forward "../styles/components/placeholders";
+// @forward 'src/styles/components/placeholders';

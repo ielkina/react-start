@@ -1,16 +1,25 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from "react";
 import { nanoid } from "nanoid"; //пакет
-import "../main.scss";
-import Header from "./Header/Header";
-import Modal from "./Modal/Modal";
-import FormLogin from "./FormLogin/FormLogin";
-import Search from "./Search/Search";
-import ContentInfo from "./ContentInfo/ContentInfo";
-import Button from "./Button/Button";
-import { Card } from "./Card/Card";
-import Counter from "./Counter/Counter";
-import ToDoList from "./ToDoList/ToDoList";
+import "../index.scss";
+// import Header from "./Header/Header";
+import Header from "./components/Header/Header";
+// import Modal from "./Modal/Modal";
+import Modal from "./components/Modal/Modal";
+// import FormLogin from "./FormLogin/FormLogin";
+import FormLogin from "./components/FormLogin/FormLogin";
+// import Search from "./Search/Search";
+import Search from "./components/Search/Search";
+// import ContentInfo from "./ContentInfo/ContentInfo";
+import ContentInfo from "./components/ContentInfo/ContentInfo";
+// import Button from "./Button/Button";
+import Button from "./components/Button/Button";
+// import { Card } from "./Card/Card";
+import { Card } from "./components/Card/Card";
+// import Counter from "./Counter/Counter";
+import Counter from "./components/Counter/Counter";
+// import ToDoList from "./ToDoList/ToDoList";
+import ToDoList from "./components/ToDoList/ToDoList";
 
 class App extends Component {
   state = {
@@ -103,7 +112,7 @@ class App extends Component {
     return (
       <div className="container">
         <h1>Hell world</h1>
-        <Header showModal={this.showModal} />
+        <Header showModal={this.showModal}></Header>
         {/* Убираем модалку  */}
         {false && <Modal>Some</Modal>}
         {isShowModal && (
@@ -112,15 +121,15 @@ class App extends Component {
             <FormLogin
               createUser={this.createUser}
               closeModal={this.closeModal}
-            />
+            ></FormLogin>
           </Modal>
         )}
-        <Search handleSearch={handleSearch} />
-        <ContentInfo searchText={searchText} />
-        {/* <Card isOnline /> */}
-        {/* <Card /> */}
-        {/* <Counter /> */}
-        {/* <ToDoList /> */}
+        <Search handleSearch={handleSearch}></Search>
+        <ContentInfo searchText={searchText}></ContentInfo>
+        {/* <Card isOnline></Card> */}
+        {/* <Card></Card> */}
+        {/* <Counter></Counter> */}
+        {/* <ToDoList></ToDoList> */}
         {/* <Button
           type="submit"
           label="Submit"
@@ -137,9 +146,9 @@ class App extends Component {
           size="medium"
           onClick={() => alert("Cancel clicked!")}
         /> */}
-        {/* <img src="../img/vite.svg" alt="" />
+        <img src="../img/vite.svg" alt="" />
         <img src="/img/vite.svg" alt="" />
-        <img src="/img/vite.svg" alt="" /> */}
+        <img src="/img/vite.svg" alt="" />
       </div>
     );
   }

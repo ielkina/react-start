@@ -1,9 +1,9 @@
 //в контент инфо нам надо делать запрос на сервер/бэкэнд
-
 import { Component } from "react";
-import "./ContentInfo.scss";
 // import { Link } from "react-router-dom";//пакет для ссылок
-import { getNews } from "../../services/getNews.js";
+
+import "./ContentInfo.scss";
+import { getNews } from "services/getNews";
 import ErrorCard from "../ErrorCard/ErrorCard";
 
 const STATUS = {
@@ -24,10 +24,7 @@ class ContentInfo extends Component {
     if (prevProps.searchText !== this.props.searchText) {
       this.setState({ status: STATUS.PENDING });
       // fetch -выносим в отдельную функцию/фаил getNews
-      getNews(
-        this.props.searchText,
-        this.props.language,
-      )
+      getNews(this.props.searchText, this.props.language)
         .then((response) => {
           console.log("URL:", response.url);
           console.log("Status:", response.status);

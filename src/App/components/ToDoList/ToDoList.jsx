@@ -1,10 +1,14 @@
+/* eslint-disable no-unused-vars */
 import React, { Component } from "react";
+import { nanoid } from "nanoid";
 
-import ToDo from "components/ToDo/ToDo";
-import FormToDo from "components/FormToDo/FormToDo";
+// import ToDo from "components/ToDo/ToDo";
+import ToDo from "../ToDo/ToDo";
+// import FormToDo from "components/FormToDo/FormToDo";
+// import FormLogin from "../FormLogin/FormLogin";
+import FormToDo from "../FormToDo/FormToDo";
 // // import todo from "data/todo.json";
 // import todo from "../../data/data.json";
-import { nanoid } from "nanoid";
 
 
 class ToDoList extends Component {
