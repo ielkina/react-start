@@ -2,9 +2,9 @@
 import React, { Component } from "react";
 import { nanoid } from "nanoid"; //пакет
 import "../index.scss";
+import  logo  from "../img/logo.jpg";
 // import Header from "./Header/Header";
 import Header from "./components/Header/Header";
-// import Modal from "./Modal/Modal";
 import Modal from "./components/Modal/Modal";
 // import FormLogin from "./FormLogin/FormLogin";
 import FormLogin from "./components/FormLogin/FormLogin";
@@ -146,9 +146,10 @@ class App extends Component {
           size="medium"
           onClick={() => alert("Cancel clicked!")}
         /> */}
-        <img src="../img/vite.svg" alt="" />
-        <img src="/img/vite.svg" alt="" />
-        <img src="/img/vite.svg" alt="" />
+        {/* подключение в папки public */}
+        {/* <img src="favicon/webpack.svg" alt="" /> */}
+        {/* подключение картинки и папки src  */}
+        {/* <img src={logo} alt="" /> */}
       </div>
     );
   }
