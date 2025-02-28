@@ -1,0 +1,25 @@
+//нижнее подчеркивание перед название файла не дает его компилировать в отдельный css файл
+//шаблонные селекторы
+%list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+%button {
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  outline: none;
+}
+//использование 
+//button {
+// @extend %button;
+//}
+
+//@use 'file (подключаемый файл)' as * (или какое то другое название например color)
+//использование 
+// p {
+// color: color.$white; 
+//}
+

@@ -6,24 +6,19 @@ const API_KEY = "627b604816e34667a27a3ddb897812f2";
 
 export const getNews = (
   searchText,
-  lang = "tr",
-  to = "2025-02-22",
-  from = "2025-02-20",
+  lang = "uk",
   headers = {}
 ) => {
   return fetch(
-    `${BASE_URL}/everything?q=${searchText}&language=${lang}&from=${from}&to=${to}`,
+    `${BASE_URL}/everything?q=${searchText}&language=${lang}`,
     {
       headers: {
         "X-Api-Key": API_KEY,
         ...headers,
       },
     }
-  );
+  )
 };
-
-
-
 
 //проверить какие хэдеры залетают в запрос можно на сайте апи network фильтр fetch/xhr
 

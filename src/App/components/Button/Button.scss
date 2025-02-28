@@ -1,6 +1,15 @@
-@use 'sass:color';
+@use "sass:color";
+@use "sass:map";
 
-$primary-color:rgb(94, 93, 185);
+$colors: (
+  primary: rgb(69, 199, 112),
+  secondary: #6c757d,
+  success: #28a745,
+  danger: #dc3545,
+  warning: #ffc107,
+);
+
+$primary-color: rgb(69, 199, 112);
 $secondary-color: #6c757d;
 $success-color: #28a745;
 $danger-color: #dc3545;
@@ -16,7 +25,8 @@ $warning-color: #ffc107;
       border-color: color.scale($color, $lightness: -10%);
     }
 
-    &:focus, &:active {
+    &:focus,
+    &:active {
       background-color: color.scale($color, $lightness: -15%);
       border-color: color.scale($color, $lightness: -15%);
     }

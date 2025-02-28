@@ -1,16 +1,18 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from "react";
+// import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { nanoid } from "nanoid"; //пакет
-import "../styles/main.scss";
-// import Header from "./Header/Header";
-import Modal from "./Modal/Modal";
-import FormLogin from "./FormLogin/FormLogin";
-import Search from "./Search/Search";
-import ContentInfo from "./ContentInfo/ContentInfo";
-import Button from "./Button/Button";
-// import { Card } from "./Card/Card";
-// import Counter from "./Counter/Counter";
-// import ToDoList from "./ToDoList/ToDoList";
+import "../index.scss";
+import logo from "../img/logo.jpg";
+import Header from "./components/Header/Header";
+import Modal from "./components/Modal/Modal";
+import FormLogin from "./components/FormLogin/FormLogin";
+import Search from "./components/Search/Search";
+import ContentInfo from "./components/ContentInfo/ContentInfo";
+import Button from "./components/Button/Button";
+import { Card } from "./components/Card/Card";
+import Counter from "./components/Counter/Counter";
+import ToDoList from "./components/ToDoList/ToDoList";
 
 class App extends Component {
   state = {
@@ -24,7 +26,7 @@ class App extends Component {
   //   //Виклик setState() у цьому методі викличе повторний рендер – це нормально
   //   // fetch();
   //   console.log("App Mount");
- 
+
   // }
   //обновление
   // shouldComponentUpdate(nextProps, nextState) {
@@ -84,6 +86,7 @@ class App extends Component {
   //метод поиска текста в запросе на бэкэнд
   handleSearch = (searchText) => {
     this.setState({ searchText });
+    console.log("searchText: ", searchText);
   };
   //*методы кнопки
   handleClick() {
@@ -97,43 +100,49 @@ class App extends Component {
   }
   //*
   render() {
+    const { searchText, isShowModal } = this.state; //деструктуризация state
+    const { handleSearch } = this; //деструктуризация методов
     return (
       <div className="container">
         <h1>Hell world</h1>
-        {/* <Header showModal={this.showModal} /> */}
+        <Header showModal={this.showModal}></Header>
         {/* Убираем модалку  */}
-        {/* {false && <Modal>Some</Modal>} */}
-        {/* {this.state.isShowModal && ( */}
-        {/* <Modal closeModal={this.closeModal}> */}
-        {/* Добавляем в форму метод на получение данных */}
-        {/* <FormLogin */}
-        {/* createUser={this.createUser} */}
-        {/* closeModal={this.closeModal} */}
-        {/* /> */}
-        {/* </Modal> */}
-        {/* )} */}
-        <Search handleSearch={this.handleSearch} />
-        <ContentInfo searchText={this.state.searchText} />
-        {/* <Card isOnline /> */}
-        {/* <Card /> */}
-        {/* <Counter /> */}
-        {/* <ToDoList /> */}
+        {false && <Modal>Some</Modal>}
+        {isShowModal && (
+          <Modal closeModal={this.closeModal}>
+            {/* Добавляем в форму метод на получение данных */}
+            <FormLogin
+              createUser={this.createUser}
+              closeModal={this.closeModal}
+            ></FormLogin>
+          </Modal>
+        )}
+        <Search handleSearch={handleSearch}></Search>
+        <ContentInfo searchText={searchText}></ContentInfo>
+        {/* <Card isOnline></Card> */}
+        {/* <Card></Card> */}
+        {/* <Counter></Counter> */}
+        {/* <ToDoList></ToDoList> */}
         {/* <Button
-          type="submit"
-          label="Submit"
-          variant="primary"
-          size="large"
-          onClick={this.handleClick}
-          onMouseEnter={this.handleMouseEnter}
-          onMouseLeave={this.handleMouseLeave}
-          icon={<i className="fas fa-check"></i>}
-        /> */}
+            type="submit"
+            label="Submit"
+            variant="primary"
+            size="large"
+            onClick={this.handleClick}
+            onMouseEnter={this.handleMouseEnter}
+            onMouseLeave={this.handleMouseLeave}
+            icon={<i className="fas fa-check"></i>}
+          /> */}
         {/* <Button
-          label="Cancel"
-          variant="secondary"
-          size="medium"
-          onClick={() => alert("Cancel clicked!")}
-        /> */}
+            label="Cancel"
+            variant="secondary"
+            size="medium"
+            onClick={() => alert("Cancel clicked!")}
+          /> */}
+        {/* подключение в папки public */}
+        {/* <img src="favicon/webpack.svg" alt="" /> */}
+        {/* подключение картинки и папки src  */}
+        {/* <img src={logo} alt="" /> */}
       </div>
     );
   }
