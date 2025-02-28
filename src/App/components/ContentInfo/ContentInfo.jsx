@@ -1,8 +1,8 @@
 //в контент инфо нам надо делать запрос на сервер/бэкэнд
 import { Component } from "react";
 // import { Link } from "react-router-dom";//пакет для ссылок
-
 import "./ContentInfo.scss";
+import css from "./ContentInfo.module.css";
 import { getNews } from "services/getNews";
 import ErrorCard from "../ErrorCard/ErrorCard";
 
@@ -58,10 +58,10 @@ class ContentInfo extends Component {
       return (
         <ul>
           {news.map((el) => (
-            <li key={el.url}>
+            <li key={el.url} className={css.li}>
               <p>{el.author}</p>
               <p>{el.title}</p>
-              <a href={el.url}>
+              <a href={el.url} className={css.a}>
                 <img src={el.urlToImage} alt={el.title} />
                 <p>{el.description}</p>
                 {/* <Link to={el.url}>{el.title}</Link> */}

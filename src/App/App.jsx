@@ -1,24 +1,17 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from "react";
+// import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { nanoid } from "nanoid"; //пакет
 import "../index.scss";
-import  logo  from "../img/logo.jpg";
-// import Header from "./Header/Header";
+import logo from "../img/logo.jpg";
 import Header from "./components/Header/Header";
 import Modal from "./components/Modal/Modal";
-// import FormLogin from "./FormLogin/FormLogin";
 import FormLogin from "./components/FormLogin/FormLogin";
-// import Search from "./Search/Search";
 import Search from "./components/Search/Search";
-// import ContentInfo from "./ContentInfo/ContentInfo";
 import ContentInfo from "./components/ContentInfo/ContentInfo";
-// import Button from "./Button/Button";
 import Button from "./components/Button/Button";
-// import { Card } from "./Card/Card";
 import { Card } from "./components/Card/Card";
-// import Counter from "./Counter/Counter";
 import Counter from "./components/Counter/Counter";
-// import ToDoList from "./ToDoList/ToDoList";
 import ToDoList from "./components/ToDoList/ToDoList";
 
 class App extends Component {
@@ -131,21 +124,21 @@ class App extends Component {
         {/* <Counter></Counter> */}
         {/* <ToDoList></ToDoList> */}
         {/* <Button
-          type="submit"
-          label="Submit"
-          variant="primary"
-          size="large"
-          onClick={this.handleClick}
-          onMouseEnter={this.handleMouseEnter}
-          onMouseLeave={this.handleMouseLeave}
-          icon={<i className="fas fa-check"></i>}
-        /> */}
+            type="submit"
+            label="Submit"
+            variant="primary"
+            size="large"
+            onClick={this.handleClick}
+            onMouseEnter={this.handleMouseEnter}
+            onMouseLeave={this.handleMouseLeave}
+            icon={<i className="fas fa-check"></i>}
+          /> */}
         {/* <Button
-          label="Cancel"
-          variant="secondary"
-          size="medium"
-          onClick={() => alert("Cancel clicked!")}
-        /> */}
+            label="Cancel"
+            variant="secondary"
+            size="medium"
+            onClick={() => alert("Cancel clicked!")}
+          /> */}
         {/* подключение в папки public */}
         {/* <img src="favicon/webpack.svg" alt="" /> */}
         {/* подключение картинки и папки src  */}
