@@ -98,6 +98,6 @@
   },
   "json-comments": {
     "tips": "Установите плагин JsonComments, чтобы активировать возможность комментирования для файлов JSON. См.: https://github.com/zhangfisher/json_comments_extension",
-    ".prettierrc.json": {}
+    "config/.prettierrc.json": {}
   }
 }
