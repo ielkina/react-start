@@ -6,10 +6,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import { ReactSVG } from 'react-svg';
 import shortid from 'shortid';
 //****Стили  */
-import { GlobalStyle } from 'styles/GlobalStyle';
-import { Layout } from 'styles/Layout';
+import { GlobalStyle } from './styles/GlobalStyle';
+import { Layout } from './styles/Layout';
 // import './scss/App.scss'
-//** Картинки */
+//** Картинки, Медиа */
 import { ReactComponent as DeleteIcon } from './icons/delete.svg';
 import { ReactComponent as AddIcon } from './icons/add.svg';
 import iconDelete from './icons/delete.svg';
@@ -22,25 +22,25 @@ import * as API from './services/api';
 // import * as itemApi from './component/item-api';
 
 //*** Компоненты сайта*/
-import Clock from 'components/Clock';
+import Clock from './components/Clock';
 import Form from './components/Form/Form';
 import Container from './components/Container';
 import Counter from './components/Counter';
 import Dropdown from './components/Dropdown';
 import ColorPicker from './components/ColorPicker';
 import TodoList from './components/TodoList';
-import TodoEditor from 'components/TodoEditor';
-import Filter from 'components/Filter/Filter';
-import LoginForm from 'components/LoinForm/LoginForm';
-import Modal from 'components/Modal';
-import { ProductReviewForm } from 'components/ProductReviewForm/ProductReviewForm';
-import Tabs from 'components/Tabs';
-import IconButton from 'components/IconButton';
-import { Icons } from 'components/Icon/Icons';
+import TodoEditor from './components/TodoEditor';
+import Filter from './components/Filter/Filter';
+import LoginForm from './components/LoinForm/LoginForm';
+import Modal from './components/Modal';
+import { ProductReviewForm } from './components/ProductReviewForm/ProductReviewForm';
+// import Tabs from './components/Tabs';
+import IconButton from './components/IconButton';
+import { Icons } from './components/Icon/Icons';
 import PokemonForm from './components/Pokemon/PokemonForm';
 import PokemonInfo from './components/Pokemon/PokemonInfo';
-import { MaterialEditorForm } from 'components/MaterialEditorForm/MaterialEditorForm';
-import { MaterialList } from 'components/MaterialList/MaterialList';
+import { MaterialEditorForm } from './components/MaterialEditorForm/MaterialEditorForm';
+import { MaterialList } from './components/MaterialList/MaterialList';
 
 //*Деструктуризация API */
 // const API = { ...api, ...itemApi };

@@ -1,8 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
-import Todo from 'components/Todo/Todo';
+import Todo from '../Todo/Todo.js';
 
-import './TodoList.scss';
+import './TodoList.css';
 
 const TodoList = ({ todos, onDeleteTodo, onToggleCompleted }) => (
   <ul className="TodoList">

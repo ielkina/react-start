@@ -15,17 +15,8 @@
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "server": "serve -s build -l 4000"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "lint-staged": {
-    "*.js": "eslint --cache --fix",
-    "*.{js,css,md}": "prettier --write"
-  },
   "dependencies": {
+    "source-map-explorer": "^2.5.3",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "@react-icons/all-files": "^4.1.0",
@@ -82,7 +73,35 @@
     "sass": "^1.79.3",
     "styled-components": "^6.1.13",
     "vite": "^5.1.4",
-    "vite-plugin-svgr": "^4.2.0"
+    "vite-plugin-svgr": "^4.2.0",
+    "@fullhuman/postcss-purgecss": "^7.0.2",
+    "@types/estree": "^1.0.6",
+    "@typescript-eslint/parser": "^5.62.0",
+    "css-declaration-sorter": "^7.2.0",
+    "css-loader": "^7.1.2",
+    "cssnano": "^7.0.6",
+    "dart-sass": "^1.25.0",
+    "html-webpack-plugin": "^5.6.3",
+    "polished": "^4.3.1",
+    "postcss-cli": "^11.0.0",
+    "postcss-combine-duplicated-selectors": "^10.0.3",
+    "postcss-combine-media-query": "^1.0.1",
+    "postcss-merge-rules": "^7.0.4",
+    "postcss-sort-media-queries": "^5.2.0",
+    "sass-embedded": "^1.85.0",
+    "sass-loader": "^16.0.5",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.98.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
   },
   "browserslist": {
     "production": [
@@ -96,8 +115,16 @@
       "last 1 safari version"
     ]
   },
+  "optionalDependencies": {
+    "sass-embedded": "^1.85.0"
+  },
   "json-comments": {
     "tips": "Установите плагин JsonComments, чтобы активировать возможность комментирования для файлов JSON. См.: https://github.com/zhangfisher/json_comments_extension",
     ".prettierrc.json": {}
-  }
+  },
+  "development": [
+    "last 1 chrome version",
+    "last 1 firefox version",
+    "last 1 safari version"
+  ]
 }

@@ -1,6 +1,6 @@
 import React from 'react';
-import IconButton from 'components/IconButton';
-import { ReactComponent as IconDelete } from 'icons/delete.svg';
+import IconButton from '../IconButton/IconButton';
+import { ReactComponent as IconDelete } from '../../icons/delete.svg';
 
 const Todo = ({ text, completed, onToggleCompleted, onDeleteTodo }) => (
   <>
