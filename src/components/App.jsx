@@ -6,41 +6,41 @@ import { ToastContainer, toast } from 'react-toastify';
 import { ReactSVG } from 'react-svg';
 import shortid from 'shortid';
 //****Стили  */
-import { GlobalStyle } from './styles/GlobalStyle';
-import { Layout } from './styles/Layout';
+import { GlobalStyle } from '../styles/GlobalStyle';
+import { Layout } from '../styles/Layout';
 // import './scss/App.scss'
 //** Картинки, Медиа */
 import { ReactComponent as DeleteIcon } from './icons/delete.svg';
 import { ReactComponent as AddIcon } from './icons/add.svg';
 import iconDelete from './icons/delete.svg';
 //*Дата файлы*/
-import tabs from './data/tabs.json';
-import initialTodos from './data/todos.json';
+import tabs from '../data/tabs.json';
+import initialTodos from '../data/todos.json';
 //**REST запросы  */
-import * as API from './services/api';
+import * as API from '../services/api';
 // import * as api from './component/api';
 // import * as itemApi from './component/item-api';
 
 //*** Компоненты сайта*/
-import Clock from './components/Clock';
-import Form from './components/Form/Form';
-import Container from './components/Container';
-import Counter from './components/Counter';
-import Dropdown from './components/Dropdown';
-import ColorPicker from './components/ColorPicker';
-import TodoList from './components/TodoList';
-import TodoEditor from './components/TodoEditor';
-import Filter from './components/Filter/Filter';
-import LoginForm from './components/LoinForm/LoginForm';
-import Modal from './components/Modal';
-import { ProductReviewForm } from './components/ProductReviewForm/ProductReviewForm';
+import Clock from './Clock';
+import Form from './Form/Form';
+import Container from './Container';
+import Counter from './Counter';
+import Dropdown from './Dropdown';
+import ColorPicker from './ColorPicker';
+import TodoList from './TodoList';
+import TodoEditor from './TodoEditor';
+import Filter from './Filter/Filter';
+import LoginForm from './LoinForm/LoginForm';
+import Modal from './Modal';
+import { ProductReviewForm } from './ProductReviewForm/ProductReviewForm';
 // import Tabs from './components/Tabs';
-import IconButton from './components/IconButton';
-import { Icons } from './components/Icon/Icons';
-import PokemonForm from './components/Pokemon/PokemonForm';
-import PokemonInfo from './components/Pokemon/PokemonInfo';
-import { MaterialEditorForm } from './components/MaterialEditorForm/MaterialEditorForm';
-import { MaterialList } from './components/MaterialList/MaterialList';
+import IconButton from './IconButton';
+import { Icons } from './Icon/Icons';
+import PokemonForm from './Pokemon/PokemonForm';
+import PokemonInfo from './Pokemon/PokemonInfo';
+import { MaterialEditorForm } from './MaterialEditorForm/MaterialEditorForm';
+import { MaterialList } from './MaterialList/MaterialList';
 
 //*Деструктуризация API */
 // const API = { ...api, ...itemApi };
@@ -59,7 +59,6 @@ class App extends Component {
     showModal: false,
     pokemonName: '',
   };
-
   // componentDidMount() {
   //   console.log('componentDidMount');
   //   const todos = localStorage.getItem('todos');
@@ -99,13 +98,11 @@ class App extends Component {
 
     // this.toggleModal();
   };
-
   deleteTodo = todoId => {
     this.setState(prevState => ({
       todos: prevState.todos.filter(todo => todo.id !== todoId),
     }));
   };
-
   toggleCompleted = todoId => {
     // this.setState(prevState => ({
     //   todos: prevState.todos.map(todo => {
@@ -126,11 +123,9 @@ class App extends Component {
       ),
     }));
   };
-
   changeFilter = e => {
     this.setState({ filter: e.currentTarget.value });
   };
-
   getVisibleTodos = () => {
     const { filter, todos } = this.state;
     const normalizedFilter = filter.toLowerCase();
@@ -139,26 +134,21 @@ class App extends Component {
       todo.text.toLowerCase().includes(normalizedFilter),
     );
   };
-
   calculateCompletedTodos = () => {
     const { todos } = this.state;
-
     return todos.reduce(
       (total, todo) => (todo.completed ? total + 1 : total),
       0,
     );
   };
-
   toggleModal = () => {
     this.setState(({ showModal }) => ({
       showModal: !showModal,
     }));
   };
-
   handleFormSubmit = pokemonName => {
     this.setState({ pokemonName });
   };
-
   async componentDidMount() {
     try {
       this.setState({ isLoading: true });
@@ -169,7 +159,6 @@ class App extends Component {
       console.log(error);
     }
   }
-
   // async addMaterial(values) {  //NOTE - контекст не привязывает
   addMaterial = async values => {
     //привязка контекста
@@ -196,7 +185,6 @@ class App extends Component {
       console.log(error);
     }
   };
-
   updateMaterial = async fields => {
     try {
       const updatedMaterial = await API.updateMaterial(fields);
@@ -210,7 +198,6 @@ class App extends Component {
       console.log(error);
     }
   };
-
   render() {
     //NOTE - рефакторинг вычисляемых данных в методы
     const { todos, filter, showModal } = this.state;

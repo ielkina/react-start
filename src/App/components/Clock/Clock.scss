@@ -1,0 +1,8 @@
+// eslint-disable-next-line
+@import "/src/styles/shared";
+
+.Clock__face {
+  font-size: 64px;
+  text-align: center;
+  color: $color;
+}
