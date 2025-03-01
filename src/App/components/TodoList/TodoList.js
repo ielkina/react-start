@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
-import Todo from 'components/Todo/Todo';
+
+import Todo from '../Todo/Todo';
 
 import './TodoList.scss';
 

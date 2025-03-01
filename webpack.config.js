@@ -1,14 +1,14 @@
-const path = require("path");
+const path = require('path');
 // const sass = require("sass");
-const sass = require("sass-embedded");
-const purgecss = require("@fullhuman/postcss-purgecss");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const sass = require('sass-embedded');
+const purgecss = require('@fullhuman/postcss-purgecss');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: "./src/index.js", // Входная точка приложения
+  entry: './src/index.js', // Входная точка приложения
   output: {
-    path: path.resolve(__dirname, "dist"), // Выходная папка
-    filename: "bundle.js", // Имя выходного файла
+    path: path.resolve(__dirname, 'dist'), // Выходная папка
+    filename: 'bundle.js', // Имя выходного файла
   },
   module: {
     rules: [
@@ -16,33 +16,33 @@ module.exports = {
         test: /\.js$/, // Регулярное выражение для всех .js файлов
         exclude: /node_modules/, // Исключаем папку node_modules
         use: {
-          loader: "babel-loader", // Используем babel-loader для транспиляции
+          loader: 'babel-loader', // Используем babel-loader для транспиляции
         },
       },
       {
         test: /\.s[ac]ss$/i,
         exclude: /node_modules/,
         use: [
-          "style-loader",
+          'style-loader',
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
               sourceMap: true,
             },
           },
           {
-            loader: "postcss-loader",
+            loader: 'postcss-loader',
             options: {
               postcssOptions: {
                 plugins: [
-                  require("postcss-merge-rules"),
-                  require("postcss-sort-media-queries")(),
-                  require("css-declaration-sorter")({
-                    order: "concentric-css",
+                  require('postcss-merge-rules'),
+                  require('postcss-sort-media-queries')(),
+                  require('css-declaration-sorter')({
+                    order: 'concentric-css',
                   }),
-                  require("cssnano")({
+                  require('cssnano')({
                     preset: [
-                      "default",
+                      'default',
                       {
                         mergeRules: true, // Включает объединение одинаковых селекторов
                         discardDuplicates: true, // Удаляет повторяющиеся правила
@@ -51,26 +51,26 @@ module.exports = {
                   }),
                   purgecss({
                     content: [
-                      "./src/**/*.js",
-                      "./src/**/*.jsx",
-                      "./public/index.html",
+                      './src/**/*.js',
+                      './src/**/*.jsx',
+                      './public/index.html',
                     ],
                   }),
                 ],
               },
             },
           },
-          "resolve-url-loader",
+          'resolve-url-loader',
           {
-            loader: "sass-loader",
+            loader: 'sass-loader',
             implementation: sass,
             options: {
-              api: "modern-compiler",
-              implementation: require("sass"),
+              api: 'modern-compiler',
+              implementation: require('sass'),
               sourceMap: true,
             },
             sassOptions: {
-              silenceDeprecations: ["legacy-js-api"],
+              silenceDeprecations: ['legacy-js-api'],
             },
             sass,
           },
@@ -80,30 +80,30 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./public/index.html",
-      inject: "body", // Использование только одного скрипта
-      scriptLoading: "defer", // Убедитесь, что `defer` без значения
+      template: './public/index.html',
+      inject: 'body', // Использование только одного скрипта
+      scriptLoading: 'defer', // Убедитесь, что `defer` без значения
     }),
   ],
   resolve: {
     alias: {
       //настройка автозаполнение путей
-      'App': path.resolve(__dirname, 'src/App/'),
-      'components': path.resolve(__dirname, 'src/components/'),
-      'data': path.resolve(__dirname, 'src/data/'),
-      'icons': path.resolve(__dirname, 'src/icons/'),
-      'img': path.resolve(__dirname, 'src/img/'),
-      'scss': path.resolve(__dirname, 'src/scss/'),
-      'services': path.resolve(__dirname, 'src/services/'),
-      'style': path.resolve(__dirname, 'src/style/'),
+      App: path.resolve(__dirname, 'src/App/'),
+      components: path.resolve(__dirname, 'src/App/components/'),
+      data: path.resolve(__dirname, 'src/data/'),
+      icons: path.resolve(__dirname, 'src/icons/'),
+      img: path.resolve(__dirname, 'src/img/'),
+      scss: path.resolve(__dirname, 'src/scss/'),
+      services: path.resolve(__dirname, 'src/services/'),
+      style: path.resolve(__dirname, 'src/style/'),
     },
-    extensions: [".js", ".jsx", "json"], // Расширения файлов, которые будет обрабатывать webpack
+    extensions: ['.js', '.jsx', 'json'], // Расширения файлов, которые будет обрабатывать webpack
   },
   stats: {
-    loggingDebug: ["sass-loader"],
+    loggingDebug: ['sass-loader'],
   },
   devServer: {
-    contentBase: path.join(__dirname, "dist"), // Путь к статическим файлам
+    contentBase: path.join(__dirname, 'dist'), // Путь к статическим файлам
     compress: true, // Включает сжатие
     port: 9000, // Порт для dev server
     open: true,
