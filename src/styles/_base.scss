@@ -1,6 +1,7 @@
 // eslint-disable-next-line
 // @import 'Shared';
-@use 'Shared' as *;
+@use "shared" as *;
+// @forward "shared";
 
 body {
   margin: 0;
@@ -10,6 +11,11 @@ body {
   font-family: $primary-font-stack;
   font-size: 14px;
   color: red;
+}
+
+body {
+  color: $blue;
+  text-decoration: none;
 }
 
 img {
