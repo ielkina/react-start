@@ -7,7 +7,7 @@ import 'modern-normalize/modern-normalize.css';
 import 'styles/_base.scss';
 import 'index.css';
 import App from 'App/App';
-import { GlobalStyle } from 'styles/GlobalStyle';
+import { GlobalStyle } from 'assets/styles/GlobalStyle';
 import { Example1 } from 'App/pages/Example1';
 import { Reader } from 'App/components/Reader/Reader';
 import publications from 'data/publications.json'
