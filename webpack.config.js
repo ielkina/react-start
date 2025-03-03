@@ -93,8 +93,8 @@ module.exports = {
           "resolve-url-loader",
           {
             loader: "sass-loader",
-            implementation: require("sass"), // Подключение Dart Sass
             options: {
+              implementation: require("sass"), // Подключение Dart Sass
               sourceMap: true,
               api: "modern-compiler",
             },
@@ -119,15 +119,16 @@ module.exports = {
   resolve: {
     alias: {
       //настройка автозаполнение путей
-      src: path.resolve(__dirname, "src"), // указываем абсолютный путь к 'src' директории
-      App: path.resolve(__dirname, "src/App/"),
-      components: path.resolve(__dirname, "src/App/components/"),
-      data: path.resolve(__dirname, "src/data/"),
-      icons: path.resolve(__dirname, "src/icons/"),
-      img: path.resolve(__dirname, "src/img/"),
-      scss: path.resolve(__dirname, "src/scss/"),
-      services: path.resolve(__dirname, "src/services/"),
-      style: path.resolve(__dirname, "src/style/"),
+      "/": path.resolve(__dirname, "/src"), // указываем абсолютный путь к 'src' директории
+      // 'src': path.resolve(__dirname, "src/"), // указываем абсолютный путь к 'src' директории
+      // App: path.resolve(__dirname, "src/App/"),
+      // components: path.resolve(__dirname, "src/App/components/"),
+      // data: path.resolve(__dirname, "src/data/"),
+      // icons: path.resolve(__dirname, "src/icons/"),
+      // img: path.resolve(__dirname, "src/img/"),
+      // scss: path.resolve(__dirname, "src/scss/"),
+      // services: path.resolve(__dirname, "src/services/"),
+      // style: path.resolve(__dirname, "src/style/"),
     },
     extensions: [".js", ".jsx", "json"], // Расширения файлов, которые будет обрабатывать webpack
   },

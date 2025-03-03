@@ -1,5 +1,6 @@
 // eslint-disable-next-line
-@import '/src/styles/base.scss';
+// @import '/src/styles/base.scss';
+@use '../../../assets/style/base' as *;
 
 .Modal__backdrop {
   position: fixed;

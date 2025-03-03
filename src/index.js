@@ -4,13 +4,14 @@ import ReactDOM from 'react-dom/client';
 import * as Sentry from '@sentry/react';
 import { ThemeProvider } from 'styled-components';
 import 'modern-normalize/modern-normalize.css';
-import 'styles/_base.scss';
+// import 'assets/styles/_base.scss';
+import './assets/style/_base.scss';
 import 'index.css';
-import App from 'App/App';
-import { GlobalStyle } from 'assets/styles/GlobalStyle';
-import { Example1 } from 'App/pages/Example1';
-import { Reader } from 'App/components/Reader/Reader';
-import publications from 'data/publications.json'
+import App from './App/App';
+import { GlobalStyle } from './assets/style/GlobalStyle';
+import { Example1 } from './App/pages/Example1';
+import { Reader } from './App/components/Reader/Reader';
+import publications from './App/data/publications.json';
 
 const theme = {};
 

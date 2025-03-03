@@ -1,6 +1,7 @@
 // eslint-disable no-unused-vars
 // eslint-disable-next-line
-@import '/src/styles/shared.scss';
+// @import '/src/styles/shared.scss';
+@use '../../../assets/style/shared' as *;
 
 .TodoEditor {
   width: 600px;

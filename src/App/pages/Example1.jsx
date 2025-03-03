@@ -1,10 +1,7 @@
 import { Component } from 'react';
-// import { VideoList } from '../VideoList/VideoList';
 import { VideoList } from '../components/VideoList/VideoList';
-// import { Player } from '../Player/Player';
 import { Player } from '../components/Player/Player';
-// import videos from 'data/videos.json';
-import videos from 'data/videos.json'
+import videos from '../data/videos.json'
 
 export class Example1 extends Component {
   state = {

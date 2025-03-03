@@ -1,7 +1,8 @@
 // eslint-disable-next-line
 // eslint-disable no-unused-vars
 // eslint-disable-next-line
-@import '/src/styles/colors';
+// @import '/src/styles/colors';
+@use '../../../assets/style/colors' as *;
 
 .IconButton {
   margin: 0;

@@ -6,18 +6,18 @@ import { ToastContainer, toast } from 'react-toastify';
 import { ReactSVG } from 'react-svg';
 import shortid from 'shortid';
 //****Стили  */
-import { GlobalStyle } from '../assets/styles/GlobalStyle';
-import { Layout } from '../assets/styles/Layout';
+import { GlobalStyle } from '../assets/style/GlobalStyle';
+import { Layout } from '../assets/style/Layout';
 // import './scss/App.scss'
 //** Картинки */
-import { ReactComponent as DeleteIcon } from '../icons/delete.svg';
-import { ReactComponent as AddIcon } from '../icons/add.svg';
-import iconDelete from '../icons/delete.svg';
+import { ReactComponent as DeleteIcon } from '../assets/icons/delete.svg';
+import { ReactComponent as AddIcon } from '../assets/icons/add.svg';
+import iconDelete from '../assets/icons/delete.svg';
 //*Дата файлы*/
-import tabs from '../data/tabs.json';
-import initialTodos from '../data/todos.json';
+import tabs from './data/tabs.json';
+import initialTodos from './data/todos.json';
 //**REST запросы  */
-import * as API from './services/api';
+import * as API from './services/api.js';
 // import * as api from './component/api';
 // import * as itemApi from './component/item-api';
 

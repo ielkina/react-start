@@ -1,5 +1,6 @@
 import React from "react";
-import { ReactComponent as AddIcon } from 'icons/add.svg'
+// import { ReactComponent as AddIcon } from 'icons/add.svg'
+import { ReactComponent as AddIcon } from '../../../assets/icons/add.svg';
 
 export const Icons = ({ name, className, size }) => {
   if (name === "add")

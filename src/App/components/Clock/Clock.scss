@@ -1,5 +1,7 @@
 // eslint-disable-next-line
-@import '/src/styles/shared.scss';
+// @import '/src/styles/shared.scss';
+@use "../../../assets/style/shared" as *;
+
 .Clock__face {
   font-size: 64px;
   text-align: center;
