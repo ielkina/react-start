@@ -1,48 +1,55 @@
 //Убираем ошибки
 /* eslint-disable no-unused-vars */
-//*Пакеты сборки
-import React, { Component } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
-import { ReactSVG } from 'react-svg';
-import shortid from 'shortid';
-//****Стили  */
-import { GlobalStyle } from '../assets/style/GlobalStyle';
-import { Layout } from '../assets/style/Layout';
+
+//*** Пакеты сборки ***
+import React, { Component } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import { ReactSVG } from "react-svg";
+import shortid from "shortid";
+
+//*** Стили  ***
+import { GlobalStyle } from "../assets/style/GlobalStyle";
+import { Layout } from "../assets/style/Layout";
 // import './scss/App.scss'
-//** Картинки */
-import { ReactComponent as DeleteIcon } from '../assets/icons/delete.svg';
-import { ReactComponent as AddIcon } from '../assets/icons/add.svg';
-import iconDelete from '../assets/icons/delete.svg';
-//*Дата файлы*/
-import tabs from './data/tabs.json';
-import initialTodos from './data/todos.json';
-//**REST запросы  */
-import * as API from './services/api.js';
+
+//*** Медиа ***
+import { ReactComponent as DeleteIcon } from "../assets/icons/delete.svg";
+import { ReactComponent as AddIcon } from "../assets/icons/add.svg";
+import iconDelete from "../assets/icons/delete.svg";
+
+//*** DATA файлы ***
+import tabs from "./data/tabs.json";
+import initialTodos from "./data/todos.json";
+
+//*** Api запросы  ***
+import * as API from "./services/api.js";
 // import * as api from './component/api';
 // import * as itemApi from './component/item-api';
 
-//*** Компоненты сайта*/
-import Clock from './components/Clock';
-import Form from './components/Form/Form';
-import Container from './components/Container';
-import Counter from './components/Counter';
-import Dropdown from './components/Dropdown';
-import ColorPicker from './components/ColorPicker';
-import TodoList from './components/TodoList';
-import TodoEditor from './components/TodoEditor';
-import Filter from './components/Filter/Filter';
-import LoginForm from './components/LoinForm/LoginForm';
-import Modal from './components/Modal';
-import { ProductReviewForm } from './components/ProductReviewForm/ProductReviewForm';
-import Tabs from './components/Tabs';
-import IconButton from './components/IconButton';
-import { Icons } from './components/Icon/Icons';
-import PokemonForm from './components/Pokemon/PokemonForm';
-import PokemonInfo from './components/Pokemon/PokemonInfo';
-import { MaterialEditorForm } from './components/MaterialEditorForm/MaterialEditorForm';
-import { MaterialList } from './components/MaterialList/MaterialList';
+//*** Компоненты сайта ***
+import Container from "./components/Container";
+import Form from "./components/Form/Form";
+import Counter from "./components/Counter";
+import Dropdown from "./components/Dropdown";
+import ColorPicker from "./components/ColorPicker";
+import TodoList from "./components/TodoList";
+import TodoEditor from "./components/TodoEditor";
+import Filter from "./components/Filter/Filter";
+import LoginForm from "./components/LoinForm/LoginForm";
+import Modal from "./components/Modal";
+import { ProductReviewForm } from "./components/ProductReviewForm/ProductReviewForm";
+import Tabs from "./components/Tabs";
+import IconButton from "./components/IconButton";
+import { Icons } from "./components/Icon/Icons";
+import PokemonForm from "./components/Pokemon/PokemonForm";
+import PokemonInfo from "./components/Pokemon/PokemonInfo";
+import { MaterialEditorForm } from "./components/MaterialEditorForm/MaterialEditorForm";
+import { MaterialList } from "./components/MaterialList/MaterialList";
+import Clock from "./components/Clock";
+// import OldClock from "./components/Clock/Clock";
+import SignupForm from "./components/SignupForm/SignupForm";
 
-//*Деструктуризация API */
+//*** Деструктуризация API ***
 // const API = { ...api, ...itemApi };
 
 class App extends Component {
@@ -55,9 +62,9 @@ class App extends Component {
     //
     todos: initialTodos,
     // todos: [],
-    filter: '',
+    filter: "",
     showModal: false,
-    pokemonName: '',
+    pokemonName: "",
   };
 
   // componentDidMount() {
@@ -77,16 +84,16 @@ class App extends Component {
     const prevTodos = prevState.todos;
 
     if (nextTodos !== prevTodos) {
-      console.log('обновилось поле todos');
+      console.log("обновилось поле todos");
     }
-    localStorage.setItem('todos', JSON.stringify(this.state.todos));
+    localStorage.setItem("todos", JSON.stringify(this.state.todos));
     console.log(prevState);
     console.log(this.state);
     if (nextTodos.length > prevTodos.length && prevTodos.length !== 0) {
       this.toggleModal();
     }
   }
-  addTodo = text => {
+  addTodo = (text) => {
     const todo = {
       id: shortid.generate(),
       text,
@@ -100,13 +107,13 @@ class App extends Component {
     // this.toggleModal();
   };
 
-  deleteTodo = todoId => {
-    this.setState(prevState => ({
-      todos: prevState.todos.filter(todo => todo.id !== todoId),
+  deleteTodo = (todoId) => {
+    this.setState((prevState) => ({
+      todos: prevState.todos.filter((todo) => todo.id !== todoId),
     }));
   };
 
-  toggleCompleted = todoId => {
+  toggleCompleted = (todoId) => {
     // this.setState(prevState => ({
     //   todos: prevState.todos.map(todo => {
     //     if (todo.id === todoId) {
@@ -121,13 +128,13 @@ class App extends Component {
 
     //NOTE - рефакторинг
     this.setState(({ todos }) => ({
-      todos: todos.map(todo =>
+      todos: todos.map((todo) =>
         todo.id === todoId ? { ...todo, completed: !todo.completed } : todo,
       ),
     }));
   };
 
-  changeFilter = e => {
+  changeFilter = (e) => {
     this.setState({ filter: e.currentTarget.value });
   };
 
@@ -135,7 +142,7 @@ class App extends Component {
     const { filter, todos } = this.state;
     const normalizedFilter = filter.toLowerCase();
 
-    return todos.filter(todo =>
+    return todos.filter((todo) =>
       todo.text.toLowerCase().includes(normalizedFilter),
     );
   };
@@ -155,7 +162,7 @@ class App extends Component {
     }));
   };
 
-  handleFormSubmit = pokemonName => {
+  handleFormSubmit = (pokemonName) => {
     this.setState({ pokemonName });
   };
 
@@ -171,12 +178,12 @@ class App extends Component {
   }
 
   // async addMaterial(values) {  //NOTE - контекст не привязывает
-  addMaterial = async values => {
+  addMaterial = async (values) => {
     //привязка контекста
     try {
       this.setState({ isLoading: true });
       const material = await API.addMaterial(values);
-      this.setState(state => ({
+      this.setState((state) => ({
         materials: [...state.materials, material],
         isLoading: false,
       }));
@@ -185,11 +192,11 @@ class App extends Component {
     } finally {
     }
   };
-  deleteMaterial = async id => {
+  deleteMaterial = async (id) => {
     try {
       await API.deleteMaterial(id);
-      this.setState(state => ({
-        materials: state.materials.filter(material => material.id !== id),
+      this.setState((state) => ({
+        materials: state.materials.filter((material) => material.id !== id),
       }));
     } catch (error) {
       this.setState({ error: true });
@@ -197,11 +204,11 @@ class App extends Component {
     }
   };
 
-  updateMaterial = async fields => {
+  updateMaterial = async (fields) => {
     try {
       const updatedMaterial = await API.updateMaterial(fields);
-      this.setState(state => ({
-        materials: state.materials.map(material =>
+      this.setState((state) => ({
+        materials: state.materials.map((material) =>
           material.id === fields.id ? updatedMaterial : material,
         ),
       }));
@@ -228,7 +235,8 @@ class App extends Component {
         <GlobalStyle />
         <Layout>
           <Container>
-            <Clock></Clock>
+            <Clock/>
+            <SignupForm/>
             {/* {error && (
               <p>
                 Ой! Что-то пошло не так :( Перезагрузите страницу и попробуйте

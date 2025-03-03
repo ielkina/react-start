@@ -15,16 +15,6 @@
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "server": "serve -s build -l 4000"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "lint-staged": {
-    "*.js": "eslint --cache --fix",
-    "*.{js,css,md}": "prettier --write"
-  },
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
@@ -40,7 +30,6 @@
     "css-loader": "^7.1.2",
     "date-fns": "^4.1.0",
     "formik": "^2.4.6",
-    "modern-normalize": "^2.0.0",
     "nanoid": "^5.0.7",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.8.1",
@@ -82,9 +71,23 @@
     "prettier": "^3.3.3",
     "prop-types": "^15.7.2",
     "sass": "^1.79.3",
+    "sass-resources-loader": "^2.2.5",
     "styled-components": "^6.1.13",
     "vite": "^5.1.4",
     "vite-plugin-svgr": "^4.2.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
+  },
+  "optionalDependencies": {
+    "sass-embedded": "^1.70.0"
   },
   "browserslist": {
     "production": [
