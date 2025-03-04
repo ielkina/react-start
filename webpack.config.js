@@ -30,7 +30,13 @@ module.exports = {
         test: /\.css$/,
         use: [
           "style-loader",
-          "css-loader",
+          // "css-loader",
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+            },
+          },
           {
             loader: "postcss-loader",
             options: {
@@ -481,4 +487,3 @@ module.exports = {
 //     },
 //   },
 // };
-
