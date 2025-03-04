@@ -31,7 +31,7 @@ import Container from "./components/Container";
 import Form from "./components/Form/Form";
 import Counter from "./components/Counter";
 import Dropdown from "./components/Dropdown";
-import ColorPicker from "./components/ColorPicker";
+// import ColorPicker from "./components/ColorPicker";
 import TodoList from "./components/TodoList";
 import TodoEditor from "./components/TodoEditor";
 import Filter from "./components/Filter/Filter";
@@ -48,9 +48,29 @@ import { MaterialList } from "./components/MaterialList/MaterialList";
 import Clock from "./components/Clock";
 // import OldClock from "./components/Clock/Clock";
 import SignupForm from "./components/SignupForm/SignupForm";
+import ColorPicker from "./components/ColorPicker";
 
 //*** Деструктуризация API ***
 // const API = { ...api, ...itemApi };
+
+
+const colorPickerOptions = [
+  { label: 'red', color: '#F44336' },
+  { label: 'green', color: '#4CAF50' },
+  { label: 'blue', color: '#2196F3' },
+  { label: 'grey', color: '#607D8B' },
+  { label: 'pink', color: '#E91E63' },
+  { label: 'indigo', color: '#3F51B5' },
+];
+
+const containerStyles = {
+  maxWidth: 1170,
+  marginLeft: 'auto',
+  marginRight: 'auto',
+  paddingLeft: 15,
+  paddingRight: 15,
+};
+
 
 class App extends Component {
   //NOTE state и коллекции в state не мутируем
@@ -237,6 +257,7 @@ class App extends Component {
           <Container>
             <Clock/>
             <SignupForm/>
+            <ColorPicker/>
             {/* {error && (
               <p>
                 Ой! Что-то пошло не так :( Перезагрузите страницу и попробуйте

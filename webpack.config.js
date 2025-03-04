@@ -117,12 +117,12 @@ module.exports = {
               implementation: require.resolve("sass"), // Prefer `dart-sass`, even if `sass-embedded` is available
               sourceMap: true,
               api: "modern-compiler",
-            },
-            sassOptions: {
-              style: `compressed`,
-              silent: true,
-              silenceDeprecations: ["legacy-js-api"],
-              loadPaths: ["absolute/path/a", "absolute/path/b"],
+              sassOptions: {
+                style: `compressed`,
+                silent: true,
+                silenceDeprecations: ["legacy-js-api"],
+                loadPaths: ["absolute/path/a", "absolute/path/b"],
+              },
             },
             sass,
           },
@@ -142,7 +142,7 @@ module.exports = {
     alias: {
       //настройка автозаполнение путей
       "/": path.resolve(__dirname, "/src"), // указываем абсолютный путь к 'src' директории
-      // 'src': path.resolve(__dirname, "src/"), // указываем абсолютный путь к 'src' директории
+      src: path.resolve(__dirname, "src/"), // указываем абсолютный путь к 'src' директории
       // App: path.resolve(__dirname, "src/App/"),
       // components: path.resolve(__dirname, "src/App/components/"),
       // data: path.resolve(__dirname, "src/data/"),
