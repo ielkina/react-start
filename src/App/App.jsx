@@ -8,6 +8,7 @@ import { ReactSVG } from "react-svg";
 import shortid from "shortid";
 
 //*** Стили  ***
+//*** Стили  ***
 import { GlobalStyle } from "../assets/style/GlobalStyle";
 import { Layout } from "../assets/style/Layout";
 // import './scss/App.scss'
