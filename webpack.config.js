@@ -7,6 +7,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const postcssCombineDuplicatedSelectors = require("postcss-combine-duplicated-selectors");
 
 module.exports = {
+  base: "/react-start/",
   entry: "./src/index.js", // Входная точка приложения
   output: {
     path: path.resolve(__dirname, "dist"), // Выходная папка
