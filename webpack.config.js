@@ -169,20 +169,34 @@ module.exports = {
     //     },
     //     compress: true,
     //     port: 3000,
-    setupMiddlewares: (middlewares, devServer) => {
-      // Ваши настройки middleware
-      if (!devServer) {
-        throw new Error("webpack-dev-server is not defined");
-      }
-      // Пример использования middleware
-      devServer.app.get("/some/path", function (req, res) {
-        res.json({ custom: "response" });
-      });
-
-      return middlewares;
-    },
+    // setupMiddlewares: (middlewares, devServer) => {
+    //   // Ваши настройки middleware
+    //   if (!devServer) {
+    //     throw new Error("webpack-dev-server is not defined");
+    //   }
+    //   // Пример использования middleware
+    //   devServer.app.get("/some/path", function (req, res) {
+    //     res.json({ custom: "response" });
+    //   });
+    //   return middlewares;
+    // },
   },
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //****** */
 // module: {

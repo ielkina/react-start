@@ -5,15 +5,15 @@
   "homepage": "https://ielkina.github.io/react-start/",
   "scripts": {
     "start": "react-scripts start",
+    "dev": "vite",
     "build": "react-scripts build",
+    "deploy": "npm run build && gh-pages -d build",
+    "server": "serve -s build -l 4000",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "vite",
     "preview": "vite preview",
     "pre deploy": "npm run build",
-    "server": "serve -s build -l 4000",
     "lint:js": "eslint src/**/*.{js,jsx}",
-    "deploy": "npm run build && gh-pages -d build",
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0"
   },
