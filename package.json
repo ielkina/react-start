@@ -8,14 +8,14 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint:js": "eslint src/**/*.{js,jsx}",
     "dev": "vite",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "analyze": "source-map-explorer 'build/static/js/*.js'",
-    "server": "serve -s build -l 4000",
     "pre deploy": "npm run build",
-    "deploy": "npm run build && gh-pages -d build"
+    "server": "serve -s build -l 4000",
+    "lint:js": "eslint src/**/*.{js,jsx}",
+    "deploy": "npm run build && gh-pages -d build",
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",
