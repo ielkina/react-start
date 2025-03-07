@@ -1,9 +1,9 @@
 import { Component } from 'react';
-import PokemonDataView from './PokemonDataView';
-import PokemonErrorView from './PokemonErrorView';
-import PokemonPendingView from './PokemonPendingView';
+import PokemonDataView from './PokemonDataView.js';
+import PokemonErrorView from './PokemonErrorView.js';
+import PokemonPendingView from './PokemonPendingView.js';
 // import pokemonAPI from '../../../services/pokemon-api';
-import pokemonAPI from 'App/services/pokemon-api'
+import pokemonAPI from 'App/services/pokemon-api.js'
 
 const Status = {
   IDLE: 'idle',

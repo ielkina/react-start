@@ -1,2 +1,2 @@
-export { default } from './ColorPickerOld';
+export { default } from './ColorPickerOld.jsx';
 

@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import { ReactComponent as IconDelete } from '../../../assets/icons/delete.svg';
-import IconButton from '../IconButton';
+import IconButton from '../IconButton/IconButton.js';
 
 const Todo = ({ text, completed, onToggleCompleted, onDeleteTodo }) => (
   <>

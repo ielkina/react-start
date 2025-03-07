@@ -1,11 +1,11 @@
 //Убираем ошибки
 /* eslint-disable no-unused-vars */
-
 //*** Пакеты сборки ***
 import React, { Component } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { ReactSVG } from "react-svg";
 import shortid from "shortid";
+
 
 //*** Стили  ***
 import { GlobalStyle } from "../assets/style/GlobalStyle";
@@ -45,32 +45,30 @@ import PokemonForm from "./components/Pokemon/PokemonForm";
 import PokemonInfo from "./components/Pokemon/PokemonInfo";
 import { MaterialEditorForm } from "./components/MaterialEditorForm/MaterialEditorForm";
 import { MaterialList } from "./components/MaterialList/MaterialList";
-import Clock from "./components/Clock";
 // import OldClock from "./components/Clock/Clock";
+import Clock from "./components/Clock";
 import SignupForm from "./components/SignupForm/SignupForm";
 import ColorPicker from "./components/ColorPicker";
 
 //*** Деструктуризация API ***
 // const API = { ...api, ...itemApi };
 
-
 const colorPickerOptions = [
-  { label: 'red', color: '#F44336' },
-  { label: 'green', color: '#4CAF50' },
-  { label: 'blue', color: '#2196F3' },
-  { label: 'grey', color: '#607D8B' },
-  { label: 'pink', color: '#E91E63' },
-  { label: 'indigo', color: '#3F51B5' },
+  { label: "red", color: "#F44336" },
+  { label: "green", color: "#4CAF50" },
+  { label: "blue", color: "#2196F3" },
+  { label: "grey", color: "#607D8B" },
+  { label: "pink", color: "#E91E63" },
+  { label: "indigo", color: "#3F51B5" },
 ];
 
 const containerStyles = {
   maxWidth: 1170,
-  marginLeft: 'auto',
-  marginRight: 'auto',
+  marginLeft: "auto",
+  marginRight: "auto",
   paddingLeft: 15,
   paddingRight: 15,
 };
-
 
 class App extends Component {
   //NOTE state и коллекции в state не мутируем
@@ -79,9 +77,8 @@ class App extends Component {
     materials: [],
     isLoading: false,
     error: false,
-    //
     todos: initialTodos,
-    // todos: [],
+    /* todos: [],*/
     filter: "",
     showModal: false,
     pokemonName: "",
@@ -252,12 +249,10 @@ class App extends Component {
     const { materials, isLoading, error } = this.state;
     return (
       <>
+
         <GlobalStyle />
         <Layout>
           <Container>
-            <Clock/>
-            <SignupForm/>
-            <ColorPicker/>
             {/* {error && (
               <p>
                 Ой! Что-то пошло не так :( Перезагрузите страницу и попробуйте
@@ -266,7 +261,7 @@ class App extends Component {
             )} */}
             {/* <MaterialEditorForm onSubmit={this.addMaterial} /> */}
             {/* {isLoading ? (
-              'Загружаем материалы'
+              "Загружаем материалы"
             ) : (
               <MaterialList
                 items={materials}
@@ -274,68 +269,69 @@ class App extends Component {
                 onUpdate={this.updateMaterial}
               />
             )} */}
-            {/* <div style={{ maxWidth: 1170, margin: '0 auto', padding: 20 }}>
-          <PokemonForm onSubmit={this.handleFormSubmit} />
-          <PokemonInfo pokemonName={this.state.pokemonName} />
-          <ToastContainer autoClose={8000} style={{ width: 40 }} />
-        </div> */}
+            {/* <div style={{ maxWidth: 1170, margin: "0 auto", padding: 20 }}>
+              <PokemonForm onSubmit={this.handleFormSubmit} />
+              <PokemonInfo pokemonName={this.state.pokemonName} />
+              <ToastContainer autoClose={8000} style={{ width: 40 }} />
+            </div> */}
             {/* <div>
-            <a href="#" className='Add'>
-              <Icons name="add" size="20px" />
-            </a>
-          </div>
-          <a href="#">
-            <DeleteIcon fill="red" />
-          </a> */}
+              <a href="#" className="Add">
+                <Icons name="add" size="20px" />
+              </a>
+            </div> */}
+            {/* <a href="#">
+              <DeleteIcon fill="red" />
+            </a> */}
             {/* <img src={iconDelete} alt="icon delete" /> */}
             {/* <ReactSVG src="icons/delete.svg" /> */}
             {/* <IconButton onClick={this.toggleModal} aria-label="Добавить todo">
-            <AddIcon fill='red' width='50px' />
-          </IconButton> */}
+              <AddIcon fill="red" width="50px" />
+            </IconButton> */}
             {/* <Tabs items={tabs} /> */}
             {/* {showModal && <Clock />} */}
             {/* <button type="button" onClick={this.toggleModal}>
-            Открыть таймер
-          </button> */}
+              Открыть таймер
+            </button> */}
             {/* <button type="button" onClick={this.toggleModal}>
-            Открыть модалку
-          </button> */}
-            {/* {showModal && ( */}
-            {/* // <Modal onClose={this.toggleModal}> */}
-            {/* <TodoEditor onSubmit={this.addTodo} /> */}
-            {/* <h1>Привет</h1>
-              <p>
-                «Пейте воду из крана, жуйте ногу, всегда ложитесь так, чтобы
-                хвост мог слегка касаться носа человека, но спите на клавиатуре,
-                взламывайте пушистые комочки, атакуйте, как злобный монстр,
-                мяукающий в пустых комнатах».
-              </p>
-              <button type="button" onClick={this.toggleModal}>
-                Закрыть
-              </button> */}
-            {/* // </Modal> */}
-            {/* // )} */}
+              Открыть модалку
+            </button> */}
+            {/* {showModal && (
+              <Modal onClose={this.toggleModal}>
+                <TodoEditor onSubmit={this.addTodo} />
+                <h1>Привет</h1>
+                <p>
+                  «Пейте воду из крана, жуйте ногу, всегда ложитесь так, чтобы
+                  хвост мог слегка касаться носа человека, но спите на
+                  клавиатуре, взламывайте пушистые комочки, атакуйте, как
+                  злобный монстр, мяукающий в пустых комнатах».
+                </p>
+                <button type="button" onClick={this.toggleModal}>
+                  Закрыть
+                </button>
+              </Modal>
+            )} */}
             {/* <ProductReviewForm /> */}
             {/* <LoginForm /> */}
             {/* <h1>Состояние компонента</h1> */}
             {/* NOTE: вынести в отдельный компонент */}
             {/* <div>
-            <p>Всего заметок: {totalTodoCount}</p>
-            <p>Выполнено: {completedTodoCount}</p>
-          </div> */}
+              <p>Всего заметок: {totalTodoCount}</p>
+              <p>Выполнено: {completedTodoCount}</p>
+            </div> */}
             {/* <TodoEditor onSubmit={this.addTodo} /> */}
             {/* <Filter value={filter} onChange={this.changeFilter} /> */}
-            <br />
-            <br />
             {/* <TodoList
-            todos={visibleTodos}
-            onDeleteTodo={this.deleteTodo}
-            onToggleCompleted={this.toggleCompleted}
-          /> */}
-            <br />
+              todos={visibleTodos}
+              onDeleteTodo={this.deleteTodo}
+              onToggleCompleted={this.toggleCompleted}
+            /> */}
             {/* <Form onSubmit={this.formSubmitHandler} /> */}
             {/* <Dropdown /> */}
             {/* <ColorPicker /> */}
+            <Clock />
+            <SignupForm />
+            <br />
+            <ColorPicker />
           </Container>
         </Layout>
       </>

@@ -7,10 +7,10 @@ import 'modern-normalize/modern-normalize.css';
 // import 'assets/styles/_base.scss';
 import './assets/style/_base.scss';
 import 'index.css';
-import App from './App/App';
-import { GlobalStyle } from './assets/style/GlobalStyle';
-import { Example1 } from './App/pages/Example1';
-import { Reader } from './App/components/Reader/Reader';
+import App from './App/App.jsx';
+import { GlobalStyle } from './assets/style/GlobalStyle.jsx';
+import { Example1 } from './App/pages/Example1.jsx';
+import { Reader } from './App/components/Reader/Reader.jsx';
 import publications from './App/data/publications.json';
 
 const theme = {};

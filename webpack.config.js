@@ -5,10 +5,16 @@ const sass = require("sass");
 const purgecss = require("@fullhuman/postcss-purgecss");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const postcssCombineDuplicatedSelectors = require("postcss-combine-duplicated-selectors");
+const IconPlugin = require("svg-sprite-webpack-plugin").plugin;
+
+const iconPlugin = new IconPlugin("icons-[hash].svg");
 
 module.exports = {
   base: "/react-start/",
   entry: "./src/index.js", // Входная точка приложения
+  static: {
+    directory: path.join(__dirname, "public"),
+  },
   output: {
     path: path.resolve(__dirname, "dist"), // Выходная папка
     //filename: 'bundle.js', // Имя выходного файла
@@ -129,6 +135,10 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.svg$/,
+        loader: iconPlugin.extract(),
+      },
     ],
   },
   plugins: [
@@ -138,6 +148,7 @@ module.exports = {
       inject: "body", // Использование только одного скрипта
       scriptLoading: "defer", // Убедитесь, что `defer` без значения
     }),
+    iconPlugin,
   ],
   resolve: {
     alias: {
@@ -163,40 +174,19 @@ module.exports = {
     compress: true, // Включает сжатие
     port: 9000, // Порт для dev server
     open: true,
-    //*** */
-    //     static: {
-    //       directory: path.join(__dirname, 'public'),
-    //     },
-    //     compress: true,
-    //     port: 3000,
-    // setupMiddlewares: (middlewares, devServer) => {
-    //   // Ваши настройки middleware
-    //   if (!devServer) {
-    //     throw new Error("webpack-dev-server is not defined");
-    //   }
-    //   // Пример использования middleware
-    //   devServer.app.get("/some/path", function (req, res) {
-    //     res.json({ custom: "response" });
-    //   });
-    //   return middlewares;
-    // },
+    setupMiddlewares: (middlewares, devServer) => {
+      // Ваши настройки middleware
+      if (!devServer) {
+        throw new Error("webpack-dev-server is not defined");
+      }
+      // Пример использования middleware
+      devServer.app.get("/some/path", function (req, res) {
+        res.json({ custom: "response" });
+      });
+      return middlewares;
+    },
   },
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //****** */
 // module: {
