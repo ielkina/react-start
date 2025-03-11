@@ -1,6 +1,6 @@
 const path = require("path");
 // const sass = require("sass");
-const sass = require('sass-embedded');
+const sass = require("sass-embedded");
 // const postcss = require("postcss");
 const purgecss = require("@fullhuman/postcss-purgecss");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -144,7 +144,7 @@ module.exports = {
           {
             loader: "sass-resources-loader",
             options: {
-              resources: path.resolve(__dirname, "src/assets/style/*.scss"), //путь к общему файлу стилей
+              resources: path.resolve(__dirname, "src/assets/style.scss"), //путь к общему файлу стилей
             },
           },
         ],
@@ -187,17 +187,19 @@ module.exports = {
   resolve: {
     alias: {
       //настройка автозаполнение путей
-      "/": path.resolve(__dirname, "/src"), // указываем абсолютный путь к 'src' директории
-      src: path.resolve(__dirname, "src/"), // указываем абсолютный путь к 'src' директории
-      assets: path.resolve(__dirname, "src/assets"),
+      // "/": path.resolve(__dirname, "/src/"), // указываем абсолютный путь к 'src' директории
+      // src: path.resolve(__dirname, "src/"), // указываем абсолютный путь к 'src' директории
       // App: path.resolve(__dirname, "src/App/"),
-      // components: path.resolve(__dirname, "src/App/components/"),
-      // data: path.resolve(__dirname, "src/data/"),
-      // icons: path.resolve(__dirname, "src/icons/"),
-      // img: path.resolve(__dirname, "src/img/"),
-      // scss: path.resolve(__dirname, "src/scss/"),
-      // services: path.resolve(__dirname, "src/services/"),
-      // style: path.resolve(__dirname, "src/style/"),
+      // context: path.resolve(__dirname, "src/App/context/"),
+      // data: path.resolve(__dirname, "src/App/data/"),
+      // hooks: path.resolve(__dirname, "src/App/hooks/"),
+      // pages: path.resolve(__dirname, "src/App/pages/"),
+      // services: path.resolve(__dirname, "src/App/services/"),
+      // vite: path.resolve(__dirname, "src/App/vite/"),
+      // assets: path.resolve(__dirname, "src/assets/"),
+      // icons: path.resolve(__dirname, "src/assets/icons/"),
+      // img: path.resolve(__dirname, "src/assets/img/"),
+      // style: path.resolve(__dirname, "src/assets/style/"),
     },
     extensions: [".js", ".jsx", ".json", ".scss", ".sass", ".css"], // Расширения файлов, которые будет обрабатывать webpack
     modules: [path.resolve(__dirname, "src"), "node_modules"], // Добавлено для поддержки alias
@@ -207,7 +209,7 @@ module.exports = {
   },
 };
 
-//****** */
+//******
 // devServer: {
 //   contentBase: path.join(__dirname, "dist"), // Путь к статическим файлам
 //   compress: true, // Включает сжатие

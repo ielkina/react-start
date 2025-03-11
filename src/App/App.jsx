@@ -1,11 +1,10 @@
 //Убираем ошибки
 /* eslint-disable no-unused-vars */
 //*** Пакеты сборки ***
-import React, { Component } from "react";
-import { ToastContainer, toast } from "react-toastify";
 import { ReactSVG } from "react-svg";
+import { ToastContainer, toast } from "react-toastify";
+import React, { Component } from "react";
 import shortid from "shortid";
-
 
 //*** Стили  ***
 import { GlobalStyle } from "../assets/style/GlobalStyle";
@@ -46,7 +45,10 @@ import PokemonInfo from "./components/Pokemon/PokemonInfo";
 import { MaterialEditorForm } from "./components/MaterialEditorForm/MaterialEditorForm";
 import { MaterialList } from "./components/MaterialList/MaterialList";
 // import OldClock from "./components/Clock/Clock";
+import AppBar from './components/AppBar/AppBar';
 import Clock from "./components/Clock";
+import OldClock from "./components/Clock";
+// import OldClock from "./components/Clock";
 import SignupForm from "./components/SignupForm/SignupForm";
 import ColorPicker from "./components/ColorPicker";
 
@@ -328,10 +330,13 @@ class App extends Component {
             {/* <Form onSubmit={this.formSubmitHandler} /> */}
             {/* <Dropdown /> */}
             {/* <ColorPicker /> */}
-            <Clock />
-            <SignupForm />
-            <br />
-            <ColorPicker />
+            <div style = {containerStyles}>
+              {/* <AppBar /> */}
+              <Clock />
+              <SignupForm />
+              <br />
+              <ColorPicker />
+            </div>
           </Container>
         </Layout>
       </>

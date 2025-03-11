@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './TodoFilter.scss';
 
 const TodoFilter = ({ value, onChange }) => (

@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import authContext from './context';
+import authContext from './Context';
 import avatar from './avatar.png';
 
 export default function Provider({ children }) {

@@ -1,8 +1,10 @@
 // eslint-disable-next-line
 // eslint-disable no-unused-vars
 // eslint-disable-next-line
-// @import '/src/styles/colors';
 @use '../../../assets/style/colors' as *;
+// @import '../../../assets/style/colors';
+
+
 
 .IconButton {
   margin: 0;
@@ -13,7 +15,6 @@
   font: inherit;
   background-color: $green;
   cursor: pointer;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;

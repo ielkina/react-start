@@ -1,7 +1,7 @@
 // eslint-disable-next-line
-import { createGlobalStyle } from 'styled-components';
-import 'normalize.css';
-import './_shared.scss';
+import { createGlobalStyle } from "styled-components";
+import "normalize.css";
+import "./_shared.scss";
 
 export const GlobalStyle = createGlobalStyle`
   * {

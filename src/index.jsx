@@ -1,13 +1,14 @@
 /* eslint-disable no-unused-vars */
+import { ThemeProvider } from 'styled-components';
+import * as Sentry from '@sentry/react';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import * as Sentry from '@sentry/react';
-import { ThemeProvider } from 'styled-components';
-import 'modern-normalize/modern-normalize.css';
+
 // import 'assets/styles/_base.scss';
+import 'modern-normalize/modern-normalize.css';
 import './assets/style/_base.scss';
 import 'index.css';
-import App from './App/App.jsx';
+import App from 'App/App';
 import { GlobalStyle } from './assets/style/GlobalStyle.jsx';
 import { Example1 } from './App/pages/Example1.jsx';
 import { Reader } from './App/components/Reader/Reader.jsx';

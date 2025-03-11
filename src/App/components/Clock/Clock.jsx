@@ -1,5 +1,6 @@
 // import { useState, useEffect, useRef } from 'react';
 import React, { Component } from "react";
+
 import styles from "./Clock.module.css";
 
 class OldClock extends Component {
