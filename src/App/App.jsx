@@ -45,7 +45,7 @@ import PokemonInfo from "./components/Pokemon/PokemonInfo";
 import { MaterialEditorForm } from "./components/MaterialEditorForm/MaterialEditorForm";
 import { MaterialList } from "./components/MaterialList/MaterialList";
 // import OldClock from "./components/Clock/Clock";
-import AppBar from './components/AppBar/AppBar';
+import AppBar from "./components/AppBar/AppBar";
 import Clock from "./components/Clock";
 import OldClock from "./components/Clock";
 // import OldClock from "./components/Clock";
@@ -251,7 +251,6 @@ class App extends Component {
     const { materials, isLoading, error } = this.state;
     return (
       <>
-
         <GlobalStyle />
         <Layout>
           <Container>
@@ -330,8 +329,8 @@ class App extends Component {
             {/* <Form onSubmit={this.formSubmitHandler} /> */}
             {/* <Dropdown /> */}
             {/* <ColorPicker /> */}
-            <div style = {containerStyles}>
-              {/* <AppBar /> */}
+            <div style={containerStyles}>
+              <AppBar />
               <Clock />
               <SignupForm />
               <br />
