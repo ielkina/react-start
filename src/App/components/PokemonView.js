@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { ToastContainer } from 'react-toastify';
 
-import PokemonForm from '../components/Pokemon/Form.js';
+import PokemonForm from './Pokemon/PokemonForm';
 import PokemonInfo from './Pokemon/PokemonInfo.js';
 
 export default class PokemonView extends Component {

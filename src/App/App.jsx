@@ -1,6 +1,7 @@
 //Убираем ошибки
 /* eslint-disable no-unused-vars */
 //*** Пакеты сборки ***
+import { Routes, Route } from "react-router-dom";
 import { ReactSVG } from "react-svg";
 import { ToastContainer, toast } from "react-toastify";
 import React, { Component } from "react";
@@ -51,6 +52,7 @@ import OldClock from "./components/Clock";
 // import OldClock from "./components/Clock";
 import SignupForm from "./components/SignupForm/SignupForm";
 import ColorPicker from "./components/ColorPicker";
+import PokemonView from "./components/PokemonView";
 
 //*** Деструктуризация API ***
 // const API = { ...api, ...itemApi };
@@ -251,6 +253,24 @@ class App extends Component {
     const { materials, isLoading, error } = this.state;
     return (
       <>
+        <div style={containerStyles}>
+          <AppBar />
+          <Routes>
+            <Route path="/signup" element={<SignupForm />} />
+            {/* <Route path="/" element={<Home />} /> */}
+
+            <Route
+              path="/colorpicker"
+              element={<ColorPicker options={colorPickerOptions} />}
+            />
+
+            <Route path="/counter" element={<Counter />} />
+
+            <Route path="/clock" element={<Clock />} />
+
+            <Route path="/pokemon" element={<PokemonView />} />
+          </Routes>
+        </div>
         <GlobalStyle />
         <Layout>
           <Container>
@@ -329,13 +349,13 @@ class App extends Component {
             {/* <Form onSubmit={this.formSubmitHandler} /> */}
             {/* <Dropdown /> */}
             {/* <ColorPicker /> */}
-            <div style={containerStyles}>
+            {/* <div style={containerStyles}>
               <AppBar />
               <Clock />
               <SignupForm />
               <br />
               <ColorPicker />
-            </div>
+            </div> */}
           </Container>
         </Layout>
       </>
