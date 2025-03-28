@@ -1,22 +1,24 @@
-import { useState, useEffect } from 'react';
-import styles from './Counter.module.css';
+import { useState, useEffect } from "react";
+import styles from "./Counter.module.css";
 
 export default function Counter() {
   const [counterA, setCounterA] = useState(0);
   const [counterB, setCounterB] = useState(0);
 
   const handleCounterAIncrement = () => {
-    setCounterA(state => state + 1);
+    setCounterA((state) => state + 1);
   };
 
   const handleCounterBIncrement = () => {
-    setCounterB(state => state + 1);
+    setCounterB((state) => state + 1);
   };
 
   useEffect(() => {
     const totalClicks = counterA + counterB;
     document.title = `Всего кликнули ${totalClicks} раз`;
   }, [counterA, counterB]);
+  //в массив(массив зависимостей) передаем зависимости,  если он пустой то у функции нет зависимостей и она запуститься только при первом рендер, если есть значения в массиве то она будет запускаться каждый раз.
+  //useEffect можно вызывать несколько раз, запускаются асинхронно, передается анонимная функция и внутри пишется весь код который необходим или функция
 
   return (
     <>
@@ -25,15 +27,16 @@ export default function Counter() {
         type="button"
         onClick={handleCounterAIncrement}
       >
-        Кликнули counterA {counterA} раз
+        Кликнули counterA {counterA}
+        раз
       </button>
-
       <button
         className={styles.btn}
         type="button"
         onClick={handleCounterBIncrement}
       >
-        Кликнули counterB {counterB} раз
+        Кликнули counterB {counterB}
+        раз
       </button>
     </>
   );

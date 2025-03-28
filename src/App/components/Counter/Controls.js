@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Controls = ({ onIncrement, onDecrement }) => (
   <div className="Counter__controls">

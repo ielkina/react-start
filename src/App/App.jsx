@@ -12,25 +12,21 @@ import { GlobalStyle } from "../assets/style/GlobalStyle";
 import { Layout } from "../assets/style/Layout";
 // import './scss/App.scss'
 
-//*** Медиа ***
+// Медиа {red, 3}
 import { ReactComponent as DeleteIcon } from "../assets/icons/delete.svg";
 import { ReactComponent as AddIcon } from "../assets/icons/add.svg";
 import iconDelete from "../assets/icons/delete.svg";
 
-//*** DATA файлы ***
+// DATA файлы {#f9e,2}
 import tabs from "./data/tabs.json";
 import initialTodos from "./data/todos.json";
-
-//*** Api запросы  ***
-import * as API from "./services/api.js";
-// import * as api from './component/api';
-// import * as itemApi from './component/item-api';
 
 //*** Компоненты сайта ***
 import Container from "./components/Container";
 import Form from "./components/Form/Form";
 import Counter from "./components/Counter";
 import Dropdown from "./components/Dropdown";
+
 // import ColorPicker from "./components/ColorPicker";
 import TodoList from "./components/TodoList";
 import TodoEditor from "./components/TodoEditor";
@@ -45,14 +41,17 @@ import PokemonForm from "./components/Pokemon/PokemonForm";
 import PokemonInfo from "./components/Pokemon/PokemonInfo";
 import { MaterialEditorForm } from "./components/MaterialEditorForm/MaterialEditorForm";
 import { MaterialList } from "./components/MaterialList/MaterialList";
-// import OldClock from "./components/Clock/Clock";
 import AppBar from "./components/AppBar/AppBar";
 import Clock from "./components/Clock";
 import OldClock from "./components/Clock";
-// import OldClock from "./components/Clock";
 import SignupForm from "./components/SignupForm/SignupForm";
 import ColorPicker from "./components/ColorPicker";
-import PokemonView from "./components/PokemonView";
+import PokemonView from "./components/Pokemon/PokemonView";
+
+//*** Api запросы  ***
+import * as API from "./services/api.js";
+// import * as api from './component/api';
+// import * as itemApi from './component/item-api';
 
 //*** Деструктуризация API ***
 // const API = { ...api, ...itemApi };
@@ -253,33 +252,28 @@ class App extends Component {
     const { materials, isLoading, error } = this.state;
     return (
       <>
-        <div style={containerStyles}>
-          <AppBar />
-          <Routes>
-            <Route path="/signup" element={<SignupForm />} />
-            {/* <Route path="/" element={<Home />} /> */}
-
-            <Route
-              path="/colorpicker"
-              element={<ColorPicker options={colorPickerOptions} />}
-            />
-
-            <Route path="/counter" element={<Counter />} />
-
-            <Route path="/clock" element={<Clock />} />
-
-            <Route path="/pokemon" element={<PokemonView />} />
-          </Routes>
-        </div>
         <GlobalStyle />
         <Layout>
           <Container>
-            {/* {error && (
+            <div style={containerStyles}>
+              <AppBar />
+              <Routes>
+                <Route path="/signup" element={<SignupForm />} />
+                <Route
+                  path="/colorpicker"
+                  element={<ColorPicker options={colorPickerOptions} />}
+                />
+                <Route path="/counter" element={<Counter />} />
+                <Route path="/clock" element={<Clock />} />
+                <Route path="/pokemon" element={<PokemonView />} />
+              </Routes>
+            </div>
+            {error && (
               <p>
                 Ой! Что-то пошло не так :( Перезагрузите страницу и попробуйте
                 еще раз.
               </p>
-            )} */}
+            )}
             {/* <MaterialEditorForm onSubmit={this.addMaterial} /> */}
             {/* {isLoading ? (
               "Загружаем материалы"

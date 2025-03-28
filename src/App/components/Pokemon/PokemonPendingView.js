@@ -1,11 +1,11 @@
-import { ImSpinner } from 'react-icons/im';
-import PokemonDataView from './PokemonDataView.js';
-import pendingImage from './img/pending.png';
+import { ImSpinner } from "react-icons/im";
+import PokemonDataView from "./PokemonDataView.js";
+import pendingImage from "./img/pending.png";
 
 const styles = {
   spinner: {
-    display: 'flex',
-    alignItems: 'center',
+    display: "flex",
+    alignItems: "center",
     marginBottom: 10,
     fontSize: 24,
   },
@@ -16,7 +16,7 @@ export default function PokemonPendingView({ pokemonName }) {
     name: pokemonName,
     sprites: {
       other: {
-        'official-artwork': {
+        "official-artwork": {
           front_default: pendingImage,
         },
       },

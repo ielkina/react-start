@@ -1,46 +1,123 @@
-// import { useState, useEffect, useRef } from 'react';
-import React, { Component } from "react";
-
+/* eslint-disable no-unused-vars */
 import styles from "./Clock.module.css";
+import { useState, useEffect, useRef } from "react";
 
-class OldClock extends Component {
-  state = {
-    time: new Date(),
-  };
+// export default function Clock() {
+//   const [time, setTime] = useState(new Date());
+//   const [isRunning, setIsRunning] = useState(false); // Отслеживаем состояние
+//   const intervalId = useRef(null);
 
-  intervalId = null;
+//   const start = () => {
+//     if (!isRunning) {
+//       intervalId.current = setInterval(() => {
+//         console.log("Интервал каждые 1000ms " + Date.now());
+//         setTime(new Date());
+//       }, 1000);
+//       setIsRunning(true); // Устанавливаем состояние как "запущен"
+//     }
+//   };
 
-  componentDidMount() {
-    this.intervalId = setInterval(() => {
+//   const stop = () => {
+//     if (isRunning) {
+//       clearInterval(intervalId.current);
+//       intervalId.current = null;
+//       setIsRunning(false); // Устанавливаем состояние как "остановлен"
+//     }
+//   };
+
+//   const toggle = () => {
+//     if (isRunning) {
+//       stop();
+//     } else {
+//       start();
+//     }
+//   };
+
+//   return (
+//     <div className={styles.container}>
+//       <p className={styles.clockface}>
+//         Текущее время: {time.toLocaleTimeString()}
+//       </p>
+//       <button type="button" onClick={toggle}>
+//         {isRunning ? "Остановить" : "Запустить"}
+//       </button>
+//     </div>
+//   );
+// }
+
+//**** */
+
+export default function Clock() {
+  const [time, setTime] = useState(new Date());
+  const intervalId = useRef(null);
+
+  useEffect(() => {
+    intervalId.current = setInterval(() => {
       console.log("Это интервал каждые 1000ms " + Date.now());
-      this.setState({ time: new Date() });
+      setTime(new Date());
     }, 1000);
-  }
+    return () => {
+      console.log("Это функция очистки перед следующим вызовом useEffect");
+      stop();
+    };
+  }, []);
 
-  componentWillUnmount() {
-    console.log("Эот метод вызывается перед размонтированием компонента");
-    this.stop();
-  }
-
-  stop = () => {
-    clearInterval(this.intervalId);
+  const stop = () => {
+    clearInterval(intervalId.current);
   };
 
-  render() {
-    return (
-      <div className={styles.container}>
-        <p className={styles.clockface}>
-          Текущее время: {this.state.time.toLocaleTimeString()}
-        </p>
-        <button type="button" onClick={this.stop}>
-          Остановить
-        </button>
-      </div>
-    );
-  }
+  return (
+    <div className={styles.container}>
+      <p className={styles.clockface}>
+        Текущее время: {time.toLocaleTimeString()}
+      </p>
+      <button type="button" onClick={stop}>
+        Остановить
+      </button>
+    </div>
+  );
 }
+//**** */
+// class OldClock extends Component {
+//   state = {
+//     time: new Date(),
+//   };
 
-export default OldClock;
+//   intervalId = null;
+
+//   componentDidMount() {
+//     this.intervalId = setInterval(() => {
+//       console.log("Это интервал каждые 1000ms " + Date.now());
+//       this.setState({ time: new Date() });
+//     }, 1000);
+//   }
+
+//   componentWillUnmount() {
+//     console.log("Эот метод вызывается перед размонтированием компонента");
+//     this.stop();
+//   }
+
+//   stop = () => {
+//     clearInterval(this.intervalId);
+//   };
+
+//   render() {
+//     return (
+//       <div className={styles.container}>
+//         <p className={styles.clockface}>
+//           Текущее время: {this.state.time.toLocaleTimeString()}
+//         </p>
+//         <button type="button" onClick={this.stop}>
+//           Остановить
+//         </button>
+//       </div>
+//     );
+//   }
+// }
+
+// export default OldClock;
+
+//**** */
 
 // export default function Clock() {
 //   const [time, setTime] = useState(() => new Date());
