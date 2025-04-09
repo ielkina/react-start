@@ -1,22 +1,25 @@
 /* eslint-disable no-unused-vars */
-// import { useEffect } from "react"; //переносим в hook 
+// import { useEffect } from "react"; //переносим в hook
 import useLocalStorage from "../../hooks/useLocalStorage";
 
 import styles from "./SignupForm.module.css";
 
+// Реализация компонента на Хуках
+
 export default function SignupForm() {
-  //** state {
-  //**    email: '',
-  //**    password: '',
-  //**  }
+  //state выносим в хук
+  // state {
+  //    email: '',
+  //   password: '',
+  //  }
   // const inputState = useState('');
   // console.log(" SignupForm inputState >>", inputState)
   //деструктуризация
-  //1элем state, и его функция
+  //1 элем state, и его функция
   // const [email, setEmail] = useState("");
   // console.log(" SignupForm setEmail >>", setEmail);
   // console.log(" SignupForm email >>", email);
-  const [email, setEmail] = useLocalStorage("email", "");//передаем в хук key и дефолтное значение
+  const [email, setEmail] = useLocalStorage("email", ""); //передаем в хук key и дефолтное значение
   const [password, setPassword] = useLocalStorage("password", "");
 
   // const handleEmailChange = (e) => {
@@ -26,6 +29,7 @@ export default function SignupForm() {
   //   setEmail(e.target.value);
   // };
   const handleChange = (event) => {
+    //деструктуризируем event
     const { name, value } = event.target;
     switch (name) {
       case "email":
@@ -72,6 +76,9 @@ export default function SignupForm() {
     </form>
   );
 }
+
+//Реализация компонента на классах
+// import { Component } from "react";
 
 // class SignupForm extends Component {
 //   state = {
