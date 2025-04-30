@@ -2,6 +2,8 @@ import { useState, useMemo } from 'react';
 import authContext from './Context';
 import avatar from './avatar.png';
 
+// https://youtu.be/6Pt4DY3Tlfs?t=7130
+
 export default function Provider({ children }) {
   const [user, setUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);

@@ -107,8 +107,8 @@ class App extends Component {
       console.log("обновилось поле todos");
     }
     localStorage.setItem("todos", JSON.stringify(this.state.todos));
-    console.log(prevState);
-    console.log(this.state);
+    // console.log(prevState);
+    // console.log(this.state);
     if (nextTodos.length > prevTodos.length && prevTodos.length !== 0) {
       this.toggleModal();
     }

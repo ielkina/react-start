@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import styles from "./Counter.module.css";
 
 export default function Counter() {
+  // const [state, setState] = useState
   const [counterA, setCounterA] = useState(0);
   const [counterB, setCounterB] = useState(0);
 
@@ -16,9 +17,16 @@ export default function Counter() {
   useEffect(() => {
     const totalClicks = counterA + counterB;
     document.title = `Всего кликнули ${totalClicks} раз`;
-  }, [counterA, counterB]);
+    console.log(`useEffect - Всего кликнули ${totalClicks} раз ` + Date.now());
+  }, [counterA, counterB]); // [counterA, counterB] аналог проверки if
   //в массив(массив зависимостей) передаем зависимости,  если он пустой то у функции нет зависимостей и она запуститься только при первом рендер, если есть значения в массиве то она будет запускаться каждый раз.
   //useEffect можно вызывать несколько раз, запускаются асинхронно, передается анонимная функция и внутри пишется весь код который необходим или функция
+  useEffect(() => {
+    console.log("useEffect - componentDidMount");
+    return () => {
+      console.log("useEffect - componentWillUnmount");
+    };
+  }, [counterA]);//useEffect - аналог componentDidMount и componentWillUnmount сработает тогда когда компонент будет размонтирован, в данном случае при каждом изменении counterA. Если передать пустой массив то он сработает только один раз при первом рендере компонента и не будет срабатывать при изменении состояния. Если передать массив зависимостей то он будет срабатывать каждый раз при изменении состояния.
 
   return (
     <>
@@ -27,7 +35,7 @@ export default function Counter() {
         type="button"
         onClick={handleCounterAIncrement}
       >
-        Кликнули counterA {counterA}
+        Кликнули counter A {counterA}
         раз
       </button>
       <button
@@ -35,7 +43,7 @@ export default function Counter() {
         type="button"
         onClick={handleCounterBIncrement}
       >
-        Кликнули counterB {counterB}
+        Кликнули counter B {counterB}
         раз
       </button>
     </>
@@ -59,16 +67,13 @@ export default function Counter() {
 // componentDidMount() {
 //   const { counterA, counterB } = this.state;
 //   const totalClicks = counterA + counterB;
-
 //   document.title = `Всего кликнули ${totalClicks} раз`;
 // }
 
 // componentDidUpdate(prevProps, prevState) {
 //   const { counterA, counterB } = this.state;
-
 //   if (prevState.counterA !== counterA || prevState.counterB !== counterB) {
 //     const totalClicks = counterA + counterB;
-
 //     document.title = `Всего кликнули ${totalClicks} раз`;
 //   }
 // }

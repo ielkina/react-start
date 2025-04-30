@@ -13,7 +13,7 @@ export default function useLocalStorage(
 ) {
   const [state, setState] = useState(() => {
     if (typeof window === "undefined") {
-      return defaultValue; 
+      return defaultValue;
     }
     const storedValue = storage.getItem(key);
     return storedValue !== null ? deserialize(storedValue) : defaultValue;
@@ -28,6 +28,8 @@ export default function useLocalStorage(
   return [state, setState];
 }
 
+
+/*********************************************************************************** */
 // export default function useLocalStorage(
 //   key,
 //   defaultValue,

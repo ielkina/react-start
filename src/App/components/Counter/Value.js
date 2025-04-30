@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Value = ({ value }) => <span className="Counter__value">{value}</span>;
 
