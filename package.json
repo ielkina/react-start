@@ -1,110 +1,111 @@
 {
-  "name": "react-start",
-  "version": "0.1.0",
-  "private": true,
-  "homepage": "https://ielkina.github.io/react-start/",
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "deploy": "npm run build && gh-pages -d build",
-    "server": "serve -s build -l 4000",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "preview": "react-scripts preview",
-    "pre deploy": "npm run build",
-    "lint:js": "eslint src/**/*.{js,jsx}",
-    "analyze": "source-map-explorer 'build/static/js/*.js'",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0"
-  },
-  "dependencies": {
-    "@emotion/react": "^11.14.0",
-    "@emotion/styled": "^11.14.0",
-    "@react-icons/all-files": "^4.1.0",
-    "@sentry/react": "^9.5.0",
-    "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^16.2.0",
-    "@testing-library/user-event": "^14.6.1",
-    "axios": "^1.8.2",
-    "browserslist": "^4.24.4",
-    "classnames": "^2.5.1",
-    "clsx": "^2.1.1",
-    "css-loader": "^7.1.2",
-    "date-fns": "^4.1.0",
-    "formik": "^2.4.6",
-    "gh-pages": "^6.3.0",
-    "nanoid": "^5.1.3",
-    "normalize.css": "^8.0.1",
-    "prop-types": "^15.8.1",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-icons": "^5.5.0",
-    "react-player": "^2.16.0",
-    "react-router-dom": "^7.3.0",
-    "react-scripts": "^5.0.1",
-    "react-svg": "^16.3.0",
-    "react-toastify": "^11.0.5",
-    "resolve-url-loader": "^5.0.0",
-    "sass-loader": "^16.0.5",
-    "shortid": "^2.2.17",
-    "web-vitals": "^4.2.4",
-    "yup": "^1.6.1"
-  },
-  "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "@babel/plugin-transform-private-property-in-object": "^7.25.9",
-    "@types/react": "^19.0.10",
-    "@types/react-dom": "^19.0.4",
-    "@types/styled-components": "^5.1.34",
-    "clsx": "^2.1.1",
-    "cssnano": "^7.0.6",
-    "eslint": "^8.57.1",
-    "eslint-config-react-app": "^7.0.1",
-    "eslint-plugin-react": "^7.37.4",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.19",
-    "husky": "^9.1.7",
-    "lint-staged": "^15.4.3",
-    "modern-normalize": "^3.0.1",
-    "postcss": "^8.5.3",
-    "postcss-combine-duplicated-selectors": "^10.0.3",
-    "postcss-loader": "^8.1.1",
-    "prettier": "^3.5.3",
-    "prop-types": "^15.8.1",
-    "sass": "^1.85.1",
-    "sass-resources-loader": "^2.2.5",
-    "styled-components": "^6.1.15",
-    "svg-sprite-webpack-plugin": "^1.1.0"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "lint-staged": {
-    "*.js": "eslint --cache --fix",
-    "*.{js,css,md}": "prettier --write"
-  },
-  "optionalDependencies": {
-    "sass-embedded": "^1.85.1"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "json-comments": {
-    "tips": "Установите плагин JsonComments, чтобы активировать возможность комментирования для файлов JSON. См.: https://github.com/zhangfisher/json_comments_extension",
-    "config/.prettierrc.json": {},
-    "package.json": {
-      "type": "что б не дописывать расширение файлов \"type\": \"module\", можно убрать "
+    "name": "react-start",
+    "version": "0.1.0",
+    "private": true,
+    "homepage": "https://ielkina.github.io/react-start/",
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "deploy": "npm run build && gh-pages -d build",
+        "predeploy": "npm run build",
+        "server": "serve -s build -l 4000",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject",
+        "preview": "react-scripts preview",
+        "pre deploy": "npm run build",
+        "lint:js": "eslint src/**/*.{js,jsx}",
+        "analyze": "source-map-explorer 'build/static/js/*.js'",
+        "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0"
+    },
+    "dependencies": {
+        "@emotion/react": "^11.14.0",
+        "@emotion/styled": "^11.14.0",
+        "@react-icons/all-files": "^4.1.0",
+        "@sentry/react": "^9.5.0",
+        "@testing-library/jest-dom": "^6.6.3",
+        "@testing-library/react": "^16.2.0",
+        "@testing-library/user-event": "^14.6.1",
+        "axios": "^1.8.2",
+        "browserslist": "^4.24.4",
+        "classnames": "^2.5.1",
+        "clsx": "^2.1.1",
+        "css-loader": "^7.1.2",
+        "date-fns": "^4.1.0",
+        "formik": "^2.4.6",
+        "nanoid": "^5.1.3",
+        "normalize.css": "^8.0.1",
+        "prop-types": "^15.8.1",
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0",
+        "react-icons": "^5.5.0",
+        "react-player": "^2.16.0",
+        "react-router-dom": "^7.3.0",
+        "react-scripts": "^5.0.1",
+        "react-svg": "^16.3.0",
+        "react-toastify": "^11.0.5",
+        "resolve-url-loader": "^5.0.0",
+        "sass-loader": "^16.0.5",
+        "shortid": "^2.2.17",
+        "web-vitals": "^4.2.4",
+        "yup": "^1.6.1"
+    },
+    "devDependencies": {
+        "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+        "@babel/plugin-transform-private-property-in-object": "^7.25.9",
+        "@types/react": "^19.0.10",
+        "@types/react-dom": "^19.0.4",
+        "@types/styled-components": "^5.1.34",
+        "clsx": "^2.1.1",
+        "cssnano": "^7.0.6",
+        "eslint": "^8.57.1",
+        "eslint-config-react-app": "^7.0.1",
+        "eslint-plugin-react": "^7.37.4",
+        "eslint-plugin-react-hooks": "^5.2.0",
+        "eslint-plugin-react-refresh": "^0.4.19",
+        "gh-pages": "^6.3.0",
+        "husky": "^9.1.7",
+        "lint-staged": "^15.4.3",
+        "modern-normalize": "^3.0.1",
+        "postcss": "^8.5.3",
+        "postcss-combine-duplicated-selectors": "^10.0.3",
+        "postcss-loader": "^8.1.1",
+        "prettier": "^3.5.3",
+        "prop-types": "^15.8.1",
+        "sass": "^1.85.1",
+        "sass-resources-loader": "^2.2.5",
+        "styled-components": "^6.1.15",
+        "svg-sprite-webpack-plugin": "^1.1.0"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "lint-staged": {
+        "*.js": "eslint --cache --fix",
+        "*.{js,css,md}": "prettier --write"
+    },
+    "optionalDependencies": {
+        "sass-embedded": "^1.85.1"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "json-comments": {
+        "tips": "Установите плагин JsonComments, чтобы активировать возможность комментирования для файлов JSON. См.: https://github.com/zhangfisher/json_comments_extension",
+        "config/.prettierrc.json": {},
+        "package.json": {
+            "type": "что б не дописывать расширение файлов \"type\": \"module\", можно убрать "
+        }
     }
-  }
 }
