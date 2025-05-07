@@ -1,9 +1,12 @@
 /* eslint-disable no-unused-vars */
-import React, { Component, useState } from "react";
+import React, { Component, useId, useState } from "react";
 // import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { nanoid } from "nanoid"; //пакет
+// import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from "react-hot-toast"; //пакет для уведомлений
+// import { ToastContainer } from "react-toastify"; //пакет для уведомлений
 import "../index.scss";
-import logo from "../img/logo.jpg";
+// import logo from "../img/logo.jpg";
 import Header from "./components/Header/Header";
 import Modal from "./components/Modal/Modal";
 import FormLogin from "./components/FormLogin/FormLogin";
@@ -15,18 +18,82 @@ import Counter from "./components/Counter/Counter";
 import ToDoList from "./components/ToDoList/ToDoList";
 
 // useState; //хук состояния, который позволяет добавлять состояние в функциональные компоненты
-
+console.log("render");
+// const notify = () => toast('Here is your toast.');
 const App = () => {
   // const result = useState(); //хук состояния, который позволяет добавлять состояние в функциональные компоненты.
   // console.log("result:>> ", result); //выводим в консоль результат хука состояния. всегда возвращает массив из двух элементов: текущее состояние и функцию для его обновления.
 
   const [isShowModal, setIsShowModal] = useState(false); //деструктурируем массив из двух элементов, получаем текущее состояние и функцию для его обновления. аналог setState в классовых компонентах.
   //useState передаем начальное состояние, в данном случае false. Это состояние будет храниться в компоненте App и передаваться вниз по дереву компонентов.
-  
 
-  console.log("isShowModal:>> ", isShowModal); //выводим в консоль текущее состояние.
-  console.log("setIsShowModal:>> ", setIsShowModal); //выводим в консоль функцию для обновления состояния.
-  return <div>App</div>;
+  const [searchText, setSearchText] = useState(""); //деструктурируем массив из двух элементов, получаем текущее состояние и функцию для его обновления. аналог setState в классовых компонентах.
+
+  // const id = useId(); //хук useId генерирует уникальный идентификатор для каждого экземпляра компонента. Это полезно для создания уникальных ключей для элементов списка или других компонентов, которые требуют уникальных идентификаторов.
+
+  // console.log("id:>> ", id); //выводим в консоль уникальный идентификатор.
+
+  const showModal = () => {
+    setIsShowModal(true); //вызываем функцию showModal, которая обновляет состояние isShowModal на true.
+  };
+  const closeModal = () => {
+    setIsShowModal(false); //вызываем функцию closeModal, которая обновляет состояние isShowModal на false.
+  };
+  function createUser(data) {
+    // console.log(data);
+    const newUser = {
+      ...data,
+      id: nanoid(5), //генерируем уникальный идентификатор для нового пользователя с помощью функции nanoid из библиотеки nanoid.
+    };
+    console.log("newUser :>> ", newUser);
+  }
+  const handleSearch = (searchText) => {
+    setSearchText(searchText); //вызываем функцию setSearchText, которая обновляет состояние searchText на новое значение.
+    // console.log("searchText: ", searchText);
+  };
+  // console.log("isShowModal:>> ", isShowModal); //выводим в консоль текущее состояние.
+  // console.log("setIsShowModal:>> ", setIsShowModal); //выводим в консоль функцию для обновления состояния.
+  return (
+    <div className="container">
+      <Toaster
+        position="top-center"
+        reverseOrder={true}
+        toastOptions={{
+          // Define default options
+          className: "",
+          duration: 1500, // 1.5 секунды
+          style: {
+            background: "#363636",
+            color: "#fff",
+          },
+          success: {
+            duration: 1500,
+            iconTheme: {
+              primary: "#4aed88",
+              secondary: "#fff",
+            },
+          },
+        }}
+      />{" "}
+      {/* уведомления */}
+      <h1>Hell world</h1>
+      {/* <button onClick={notify}>Make me a toast</button> */}
+      <Header showModal={showModal} />
+      <Search handleSearch={handleSearch} />
+      <ToDoList />
+      {/* <Counter /> */}
+      <ContentInfo searchText={searchText} />
+      {/* {false && <Modal>Some</Modal>} */}
+      {isShowModal && (
+        <Modal closeModal={closeModal}>
+          <FormLogin
+            createUser={createUser}
+            closeModal={closeModal}
+          ></FormLogin>
+        </Modal>
+      )}
+    </div>
+  );
 };
 export default App;
 

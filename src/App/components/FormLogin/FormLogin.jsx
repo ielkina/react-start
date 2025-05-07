@@ -14,7 +14,7 @@ class FormLogin extends Component {
   };
 
   componentDidMount() {
-    console.log("Form Login Mount");
+    // console.log("Form Login Mount");
   }
   componentDidUpdate(nextProps, nextState) {
     // Не викликається під час ініціалізації компонента
@@ -26,13 +26,13 @@ class FormLogin extends Component {
     // Не можна викликати setState()
     // Використовувати необхідно дуже обережно, тільки після вимірів продуктивності, інакше може призвести до зворотного ефекту.
     // Можливо, варто замінити на React.PureComponent, який робитиме поверхове порівняння props. Але лише після вимірів продуктивності
-    console.log("Form  Update");
+    // console.log("Form  Update");
   }
   componentWillUnmount() {
     // Викликається перед розмонтуванням та видаленням елемента з DOM
     // Добре підходить для прибирання за собою: слухачі, таймери, HTTP-запити. В іншому випадку будуть витоки пам'яті
     // Викликати setState() немає сенсу, компонент ніколи не перерендериться
-    console.log("Form Will Unmount");
+    // console.log("Form Will Unmount");
   }
 
   // handleChange = (event) => {
