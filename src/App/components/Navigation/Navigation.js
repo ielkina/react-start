@@ -8,6 +8,9 @@ const getNavLinkClass = ({ isActive }) =>
 
 const Navigation = () => (
   <nav>
+    <NavLink to="/skip-first-render" className={getNavLinkClass}>
+      Пропуск первого рендера
+    </NavLink>
     <NavLink to="/signup" className={getNavLinkClass}>
       Форма
     </NavLink>

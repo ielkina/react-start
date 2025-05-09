@@ -1,7 +1,7 @@
 //Убираем ошибки
 /* eslint-disable no-unused-vars */
 //*** Пакеты сборки ***
-import { Routes, Route } from "react-router-dom";
+import { Switch, Routes, Route } from "react-router-dom";
 import { ReactSVG } from "react-svg";
 import { ToastContainer, toast } from "react-toastify";
 import React, { Component } from "react";
@@ -47,6 +47,7 @@ import OldClock from "./components/Clock";
 import SignupForm from "./components/SignupForm/SignupForm";
 import ColorPicker from "./components/ColorPicker";
 import PokemonView from "./components/Pokemon/PokemonView";
+import SkipEffectOnFirstRender from "./components/SkipEffectOnFirstRender";
 
 //*** Api запросы  ***
 import * as API from "./services/api.js";
@@ -257,7 +258,13 @@ class App extends Component {
           <Container>
             <div style={containerStyles}>
               <AppBar />
+              {/* <Switch></Switch> */}
+
               <Routes>
+                <Route
+                  path="/skip-first-render"
+                  element={<SkipEffectOnFirstRender />}
+                />
                 <Route path="/signup" element={<SignupForm />} />
                 <Route
                   path="/colorpicker"
