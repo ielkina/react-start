@@ -48,6 +48,7 @@ import SignupForm from "./components/SignupForm/SignupForm";
 import ColorPicker from "./components/ColorPicker";
 import PokemonView from "./components/Pokemon/PokemonView";
 import SkipEffectOnFirstRender from "./components/SkipEffectOnFirstRender";
+import Friends from "./components/Friends";
 
 //*** Api запросы  ***
 import * as API from "./services/api.js";
@@ -259,7 +260,6 @@ class App extends Component {
             <div style={containerStyles}>
               <AppBar />
               {/* <Switch></Switch> */}
-
               <Routes>
                 <Route
                   path="/skip-first-render"
@@ -273,6 +273,11 @@ class App extends Component {
                 <Route path="/counter" element={<Counter />} />
                 <Route path="/clock" element={<Clock />} />
                 <Route path="/pokemon" element={<PokemonView />} />
+                <Route path="/notes" element={<Friends />} />
+                <Route
+                  path="/notes/:noteId"
+                  element={<MaterialList items={materials} />}
+                />
               </Routes>
             </div>
             {error && (

@@ -8,6 +8,6 @@
 }
 
 .activeLink {
-  composes: link;
+  ime-mode: link;
   color: #2196f3;
 }

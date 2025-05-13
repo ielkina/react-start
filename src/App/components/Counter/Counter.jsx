@@ -1,54 +1,91 @@
-import { useState, useEffect } from "react";
+import { useReducer } from "react";
 import styles from "./Counter.module.css";
+// import { type } from "@testing-library/user-event/dist/types/utility";
+
+function countReducer(state, action) {
+  //action - это объект который содержит тип действия и его значение
+  // const { type, payload } = action;
+
+  // return prevState + nextState;
+
+  switch (action.type) {
+    case "increment":
+      return { ...state, count: state.count + action.payload }; //распыляем старое состояние (...state) и добавляем новое значение
+    case "decrement":
+      return { ...state, count: state.count - action.payload };
+    default:
+      //return state;
+      throw new Error(`Unknown action type: ${action.type}`);
+  }
+
+  // return (state, action) => {
+  //   switch (action.type) {
+  //     case "increment":
+  //       return { ...state, [action.name]: state[action.name] + 1 };
+  //     default:
+  //       throw new Error();
+  //   }
+  // };
+}
+
+function init(initialState) {
+  return { ...initialState, count: 0 }; //распыляем старое состояние (...state) и добавляем новое значение
+}
 
 export default function Counter() {
   // const [state, setState] = useState
-  const [counterA, setCounterA] = useState(0);
-  const [counterB, setCounterB] = useState(0);
+  // const [counterA, setCounterA] = useState(0);
+  // const [counterB, setCounterB] = useState(0);
 
-  const handleCounterAIncrement = () => {
-    setCounterA((state) => state + 1);
-  };
+  const [state, dispatch] = useReducer(countReducer, { count: 0 }, init); //деструктуризуем потому что в обьекте может быть несколько значений, а нам нужно только одно. useReducer - это хук который позволяет управлять состоянием компонента с помощью редьюсера. Он принимает два аргумента: редьюсер и начальное состояние. Возвращает массив из двух элементов: текущее состояние и функцию для его обновления.
+  // const [count, setCount] = useReducer(countReducer, 0); //деструктуризуем потому что в обьекте может быть несколько значений, а нам нужно только одно. useReducer - это хук который позволяет управлять состоянием компонента с помощью редьюсера. Он принимает два аргумента: редьюсер и начальное состояние. Возвращает массив из двух элементов: текущее состояние и функцию для его обновления.
+  document.title = `Всего кликнули ${state.count} раз`;
 
-  const handleCounterBIncrement = () => {
-    setCounterB((state) => state + 1);
-  };
+  // console.log(count);
 
-  useEffect(() => {
-    const totalClicks = counterA + counterB;
-    document.title = `Всего кликнули ${totalClicks} раз`;
-    console.log(`useEffect - Всего кликнули ${totalClicks} раз ` + Date.now());
-  }, [counterA, counterB]); // [counterA, counterB] аналог проверки if
-  //в массив(массив зависимостей) передаем зависимости,  если он пустой то у функции нет зависимостей и она запуститься только при первом рендер, если есть значения в массиве то она будет запускаться каждый раз.
-  //useEffect можно вызывать несколько раз, запускаются асинхронно, передается анонимная функция и внутри пишется весь код который необходим или функция
-  useEffect(() => {
-    console.log("useEffect - componentDidMount");
-    return () => {
-      console.log("useEffect - componentWillUnmount");
-    };
-  }, [counterA]);//useEffect - аналог componentDidMount и componentWillUnmount сработает тогда когда компонент будет размонтирован, в данном случае при каждом изменении counterA. Если передать пустой массив то он сработает только один раз при первом рендере компонента и не будет срабатывать при изменении состояния. Если передать массив зависимостей то он будет срабатывать каждый раз при изменении состояния.
+  // const handleCounterAIncrement = () => {
+  //   setCounterA((state) => state + 1);
+  // };
+
+  // const handleCounterBIncrement = () => {
+  //   setCounterB((state) => state + 1);
+  // };
+
+  // useEffect(() => {
+  //   const totalClicks = counterA + counterB;
+  //   document.title = `Всего кликнули ${totalClicks} раз`;
+  //   console.log(`useEffect - Всего кликнули ${totalClicks} раз ` + Date.now());
+  // }, [counterA, counterB]); // [counterA, counterB] аналог проверки if
+  // //в массив(массив зависимостей) передаем зависимости,  если он пустой то у функции нет зависимостей и она запуститься только при первом рендер, если есть значения в массиве то она будет запускаться каждый раз.
+  // //useEffect можно вызывать несколько раз, запускаются асинхронно, передается анонимная функция и внутри пишется весь код который необходим или функция
+  // useEffect(() => {
+  //   console.log("useEffect - componentDidMount");
+  //   return () => {
+  //     console.log("useEffect - componentWillUnmount");
+  //   };
+  // }, [counterA]);//useEffect - аналог componentDidMount и componentWillUnmount сработает тогда когда компонент будет размонтирован, в данном случае при каждом изменении counterA. Если передать пустой массив то он сработает только один раз при первом рендере компонента и не будет срабатывать при изменении состояния. Если передать массив зависимостей то он будет срабатывать каждый раз при изменении состояния.
 
   return (
     <>
       <button
         className={styles.btn}
         type="button"
-        onClick={handleCounterAIncrement}
+        onClick={() => dispatch({ type: "increment", payload: 1 })} // onClick={handleCounterAIncrement}
       >
-        Кликнули counter A {counterA}
-        раз
+        Кликнули counter A {state.count} раз
       </button>
       <button
         className={styles.btn}
         type="button"
-        onClick={handleCounterBIncrement}
+        onClick={() => dispatch({ type: "decrement", payload: 1 })} // onClick={handleCounterBIncrement}
       >
-        Кликнули counter B {counterB}
-        раз
+        Кликнули counter B {state.count} раз
       </button>
     </>
   );
 }
+
+
 
 // class OldCounter extends Component {
 //   state = {

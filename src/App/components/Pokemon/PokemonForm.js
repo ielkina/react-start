@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ImSearch } from "react-icons/im";
 import { toast } from "react-toastify";
 
-const styles = { form: { marginBottom: 20 } };
+const styles = { form: { marginBottom: 20, color: "black" } };
 
 export default function PokemonForm({ onSubmit }) {
   const [pokemonName, setPokemonName] = useState("");
@@ -28,7 +28,7 @@ export default function PokemonForm({ onSubmit }) {
       <input
         type="text"
         name="pokemonName"
-        value={setPokemonName}
+        value={pokemonName}
         onChange={handleNameChange}
       />
       <button type="submit">

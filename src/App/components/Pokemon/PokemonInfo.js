@@ -40,16 +40,21 @@ export default function PokemonInfo({ pokemonName }) {
   //   }
 
   useEffect(() => {
-    if (!pokemonName) { // Если имя покемона пустое, ничего не делаем
-      setPokemon(null);// Сбрасываем состояние покемона
-      setError(null);// Сбрасываем состояние ошибки
-      setStatus(Status.IDLE);// Сбрасываем состояние статуса
+    if (!pokemonName) {
+      // Если имя покемона пустое, ничего не делаем
+      setPokemon(null); // Сбрасываем состояние покемона
+      setError(null); // Сбрасываем состояние ошибки
+      setStatus(Status.IDLE); // Сбрасываем состояние статуса
+      // Первый рендер, pokemonName это пустая строка, не делаем fetch
       return;
     }
     setStatus(Status.IDLE);
     pokemonAPI
       .fetchPokemon(pokemonName)
       .then((pokemon) => {
+        // Порядок важен!!!! Сначала кладем данные, потом статус. иначе будет ошибка
+        //зарендерится PokemonDataView с пустым значением и потом обновится
+        //вызывается PokemonDataView с пустым значением станица браузера перезагрузится с пустым значением ошибкой
         setPokemon(pokemon);
         setStatus(Status.RESOLVED);
       })
