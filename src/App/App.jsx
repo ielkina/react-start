@@ -2,6 +2,7 @@
 import React, { Component, useState } from "react";
 // import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { nanoid } from "nanoid"; //пакет
+import toast, { Toaster } from "react-hot-toast";
 import "../index.scss";
 import logo from "../img/logo.jpg";
 import Header from "./components/Header/Header";
@@ -65,6 +66,29 @@ const App = () => {
   return (
     <div className="container">
       <h1>Hell world</h1>
+      <Toaster
+        // toastOptions={{
+
+        // }}
+        toastOptions={{
+          className: "popup-toast",
+          success: {
+            style: {
+              background: "green",
+            },
+          },
+          error: {
+            style: {
+              background: "red",
+            },
+          },
+          style: {
+            border: "1px solid #713200",
+            padding: "16px",
+            color: "#713200",
+          },
+        }}
+      />
       {false && <Modal>Some</Modal>} {/* - Убираем модалку  */}
       {isShowModal && (
         <Modal closeModal={() => setIsShowModal(false)}>
