@@ -88,8 +88,6 @@
 
 ### Less 2
 
-> > feef20bb6ec8430ab253f1d0367f9ccf
-
 - http how to use
 - architecture
   - search -> app -> content
@@ -101,9 +99,9 @@
 - http errors
 - pattern stateMachine with status['idle','pending','rejected','resolved']
 
-## Module 4
+# Module 4
 
-### Less 1
+## Less 1
 
 - useState
 - useState nothing save state
@@ -122,3 +120,23 @@
 - edit class to huk <ContentInfo/>
 - if return <ContentInfo/>
 - batching in React 18
+
+## Less 2
+
+- useReducer <Counter/>
+- action.type
+- action.payload
+- dispatch
+
+- useMemo <TestUseMemo/>
+- complexCompute <TestUseMemo/>
+- useEffect vs useMemo <TestUseMemo/>
+
+- useCallback <TestUseMemo/>
+
+- Profiler
+
+- useContext
+- Provider
+- toggleState
+- useAlert

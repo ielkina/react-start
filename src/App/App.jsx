@@ -1,12 +1,10 @@
 /* eslint-disable no-unused-vars */
-import React, { Component, useId, useState } from "react";
+import React, { Component, useState } from "react";
 // import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { nanoid } from "nanoid"; //пакет
-// import toast, { Toaster } from 'react-hot-toast';
-import toast, { Toaster } from "react-hot-toast"; //пакет для уведомлений
-// import { ToastContainer } from "react-toastify"; //пакет для уведомлений
+import toast, { Toaster } from "react-hot-toast";
 import "../index.scss";
-// import logo from "../img/logo.jpg";
+import logo from "../img/logo.jpg";
 import Header from "./components/Header/Header";
 import Modal from "./components/Modal/Modal";
 import FormLogin from "./components/FormLogin/FormLogin";
@@ -16,85 +14,126 @@ import Button from "./components/Button/Button";
 import { Card } from "./components/Card/Card";
 import Counter from "./components/Counter/Counter";
 import ToDoList from "./components/ToDoList/ToDoList";
+import TestUseMemo from "./components/TestUseMemo/TestUseMemo";
 
-// useState; //хук состояния, который позволяет добавлять состояние в функциональные компоненты
-console.log("render");
-// const notify = () => toast('Here is your toast.');
+// useState; //функция хук состояния
+
+//переписываем App с классов на хуки
+
+// const App = () => {
+//   useState();
+//   return <div className="container">App</div>;
+// };
+
+// export default App;
+
 const App = () => {
-  // const result = useState(); //хук состояния, который позволяет добавлять состояние в функциональные компоненты.
-  // console.log("result:>> ", result); //выводим в консоль результат хука состояния. всегда возвращает массив из двух элементов: текущее состояние и функцию для его обновления.
-
-  const [isShowModal, setIsShowModal] = useState(false); //деструктурируем массив из двух элементов, получаем текущее состояние и функцию для его обновления. аналог setState в классовых компонентах.
-  //useState передаем начальное состояние, в данном случае false. Это состояние будет храниться в компоненте App и передаваться вниз по дереву компонентов.
-
-  const [searchText, setSearchText] = useState(""); //деструктурируем массив из двух элементов, получаем текущее состояние и функцию для его обновления. аналог setState в классовых компонентах.
-
-  // const id = useId(); //хук useId генерирует уникальный идентификатор для каждого экземпляра компонента. Это полезно для создания уникальных ключей для элементов списка или других компонентов, которые требуют уникальных идентификаторов.
-
-  // console.log("id:>> ", id); //выводим в консоль уникальный идентификатор.
+  // useState();// всегда возвращает массив из двух элементов: текущее состояние и функцию для его обновления
+  //аналог state в классах //{#f9e, 1}
+  const [isShowModal, setIsShowModal] = useState(false);
+  // инициализация состояния, где state - текущее состояние, а setState - функция для его обновления, передавая новое значение, initialState - начальное значение состояния
+  const [searchText, setSearchText] = useState("");
 
   const showModal = () => {
-    setIsShowModal(true); //вызываем функцию showModal, которая обновляет состояние isShowModal на true.
+    setIsShowModal(true);
   };
+
   const closeModal = () => {
-    setIsShowModal(false); //вызываем функцию closeModal, которая обновляет состояние isShowModal на false.
+    setIsShowModal(false);
   };
+
   function createUser(data) {
-    // console.log(data);
     const newUser = {
       ...data,
-      id: nanoid(5), //генерируем уникальный идентификатор для нового пользователя с помощью функции nanoid из библиотеки nanoid.
+      id: nanoid(5),
     };
-    console.log("newUser :>> ", newUser);
+    // console.log("newUser :>> ", newUser);
   }
+  //метод поиска текста в запросе на бэкэнд
+
   const handleSearch = (searchText) => {
-    setSearchText(searchText); //вызываем функцию setSearchText, которая обновляет состояние searchText на новое значение.
+    setSearchText(searchText);
     // console.log("searchText: ", searchText);
+  }; //*методы кнопки
+
+  // function handleSearch(searchText) {
+  //   setSearchText(searchText);
+  // }
+
+  const handleClick = () => {
+    alert("Button clicked!");
   };
-  // console.log("isShowModal:>> ", isShowModal); //выводим в консоль текущее состояние.
-  // console.log("setIsShowModal:>> ", setIsShowModal); //выводим в консоль функцию для обновления состояния.
+
   return (
     <div className="container">
+      <h1>Hell world</h1>
       <Toaster
-        position="top-center"
-        reverseOrder={true}
+        // toastOptions={{
+
+        // }}
         toastOptions={{
-          // Define default options
-          className: "",
-          duration: 1500, // 1.5 секунды
-          style: {
-            background: "#363636",
-            color: "#fff",
-          },
+          className: "popup-toast",
           success: {
-            duration: 1500,
-            iconTheme: {
-              primary: "#4aed88",
-              secondary: "#fff",
+            style: {
+              background: "green",
             },
           },
+          error: {
+            style: {
+              background: "red",
+            },
+          },
+          style: {
+            border: "1px solid #713200",
+            padding: "16px",
+            color: "#713200",
+          },
         }}
-      />{" "}
-      {/* уведомления */}
-      <h1>Hell world</h1>
-      {/* <button onClick={notify}>Make me a toast</button> */}
-      <Header showModal={showModal} />
-      <Search handleSearch={handleSearch} />
-      <ToDoList />
-      {/* <Counter /> */}
-      <ContentInfo searchText={searchText} />
-      {/* {false && <Modal>Some</Modal>} */}
+      />
+      {false && <Modal>Some</Modal>} {/* - Убираем модалку  */}
       {isShowModal && (
-        <Modal closeModal={closeModal}>
+        <Modal closeModal={() => setIsShowModal(false)}>
+          {/* Добавляем в форму метод на получение данных */}
           <FormLogin
-            createUser={createUser}
-            closeModal={closeModal}
+            closeModal={() => setIsShowModal(false)}
+            createUser={(data) => {
+              const newUser = {
+                ...data,
+                id: nanoid(5),
+              };
+              // console.log("id :>> ", newUser.id);
+            }}
           ></FormLogin>
         </Modal>
       )}
+      <Header showModal={showModal}></Header>
+      <Search handleSearch={setSearchText}></Search>
+      <ContentInfo searchText={searchText}></ContentInfo>
+      {/* <Button
+        type="submit"
+        label="Submit"
+        variant="primary"
+        size="large"
+        onClick={handleClick}
+        // onMouseEnter={handleMouseEnter}
+        // onMouseLeave={handleMouseLeave}
+        icon={<i className="fas fa-check"></i>}
+      /> */}
+      {/* <Button
+        label="Cancel"
+        variant="secondary"
+        size="medium"
+        onClick={() => alert("Cancel clicked!")}
+      /> */}
+      {/* <Card isOnline></Card> */}
+      {/* <Card></Card> */}
+      {/* <Counter /> */}
+      <ToDoList />
+      <TestUseMemo />
     </div>
   );
 };
+
 export default App;
 
 // class App extends Component {
