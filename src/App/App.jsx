@@ -14,6 +14,7 @@ import Button from "./components/Button/Button";
 import { Card } from "./components/Card/Card";
 import Counter from "./components/Counter/Counter";
 import ToDoList from "./components/ToDoList/ToDoList";
+import TestUseMemo from "./components/TestUseMemo/TestUseMemo";
 
 // useState; //функция хук состояния
 
@@ -126,8 +127,9 @@ const App = () => {
       /> */}
       {/* <Card isOnline></Card> */}
       {/* <Card></Card> */}
-      {/* <Counter></Counter> */}
-      <ToDoList></ToDoList>
+      {/* <Counter /> */}
+      <ToDoList />
+      <TestUseMemo />
     </div>
   );
 };

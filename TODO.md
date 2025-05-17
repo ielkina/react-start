@@ -120,3 +120,23 @@
 - edit class to huk <ContentInfo/>
 - if return <ContentInfo/>
 - batching in React 18
+
+## Less 2
+
+- useReducer <Counter/>
+- action.type
+- action.payload
+- dispatch
+
+- useMemo <TestUseMemo/>
+- complexCompute <TestUseMemo/>
+- useEffect vs useMemo <TestUseMemo/>
+
+- useCallback <TestUseMemo/>
+
+- Profiler
+
+- useContext
+- Provider
+- toggleState
+- useAlert

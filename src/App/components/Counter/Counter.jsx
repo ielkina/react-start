@@ -120,12 +120,12 @@
 
 //переписываем на хуки
 
-import { useState } from "react";
+// import { useState } from "react";
 
-// https://youtu.be/CErHTY818bE?t=3176
+import { useReducer} from "react";
 
 const Button = ({ handleClickPlus }) => {
-  console.log("render Btn");
+  // console.log("render Btn");
   return (
     <button
       className="btn btn-outline-success me-5"
@@ -137,15 +137,56 @@ const Button = ({ handleClickPlus }) => {
   );
 };
 
-const Counter = ({ name, count }) => {
-  const [total, setTotal] = useState(count ?? 0);
+function reducer(prevState, action) {
+  if (action.type === "increment") return prevState + action.payload;
+  else return prevState - action.payload;
+}
 
-  const handleClickPlus = () => {
-    setTotal((prevTotal) => prevTotal + 1);
-  };
-  const handleClickMinus = () => {
-    setTotal((prevTotal) => Math.max(prevTotal - 1, 0));
-  };
+// function reducer(prevState, action) {
+// 	if (action.type === 'createUser') {
+// 		return {
+// 			...prevState,
+// 			user: action.payload,
+// 		}
+// 	} else if (action.type === 'createCountry') {
+// 		return {
+// 			...prevState,
+// 			country: action.payload,
+// 		}
+// 	}
+// }
+
+
+
+const Counter = () => {
+  // const [total, setTotal] = useState(count ?? 0);
+  const [total, setTotal] = useReducer(reducer, 0);
+  	// const [total, setTotal] = useState(0)
+  //useReducer - хук, который позволяет управлять состоянием компонента с помощью редьюсера. Он принимает два аргумента: редьюсер и начальное состояние. Редьюсер - это функция, которая принимает текущее состояние и действие, и возвращает новое состояние. Начальное состояние - это значение, которое будет использоваться при первом рендере компонента.
+
+  const handleClickPlus = () => setTotal({ type: "increment", payload: 1 }); //передаем в редьюсер обьект с типом и значением для редьюсера чтоб он понимал что делать
+
+  const handleClickMinus = () => setTotal({ type: "decrement", payload: 1});
+
+  	// const [total, setTotal] = useReducer(reducer, 0)
+	// const [state, dispatch] = useReducer(reducer, {
+	// 	user: null,
+	// 	country: '',
+	// 	items: [],
+	// })
+
+	// dispatch({ type: 'createUser', payload: { name: 'Alex' } })
+	// dispatch({ type: 'createCountry', payload: 'Ukraine' })
+	// const [user, setUser] = useState(null)
+	// const [country, setCountry] = useState('')
+	// const [items, setItems] = useState([])
+
+  // const handleClickPlus = () => {
+  //   setTotal((prevTotal) => prevTotal + 1);
+  // };
+  // const handleClickMinus = () => {
+  //   setTotal((prevTotal) => Math.max(prevTotal - 1, 0));
+  // };
 
   return (
     <div className="position-absolute top-50 start-50 translate-middle">
