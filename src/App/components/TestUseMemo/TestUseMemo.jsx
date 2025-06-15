@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 
 function complexCompute(number) {
 	for (let i = 0; i < 1000000000; i++) {}
@@ -19,6 +19,10 @@ const TestUseMemo = () => {
 		console.log('useMemo :>> ')
 		return complexCompute(total)
 	}, [total])
+	//useMemo - передает в функцию только измененные значения, а не все
+	//useMemo - запоминает результат функции, если зависимости не изменились, то возвращает запомненное значение
+
+	// https://youtu.be/nvLIu-A3ggY?t=2390
 
 	useEffect(() => {
 		console.log('change styled')
